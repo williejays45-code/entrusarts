@@ -1,114 +1,87 @@
 
-from typing import Dict, List
-
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from utils.cors import build_cors_config
+from brain.mesh import router as mesh_router
+from brain.frequency import router as frequency_router
+from brain.guardians import router as guardians_router
+from brain.render import router as render_router
+from creator.station import router as creator_router
+from ritual.engine import router as ritual_router
+from apparel.mockup import router as apparel_router
 
 
 app = FastAPI(
-    title="EnTrus Cloud Core",
-    description="Core API for EnTrus Ritual Arts frequencies and creator console.",
+    title="EnTrus Cloud Brain",
     version="1.0.0",
+    description="Cloud brain for EnTrus Arts — frequencies, guardians, creator station, and render stubs.",
 )
 
 # -------------------------------------------------------------------
-# CORS (so the front-end or other tools can call this API)
+# CORS / security
 # -------------------------------------------------------------------
+
+cors_config = build_cors_config()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # you can lock this down later
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=cors_config["allow_origins"],
+    allow_credentials=cors_config["allow_credentials"],
+    allow_methods=cors_config["allow_methods"],
+    allow_headers=cors_config["allow_headers"],
 )
 
 # -------------------------------------------------------------------
-# Frequency data
+# Root & health
 # -------------------------------------------------------------------
-FREQUENCY_MAP: Dict[int, Dict] = {
-    396: {
-        "hz": 396,
-        "seal": "Seal of Protector",
-        "phrase": "Guard the Flame",
-        "colors": ["Burnt Copper", "Warm Ember", "Coal Black"],
-        "notes": "Protector band — courage, protection, and inner fire.",
-    },
-    528: {
-        "hz": 528,
-        "seal": "Seal of Flow",
-        "phrase": "Live in Rhythm",
-        "colors": ["Forest Green", "Sage Mist", "Morning Gold"],
-        "notes": "Flow band — alignment, growth, and natural movement.",
-    },
-    639: {
-        "hz": 639,
-        "seal": "Seal of Drive",
-        "phrase": "Fuel the Bond",
-        "colors": ["Sandstone Taupe", "Ruby Ember", "Slate Blue"],
-        "notes": "Drive band — connection, creation, and energy exchange.",
-    },
-    741: {
-        "hz": 741,
-        "seal": "Seal of Expression",
-        "phrase": "Speak the Light",
-        "colors": ["Indigo Pulse", "Desert Gold", "White Clarity", "Obsidian Echo"],
-        "notes": "Expression band — awakening, truth, and liberation.",
-    },
-    852: {
-        "hz": 852,
-        "seal": "Seal of Seer",
-        "phrase": "Reveal the Light",
-        "colors": ["White Clarity", "Gold Eclipse"],
-        "notes": "Seer band — intuition, vision, and illumination.",
-    },
-}
 
-# -------------------------------------------------------------------
-# Root / health check
-# -------------------------------------------------------------------
+
 @app.get("/")
-def root() -> Dict:
+async def root() -> dict:
+    """
+    Simple root endpoint so visiting api.entrusiritualarts.com shows something friendly.
+    """
     return {
-        "status": "ok",
-        "service": "entrus_cloud_core",
-        "message": "EnTrus Cloud Core online.",
-        "routes": [
-            "/",
+        "name": "EnTrus Cloud Brain",
+        "status": "online",
+        "mesh": "core",
+        "message": "Welcome to the EnTrus Cloud Brain v1.",
+        "docs": "/docs",
+        "endpoints": [
+            "/mesh/state",
+            "/frequency/list",
             "/frequency/{hz}",
-            "/creator",
-            "/docs",
+            "/guardian/council",
+            "/creator/ui",
+            "/apparel/render/{hz}",
+            "/render/scene/{hz}",
+            "/ritual/sigil/{code}",
         ],
     }
 
 
-# -------------------------------------------------------------------
-# Frequency endpoint
-# -------------------------------------------------------------------
-@app.get("/frequency/{hz}")
-def get_frequency(hz: int) -> Dict:
-    data = FREQUENCY_MAP.get(hz)
-    if not data:
-        raise HTTPException(status_code=404, detail=f"Frequency {hz} not found")
-    return data
+@app.get("/health")
+async def health() -> dict:
+    """
+    Basic health check, useful for uptime monitoring.
+    """
+    return {"status": "ok"}
 
 
 # -------------------------------------------------------------------
-# Creator console endpoint
+# Routers
 # -------------------------------------------------------------------
-@app.get("/creator")
-def creator_console() -> Dict:
-    """
-    Simple JSON console so you can hit:
-      https://entrusritualarts.com/creator
-    and see that the cloud core is alive.
-    """
-    return {
-        "status": "online",
-        "console": "EnTrus Creator Station — Cloud Core",
-        "message": "Cloud node is live and ready to connect to the front-end.",
-        "examples": {
-            "frequency_528": "/frequency/528",
-            "frequency_396": "/frequency/396",
-            "docs": "/docs",
-            "openapi": "/openapi.json",
-        },
-    } 
+
+app.include_router(mesh_router, prefix="/mesh", tags=["mesh"])
+app.include_router(frequency_router, prefix="/frequency", tags=["frequency"])
+app.include_router(guardians_router, prefix="/guardian", tags=["guardians"])
+app.include_router(render_router, prefix="/render", tags=["render"])
+app.include_router(creator_router, prefix="/creator", tags=["creator"])
+app.include_router(ritual_router, prefix="/ritual", tags=["ritual"])
+app.include_router(apparel_router, prefix="/apparel", tags=["apparel"])
+
+
+# -------------------------------------------------------------------
+# Entrypoint for Uvicorn on Render:
+# uvicorn main:app --host 0.0.0.0 --port 10000
+# ------------------------------------------------------------------- 
