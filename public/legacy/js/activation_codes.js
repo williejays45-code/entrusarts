@@ -1,0 +1,80 @@
+﻿window.EnTrusActivationCodes = [
+    {
+        "id":  "transfusion",
+        "code":  "EA11-TRANSFUSION-1111",
+        "frequency":  "Multi-Flow",
+        "guardianBand":  "Bracelet Core"
+    },
+    {
+        "id":  "396_protector_bracelet",
+        "code":  "EA11-396PROTECTORBRACELET-1111",
+        "frequency":  "396 Hz",
+        "guardianBand":  "Protector"
+    },
+    {
+        "id":  "528_flow_bracelet",
+        "code":  "EA11-528FLOWBRACELET-1111",
+        "frequency":  "528 Hz",
+        "guardianBand":  "Flow"
+    },
+    {
+        "id":  "639_drive_bracelet",
+        "code":  "EA11-639DRIVEBRACELET-1111",
+        "frequency":  "639 Hz",
+        "guardianBand":  "Drive"
+    },
+    {
+        "id":  "852_seer_bracelet",
+        "code":  "EA11-852SEERBRACELET-1111",
+        "frequency":  "852 Hz",
+        "guardianBand":  "Seer"
+    },
+    {
+        "id":  "396_protector_hoodie",
+        "code":  "EA11-396PROTECTORHOODIE-1111",
+        "frequency":  "396 Hz",
+        "guardianBand":  "Protector"
+    },
+    {
+        "id":  "528_flow_hoodie",
+        "code":  "EA11-528FLOWHOODIE-1111",
+        "frequency":  "528 Hz",
+        "guardianBand":  "Flow"
+    },
+    {
+        "id":  "fusion_night_shoe",
+        "code":  "EA11-FUSIONNIGHTSHOE-1111",
+        "frequency":  "Multi-Frequency",
+        "guardianBand":  "Path Layer"
+    },
+    {
+        "id":  "entrus_core_tee",
+        "code":  "EA11-ENTRUSCORETEE-1111",
+        "frequency":  "Neutral Base",
+        "guardianBand":  "Core Layer"
+    },
+    {
+        "id":  "kids_beads_1_18",
+        "code":  "EA11-KIDSBEADS118-1111",
+        "frequency":  "Multi-Stage",
+        "guardianBand":  "Growth Line"
+    },
+    {
+        "id":  "transfusion_set",
+        "code":  "EA11-TRANSFUSIONSET-1111",
+        "frequency":  "Multi-Flow",
+        "guardianBand":  "Fusion Line"
+    }
+];
+
+window.EnTrusActivation = {
+  getCode: function(id) {
+    if (!window.EnTrusActivationCodes) return null;
+    for (var i = 0; i < window.EnTrusActivationCodes.length; i++) {
+      if (window.EnTrusActivationCodes[i].id === id) {
+        return window.EnTrusActivationCodes[i];
+      }
+    }
+    return null;
+  }
+};

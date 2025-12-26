@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart  EnTrus Arts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>Cart  Pre-order Lineup</span>
+    </div>
+  <nav class="ea-nav">
+    <a href="../index.html">Home</a>
+    <a href="../apparel.html">Apparel</a>
+    <a href="bracelets.html">Bracelets</a>
+    <a href="cards.html">Activation Cards</a>
+    <a href="cart.html" class="active">Cart</a>
+  </nav>
+  <div class="ea-cart-pill">
+    <a href="cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+  </div>
+  </header>
+
+  <main class="ea-main cart-shell">
+    <section class="cart-panel">
+      <header class="cart-header">
+        <h1>Your Lineup</h1>
+        <p>Local-only cart. Nothing leaves this machine. Use it to plan drops, outfits, and activation card runs.</p>
+      </header>
+
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th class="cart-col-qty">Qty</th>
+            <th class="cart-col-price">Price</th>
+            <th class="cart-col-total">Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart-body">
+          <!-- rows injected by JS -->
+        </tbody>
+      </table>
+
+      <div class="cart-summary">
+        <div class="cart-subtotal">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal">\</span>
+        </div>
+        <p class="cart-note">Taxes, shipping, and real checkout will be added when the full EnTrus House goes live.</p>
+      </div>
+
+      <div class="cart-actions">
+        <button id="cart-clear" class="btn-secondary">Clear Cart</button>
+        <a href="../apparel.html" class="btn-primary">Back to Catalog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Cart Preview</p>
+  </footer>
+
+  <script src="../js/cart.js"></script>
+  <script>
+    (function () {
+      if (!window.EnTrusCart) return;
+
+      function formatMoney(value) {
+        return '\$' + Number(value || 0).toFixed(2);
+      }
+
+      function render() {
+        var body = document.getElementById('cart-body');
+        var subtotalNode = document.getElementById('cart-subtotal');
+        if (!body || !subtotalNode) return;
+
+        var items = window.EnTrusCart.getItems();
+        body.innerHTML = '';
+
+        if (!items.length) {
+          var row = document.createElement('tr');
+          var cell = document.createElement('td');
+          cell.colSpan = 5;
+          cell.textContent = 'Your cart is empty. Add apparel or bracelets from the catalog.';
+          cell.className = 'cart-empty';
+          row.appendChild(cell);
+          body.appendChild(row);
+          subtotalNode.textContent = formatMoney(0);
+          if (window.EnTrusCart._updateBadges) window.EnTrusCart._updateBadges();
+          return;
+        }
+
+        var subtotal = 0;
+
+        items.forEach(function (item) {
+          var qty = item.qty || 1;
+          var price = Number(item.price || 0);
+          var lineTotal = qty * price;
+          subtotal += lineTotal;
+
+          var tr = document.createElement('tr');
+
+          var tdName = document.createElement('td');
+          tdName.textContent = item.name || item.id;
+
+          var tdQty = document.createElement('td');
+          tdQty.className = 'cart-col-qty';
+          tdQty.textContent = String(qty);
+
+          var tdPrice = document.createElement('td');
+          tdPrice.className = 'cart-col-price';
+          tdPrice.textContent = formatMoney(price);
+
+          var tdTotal = document.createElement('td');
+          tdTotal.className = 'cart-col-total';
+          tdTotal.textContent = formatMoney(lineTotal);
+
+          var tdRemove = document.createElement('td');
+          var btn = document.createElement('button');
+          btn.textContent = 'Remove';
+          btn.className = 'btn-tertiary cart-remove';
+          btn.setAttribute('data-id', item.id);
+          tdRemove.appendChild(btn);
+
+          tr.appendChild(tdName);
+          tr.appendChild(tdQty);
+          tr.appendChild(tdPrice);
+          tr.appendChild(tdTotal);
+          tr.appendChild(tdRemove);
+
+          body.appendChild(tr);
+        });
+
+        subtotalNode.textContent = formatMoney(subtotal);
+        if (window.EnTrusCart._updateBadges) window.EnTrusCart._updateBadges();
+      }
+
+      document.addEventListener('click', function (evt) {
+        var target = evt.target;
+        if (target && target.matches('button.cart-remove[data-id]')) {
+          var id = target.getAttribute('data-id');
+          window.EnTrusCart.remove(id);
+          render();
+        }
+      });
+
+      var clearBtn = document.getElementById('cart-clear');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          window.EnTrusCart.clear();
+          render();
+        });
+      }
+
+      render();
+    })();
+  </script>
+</body>
+</html>

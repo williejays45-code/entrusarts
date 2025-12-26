@@ -1,0 +1,142 @@
+﻿[
+  {
+    "id": "hoodie_396_protector",
+    "name": "396 Hz Protector Hoodie",
+    "slug": "396-protector-hoodie",
+    "category": "hoodie",
+    "frequency": 396,
+    "frequency_name": "Seal of Protector",
+    "phrase": "Guard the Flame",
+    "code": "G t F",
+    "description_short": "Burnt ember tones, protector sigil on the chest, built for people who quietly stand guard for others.",
+    "price": 88,
+    "images": [
+      "assets/products/hoodies/396_protector_front.png",
+      "assets/products/hoodies/396_protector_back.png"
+    ]
+  },
+  {
+    "id": "hoodie_528_flow",
+    "name": "528 Hz Flow Hoodie",
+    "slug": "528-flow-hoodie",
+    "category": "hoodie",
+    "frequency": 528,
+    "frequency_name": "Seal of Flow",
+    "phrase": "Live in Rhythm",
+    "code": "L i R",
+    "description_short": "Sage mist fabric with morning-gold accents, spiral Flow sigil at the heart, made for recovery and pacing.",
+    "price": 92,
+    "images": [
+      "assets/products/hoodies/528_flow_front.png",
+      "assets/products/hoodies/528_flow_back.png"
+    ]
+  },
+  {
+    "id": "hoodie_639_drive",
+    "name": "639 Hz Drive Hoodie",
+    "slug": "639-drive-hoodie",
+    "category": "hoodie",
+    "frequency": 639,
+    "frequency_name": "Seal of Drive",
+    "phrase": "Fuel the Bond",
+    "code": "F t B",
+    "description_short": "Sandstone base with ruby ember accents, tri-ring Drive sigil for crews, teams, and builders.",
+    "price": 94,
+    "images": [
+      "assets/products/hoodies/639_drive_front.png",
+      "assets/products/hoodies/639_drive_back.png"
+    ]
+  },
+  {
+    "id": "hoodie_852_seer",
+    "name": "852 Hz Seer Hoodie",
+    "slug": "852-seer-hoodie",
+    "category": "hoodie",
+    "frequency": 852,
+    "frequency_name": "Seal of Seer",
+    "phrase": "Reveal the Light",
+    "code": "",
+    "description_short": "Pure white clarity with gold eclipse edges, open-eye Seer sigil for intuitive pattern readers.",
+    "price": 96,
+    "images": [
+      "assets/products/hoodies/852_seer_front.png",
+      "assets/products/hoodies/852_seer_back.png"
+    ]
+  },
+  {
+    "id": "bracelet_transfusion",
+    "name": "Transfusion Bracelet  Alignment Edition",
+    "slug": "transfusion-bracelet",
+    "category": "bracelet",
+    "frequency": 888,
+    "frequency_name": "Fusion Line",
+    "phrase": "Alignment in Motion",
+    "code": "",
+    "description_short": "Neutral  yellow  green gradient beads, EnTrus seal bead at the clasp, designed for multi-frequency days.",
+    "price": 72,
+    "images": [
+      "assets/products/bracelets/transfusion_main.png"
+    ]
+  },
+  {
+    "id": "bracelet_396_protector",
+    "name": "396 Hz Protector Bracelet",
+    "slug": "396-protector-bracelet",
+    "category": "bracelet",
+    "frequency": 396,
+    "frequency_name": "Seal of Protector",
+    "phrase": "Guard the Flame",
+    "code": "G t F",
+    "description_short": "Grounded dark stones with ember accents and protector seal bead, for people carrying responsibility.",
+    "price": 58,
+    "images": [
+      "assets/products/bracelets/396_protector.png"
+    ]
+  },
+  {
+    "id": "bracelet_528_flow",
+    "name": "528 Hz Flow Bracelet",
+    "slug": "528-flow-bracelet",
+    "category": "bracelet",
+    "frequency": 528,
+    "frequency_name": "Seal of Flow",
+    "phrase": "Live in Rhythm",
+    "code": "L i R",
+    "description_short": "Forest and sage beads with soft gold spacers, built as a reminder to breathe and move at your own pace.",
+    "price": 58,
+    "images": [
+      "assets/products/bracelets/528_flow.png"
+    ]
+  },
+  {
+    "id": "shoes_fusion_night",
+    "name": "Fusion Nightlife Shoe",
+    "slug": "fusion-nightlife-shoe",
+    "category": "shoes",
+    "frequency": 888,
+    "frequency_name": "Fusion Line",
+    "phrase": "Alignment in Motion",
+    "code": "",
+    "description_short": "Cream, blue, and soft fusion black tones, built for EnTrus nightlife energy with all-day comfort core.",
+    "price": 140,
+    "images": [
+      "assets/products/shoes/fusion_nightlife_side.png",
+      "assets/products/shoes/fusion_nightlife_back.png"
+    ]
+  },
+  {
+    "id": "set_528_flow_track",
+    "name": "528 Hz Flow Track Set",
+    "slug": "528-flow-track-set",
+    "category": "set",
+    "frequency": 528,
+    "frequency_name": "Seal of Flow",
+    "phrase": "Live in Rhythm",
+    "code": "L i R",
+    "description_short": "Morning gold tee, sage hoodie, and forest joggers  one full look for training, walking, or reset days.",
+    "price": 210,
+    "images": [
+      "assets/products/sets/528_flow_track.png"
+    ]
+  }
+]

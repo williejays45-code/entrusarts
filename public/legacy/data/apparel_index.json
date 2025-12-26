@@ -1,0 +1,156 @@
+﻿[
+    {
+        "product_key":  "",
+        "page_file":  "C:\\EnTrusWeb\\pages\\.html",
+        "expected_png":  ".png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "apparel",
+        "page_file":  "C:\\EnTrusWeb\\pages\\apparel.html",
+        "expected_png":  "apparel.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "bracelets",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelets.html",
+        "expected_png":  "bracelets.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "bracelets_legacy",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelets_legacy.html",
+        "expected_png":  "bracelets_legacy.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "bracelet_drive_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelet_drive_v1.html",
+        "expected_png":  "bracelet_drive_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\bracelet_drive_v1.png"
+    },
+    {
+        "product_key":  "bracelet_expression_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelet_expression_v1.html",
+        "expected_png":  "bracelet_expression_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\bracelet_expression_v1.png"
+    },
+    {
+        "product_key":  "bracelet_flow_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelet_flow_v1.html",
+        "expected_png":  "bracelet_flow_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\bracelet_flow_v1.png"
+    },
+    {
+        "product_key":  "bracelet_protector_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelet_protector_v1.html",
+        "expected_png":  "bracelet_protector_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\bracelet_protector_v1.png"
+    },
+    {
+        "product_key":  "bracelet_seer_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelet_seer_v1.html",
+        "expected_png":  "bracelet_seer_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\bracelet_seer_v1.png"
+    },
+    {
+        "product_key":  "bracelet_transfusion_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelet_transfusion_v1.html",
+        "expected_png":  "bracelet_transfusion_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\bracelet_transfusion_v1.png"
+    },
+    {
+        "product_key":  "bracelet_viewer",
+        "page_file":  "C:\\EnTrusWeb\\pages\\bracelet_viewer.html",
+        "expected_png":  "bracelet_viewer.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "cards",
+        "page_file":  "C:\\EnTrusWeb\\pages\\cards.html",
+        "expected_png":  "cards.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "cart",
+        "page_file":  "C:\\EnTrusWeb\\pages\\cart.html",
+        "expected_png":  "cart.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "checkout",
+        "page_file":  "C:\\EnTrusWeb\\pages\\checkout.html",
+        "expected_png":  "checkout.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "guardians",
+        "page_file":  "C:\\EnTrusWeb\\pages\\guardians.html",
+        "expected_png":  "guardians.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "hoodie_drive_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\hoodie_drive_v1.html",
+        "expected_png":  "hoodie_drive_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\hoodie_drive_v1.png"
+    },
+    {
+        "product_key":  "hoodie_flow_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\hoodie_flow_v1.html",
+        "expected_png":  "hoodie_flow_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\hoodie_flow_v1.png"
+    },
+    {
+        "product_key":  "hoodie_protector_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\hoodie_protector_v1.html",
+        "expected_png":  "hoodie_protector_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\hoodie_protector_v1.png"
+    },
+    {
+        "product_key":  "hoodie_seer_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\hoodie_seer_v1.html",
+        "expected_png":  "hoodie_seer_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\hoodie_seer_v1.png"
+    },
+    {
+        "product_key":  "render_sync_status",
+        "page_file":  "C:\\EnTrusWeb\\pages\\render_sync_status.html",
+        "expected_png":  "render_sync_status.png",
+        "png_exists":  false,
+        "render_path":  ""
+    },
+    {
+        "product_key":  "shoe_fusion_v1",
+        "page_file":  "C:\\EnTrusWeb\\pages\\shoe_fusion_v1.html",
+        "expected_png":  "shoe_fusion_v1.png",
+        "png_exists":  false,
+        "render_path":  "C:\\EnTrusRender\\output\\shoe_fusion_v1.png"
+    },
+    {
+        "product_key":  "system",
+        "page_file":  "C:\\EnTrusWeb\\pages\\system.html",
+        "expected_png":  "system.png",
+        "png_exists":  false,
+        "render_path":  ""
+    }
+]

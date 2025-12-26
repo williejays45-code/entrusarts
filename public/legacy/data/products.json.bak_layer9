@@ -1,0 +1,142 @@
+﻿[
+    {
+        "image":  "assets/generated/hoodie_396_guard_the_flame.png",
+        "seal":  "Guard the Flame",
+        "id":  "hoodie_396_guard_the_flame",
+        "kind":  "hoodie",
+        "colorway":  "Burnt copper / ember black",
+        "frequency_hz":  396,
+        "category":  "apparel",
+        "line":  "Protector Line",
+        "comfy_profile":  "hoodie_protector_v1",
+        "name":  "396 Hz Protector Hoodie",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/hoodie_528_live_in_rhythm.png",
+        "seal":  "Live in Rhythm",
+        "id":  "hoodie_528_live_in_rhythm",
+        "kind":  "hoodie",
+        "colorway":  "Morning gold / forest green",
+        "frequency_hz":  528,
+        "category":  "apparel",
+        "line":  "Flow Line",
+        "comfy_profile":  "hoodie_flow_v1",
+        "name":  "528 Hz Flow Hoodie",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/hoodie_639_fuel_the_bond.png",
+        "seal":  "Fuel the Bond",
+        "id":  "hoodie_639_fuel_the_bond",
+        "kind":  "hoodie",
+        "colorway":  "Sandstone / ruby ember",
+        "frequency_hz":  639,
+        "category":  "apparel",
+        "line":  "Drive Line",
+        "comfy_profile":  "hoodie_drive_v1",
+        "name":  "639 Hz Drive Hoodie",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/hoodie_852_reveal_the_light.png",
+        "seal":  "Reveal the Light",
+        "id":  "hoodie_852_reveal_the_light",
+        "kind":  "hoodie",
+        "colorway":  "White clarity / gold eclipse",
+        "frequency_hz":  852,
+        "category":  "apparel",
+        "line":  "Seer Line",
+        "comfy_profile":  "hoodie_seer_v1",
+        "name":  "852 Hz Seer Hoodie",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/shoe_fusion_nightline.png",
+        "seal":  "Multi-frequency Fusion",
+        "id":  "shoe_fusion_nightline",
+        "kind":  "shoe",
+        "colorway":  "Cream / fusion blue / soft black",
+        "frequency_hz":  [
+                             396,
+                             528,
+                             639,
+                             852
+                         ],
+        "category":  "apparel",
+        "line":  "Fusion Line",
+        "comfy_profile":  "shoe_fusion_v1",
+        "name":  "Fusion Nightline Shoe",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/bracelet_396_protector.png",
+        "seal":  "Guard the Flame",
+        "id":  "bracelet_396_protector",
+        "kind":  "single_frequency",
+        "colorway":  "Obsidian / ember stone / gold core",
+        "frequency_hz":  396,
+        "category":  "bracelet",
+        "line":  "Protector Line",
+        "comfy_profile":  "bracelet_protector_v1",
+        "name":  "396 Hz Protector Bracelet",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/bracelet_528_flow.png",
+        "seal":  "Live in Rhythm",
+        "id":  "bracelet_528_flow",
+        "kind":  "single_frequency",
+        "colorway":  "Forest green / jade / gold",
+        "frequency_hz":  528,
+        "category":  "bracelet",
+        "line":  "Flow Line",
+        "comfy_profile":  "bracelet_flow_v1",
+        "name":  "528 Hz Flow Bracelet",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/bracelet_639_drive.png",
+        "seal":  "Fuel the Bond",
+        "id":  "bracelet_639_drive",
+        "kind":  "single_frequency",
+        "colorway":  "Taupe / ruby / slate",
+        "frequency_hz":  639,
+        "category":  "bracelet",
+        "line":  "Drive Line",
+        "comfy_profile":  "bracelet_drive_v1",
+        "name":  "639 Hz Drive Bracelet",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/bracelet_852_seer.png",
+        "seal":  "Reveal the Light",
+        "id":  "bracelet_852_seer",
+        "kind":  "single_frequency",
+        "colorway":  "White / gold / pearl",
+        "frequency_hz":  852,
+        "category":  "bracelet",
+        "line":  "Seer Line",
+        "comfy_profile":  "bracelet_seer_v1",
+        "name":  "852 Hz Seer Bracelet",
+        "status":  "active"
+    },
+    {
+        "image":  "assets/generated/bracelet_transfusion_neutral.png",
+        "seal":  "Balanced Exposure",
+        "id":  "bracelet_transfusion_neutral",
+        "kind":  "multi_frequency",
+        "colorway":  "Neutral  yellow  green gradient",
+        "frequency_hz":  [
+                             396,
+                             528,
+                             639,
+                             852
+                         ],
+        "category":  "bracelet",
+        "line":  "Transfusion Line",
+        "comfy_profile":  "bracelet_transfusion_v1",
+        "name":  "Transfusion Bracelet  Neutral Field",
+        "status":  "active"
+    }
+]

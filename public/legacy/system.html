@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EnTrus System Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      margin: 0;
+    }
+    .ea-shell {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 32px 16px 56px;
+    }
+    .ea-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .ea-title {
+      font-size: 26px;
+      font-weight: 600;
+    }
+    .ea-sub {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .ea-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .ea-nav a {
+      font-size: 11px;
+      color: #c4b5fd;
+      text-decoration: none;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      background: rgba(15,23,42,0.9);
+    }
+    .ea-nav a:hover {
+      border-color: #a5b4fc;
+    }
+    .ea-section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+    .ea-block {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e5e7eb;
+      margin-bottom: 16px;
+    }
+    .ea-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .ea-card {
+      border-radius: 14px;
+      border: 1px solid #111827;
+      background: radial-gradient(circle at top left, #020617, #020617 50%, #030712 90%);
+      padding: 14px 14px 12px;
+      font-size: 13px;
+    }
+    .ea-card h2 {
+      font-size: 14px;
+      margin: 0 0 4px;
+    }
+    .ea-card p {
+      margin: 0 0 6px;
+      color: #d1d5db;
+    }
+    .ea-tag {
+      font-size: 11px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 2px;
+    }
+    .ea-note {
+      margin-top: 28px;
+      font-size: 11px;
+      color: #6b7280;
+      border-top: 1px solid #111827;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ea-shell">
+    <header class="ea-header">
+      <div>
+        <div class="ea-title">EnTrus System Map</div>
+        <div class="ea-sub">
+          A clean breakdown of how the spiritual language, clothing, beads, cards, and console fit into one working system.
+        </div>
+        <nav class="ea-nav">
+          <a href="index.html">Home</a>
+          <a href="apparel.html">Apparel Catalog</a>
+          <a href="frequencies.html">Frequencies Map</a>
+          <a href="guardian_council.html">Guardian Council</a>
+          <a href="origin.html">Origin Story</a>
+          <a href="creator_panel.html">Creator Panel</a>
+        </nav>
+      </div>
+      <div class="ea-sub">
+        Local view  C:\EnTrusWeb\system.html
+      </div>
+    </header>
+
+    <section>
+      <div class="ea-section-label">1  Core idea</div>
+      <p class="ea-block">
+        The EnTrus System is a <strong>bridge</strong> between your inner life and the physical world. It does this by
+        turning abstract ideas  guardians, frequencies, alignment  into:
+      </p>
+      <p class="ea-block">
+         clothing you can wear<br />
+         beads and bracelets you can touch<br />
+         activation cards you can read and breathe with<br />
+         panels and scripts that keep the whole engine honest
+      </p>
+    </section>
+
+    <section>
+      <div class="ea-section-label">2  Main components</div>
+      <div class="ea-grid">
+        <article class="ea-card">
+          <div class="ea-tag">Apparel</div>
+          <h2>Hoodies, tees, joggers, hats</h2>
+          <p>
+            Each piece is tied to a frequency line (396, 528, 639, 741, 852, 285, Fusion 888) with sigil placement rules,
+            phrases, and color logic. The job of apparel is to anchor a role into your normal day: protector, flow,
+            connection, expression, seer, or foundation.
+          </p>
+          <p>
+            The website holds product pages, options, cart behavior, and image pipelines so you can manage these pieces
+            like a real catalog.
+          </p>
+        </article>
+
+        <article class="ea-card">
+          <div class="ea-tag">Beads &amp; bracelets</div>
+          <h2>Frequency lines on the wrist</h2>
+          <p>
+            Beads carry frequency codes, color paths, and placement logic (broadcast vs receive, anchor stones, spacers).
+            Bracelets like the Transfusion piece also serve as <em>fusion channels</em> joining multiple lines in one design.
+          </p>
+          <p>
+            In the system, bracelets are treated as products with their own cards, renders, and activation flows.
+          </p>
+        </article>
+
+        <article class="ea-card">
+          <div class="ea-tag">Activation cards</div>
+          <h2>Short rituals, no pretending</h2>
+          <p>
+            Each card gives a small breath sequence and intent statement for a specific piece. The card does not cause
+            anything by itself  it simply gives the wearer a moment to choose: how do I want to show up while I have
+            this on?
+          </p>
+          <p>
+            Technically, cards are HTML pages plus images rendered through the pipeline and synced into the site.
+          </p>
+        </article>
+
+        <article class="ea-card">
+          <div class="ea-tag">Frequencies &amp; guardians</div>
+          <h2>Language for roles and patterns</h2>
+          <p>
+            Frequencies give you a simple numberphrase pairing for different ways of being. Guardians give you names
+            for how the system watches itself: structure, flow, signal, color, coherence.
+          </p>
+          <p>
+            These maps live in <code>frequencies.html</code> and <code>guardian_council.html</code>, and they inform how
+            you design new products and stories.
+          </p>
+        </article>
+
+        <article class="ea-card">
+          <div class="ea-tag">Creator tools</div>
+          <h2>Creator Panel, scripts, and checks</h2>
+          <p>
+            The Creator Panel is your local cockpit. It links out to scripts that check pages, sync renders, and keep
+            assets in the right folders. Auris sits here in concept  watching for drift, signaling when something
+            breaks, helping you keep all green.
+          </p>
+          <p>
+            None of this replaces your judgment; it just reduces chaos so your attention can stay on design and story.
+          </p>
+        </article>
+
+        <article class="ea-card">
+          <div class="ea-tag">Render &amp; image pipeline</div>
+          <h2>ComfyUI  EnTrusWeb</h2>
+          <p>
+            Image workflows live in your render space (EnTrusRender). Product and card renders are exported to fixed
+            folders, then PowerShell scripts copy or update them into the websites assets, replacing placeholders.
+          </p>
+          <p>
+            This pipeline keeps art and pages in sync without you hunting through folders by hand.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="ea-section-label">3  How a single product flows through the system</div>
+      <p class="ea-block">
+        Example: a 528 Hz Flow hoodie.
+      </p>
+      <p class="ea-block">
+        1) You define the story: what Live in Rhythm means for pacing, health, and breath.<br />
+        2) You design the hoodie: colors, sigil, phrase placement based on your locked rules.<br />
+        3) A product page is generated for it with size/color options and an activation card link.<br />
+        4) ComfyUI renders front/back shots and the activation card image into EnTrusRender.<br />
+        5) Scripts sync those renders into EnTrusWeb and mark the product as ready.<br />
+        6) When someone opens the page, they see the hoodie, the frequency story, and an optional card
+           to mark their intent before they wear it.
+      </p>
+    </section>
+
+    <section>
+      <div class="ea-section-label">4  Boundaries and honesty</div>
+      <p class="ea-block">
+        EnTrus does not promise miracles, healing, or guaranteed outcomes. It does not replace medical, financial,
+        or legal advice. It is a design language and a support system for people who want to live with more intention:
+        what they wear, what they say, how they move.
+      </p>
+      <p class="ea-block">
+        Guardians, frequencies, and rituals are <strong>metaphors and tools</strong>. How someone uses them, and what
+        meaning they find, belongs to them.
+      </p>
+    </section>
+
+    <p class="ea-note">
+      This page exists so future products, campaigns, and collaborations can stay aligned with the original structure:
+      honest, grounded, and built to help people choose their path instead of handing them a script.
+    </p>
+  </div>
+</body>
+</html>

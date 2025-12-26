@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EnTrus Arts  House of Alignment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EnTrus Arts  House of Alignment. Guardians, Frequencies, Apparel, and a living system of discipline and awakening." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="et-header">
+    <div class="et-header-inner">
+      <div class="et-logo-mark">
+        <span class="et-thread"></span>
+        <span class="et-logo-text">EnTrus Arts</span>
+      </div>
+      <nav class="et-nav">
+        <a href="#frequencies">Frequencies</a>
+        <a href="#apparel">Apparel</a>
+        <a href="#system">System</a>
+        <a href="#origin">Origin</a>
+        <a href="#join">Join</a>
+      </nav>
+  <div class="ea-cart-pill">
+    <a href="pages/cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+  </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / SERAI'EL -->
+    <section class="et-hero">
+      <div class="et-hero-content">
+        <p class="et-tagline">House of Alignment  2025</p>
+        <h1>Where your<br><span class="et-highlight">frequency</span> becomes your power.</h1>
+        <p class="et-hero-text">
+          EnTrus Arts is a living system of Guardians, Frequencies, and design. 
+          Not just apparel. A mapped path of discipline, presence, and expression.
+        </p>
+        <div class="et-hero-actions">
+          <a href="#frequencies" class="et-btn et-btn-primary">Choose Your Frequency</a>
+          <a href="#origin" class="et-btn et-btn-ghost">Watch the Origin</a>
+        </div>
+      </div>
+
+      <div class="et-hero-panel">
+        <div class="et-seraiel-frame">
+          <!-- When ready, place your video file as seraiel_intro.mp4 in assets/video and uncomment the video below -->
+          <!--
+          <video class="et-seraiel-video" autoplay muted loop playsinline>
+            <source src="assets/video/seraiel_intro.mp4" type="video/mp4" />
+          </video>
+          -->
+          <div class="et-seraiel-placeholder">
+            <div class="et-seraiel-glow"></div>
+            <div class="et-seraiel-inner">
+              <p class="et-seraiel-label">SeraiEl  Voice of the EnTrus System</p>
+              <p class="et-seraiel-line">
+                Welcome. Every seal, every guardian, every garment here is a path. 
+                Ill guide you through the House.
+              </p>
+              <p class="et-seraiel-note">Drop your SeraiEl intro video in <code>assets/video</code> later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREQUENCIES & GUARDIANS -->
+    <section id="frequencies" class="et-section et-section-light">
+      <div class="et-section-header">
+        <h2>Frequencies &amp; Guardians</h2>
+        <p>Each seal is a doorway. Each frequency carries a role in the EnTrus House.</p>
+      </div>
+      <div class="et-frequency-grid">
+        <article class="et-frequency-card">
+          <h3>285 Hz</h3>
+          <p class="et-freq-name">Seal of Form</p>
+          <p class="et-freq-phrase">Return to Origin</p>
+          <p class="et-freq-text">Foundational grounding. Repair, stability, and physical renewal  the base line of the system.</p>
+        </article>
+        <article class="et-frequency-card">
+          <h3>396 Hz</h3>
+          <p class="et-freq-name">Seal of Protector</p>
+          <p class="et-freq-phrase">Guard the Flame</p>
+          <p class="et-freq-text">For those who hold the line and defend what matters  courage made wearable.</p>
+        </article>
+        <article class="et-frequency-card">
+          <h3>528 Hz</h3>
+          <p class="et-freq-name">Seal of Flow</p>
+          <p class="et-freq-phrase">Live in Rhythm</p>
+          <p class="et-freq-text">Alignment in motion  breath, movement, and daily balance coded into design.</p>
+        </article>
+        <article class="et-frequency-card">
+          <h3>639 Hz</h3>
+          <p class="et-freq-name">Seal of Drive</p>
+          <p class="et-freq-phrase">Fuel the Bond</p>
+          <p class="et-freq-text">Connection, creativity, exchange  for building with others without losing yourself.</p>
+        </article>
+        <article class="et-frequency-card">
+          <h3>741 Hz</h3>
+          <p class="et-freq-name">Seal of Expression</p>
+          <p class="et-freq-phrase">Speak the Light</p>
+          <p class="et-freq-text">Authentic voice, clear boundaries, truth spoken with grace and force.</p>
+        </article>
+        <article class="et-frequency-card">
+          <h3>852 Hz</h3>
+          <p class="et-freq-name">Seal of Seer</p>
+          <p class="et-freq-phrase">Reveal the Light</p>
+          <p class="et-freq-text">Vision beyond the obvious  intuition, insight, and clean spiritual signal.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- APPAREL PREVIEW -->
+    <section id="apparel" class="et-section et-section-dark">
+      <div class="et-section-header">
+        <h2>Wear the Code</h2>
+        <p>Hoodies, shoes, beads, and brooch pins built on seals, not slogans.</p>
+      </div>
+      <div class="et-apparel-grid">
+        <article class="et-apparel-card">
+          <h3>Protector Line  396 Hz</h3>
+          <p class="et-apparel-tag">Guard the Flame</p>
+          <p class="et-apparel-text">
+            Burnt ember tones, protector seals, and disciplined cuts for those built to stand in front.
+          </p>
+        </article>
+        <article class="et-apparel-card">
+          <h3>Flow Line  528 Hz</h3>
+          <p class="et-apparel-tag">Live in Rhythm</p>
+          <p class="et-apparel-text">
+            Forest greens, sunrise gold, and motion-ready silhouettes for breath, training, and everyday flow.
+          </p>
+        </article>
+        <article class="et-apparel-card">
+          <h3>Seer Line  852 Hz</h3>
+          <p class="et-apparel-tag">Reveal the Light</p>
+          <p class="et-apparel-text">
+            White Clarity, Gold Eclipse edges, and visionary cuts for those who move like they already saw it coming.
+          </p>
+        </article>
+      </div>
+      <p class="et-apparel-note">
+        Full catalog, product cards, and activation rituals connect here later as the House opens to the public.
+      </p>
+    </section>
+
+    <!-- SYSTEM / TECH LAB -->
+    <section id="system" class="et-section et-section-light">
+      <div class="et-section-header">
+        <h2>The EnTrus System</h2>
+        <p>A living ecosystem of Guardians, Frequency Nodes, and tools  not just a clothing line.</p>
+      </div>
+      <div class="et-system-layout">
+        <div class="et-system-card">
+          <h3>Guardian Council</h3>
+          <p>Origin and Frequency guardians holding the structure of the House  each with a role, seal, and path.</p>
+        </div>
+        <div class="et-system-card">
+          <h3>Creator Station</h3>
+          <p>Local dashboards, nodes, and tools that let you build, test, and render your own EnTrus universe.</p>
+        </div>
+        <div class="et-system-card">
+          <h3>Ritual &amp; Alignment</h3>
+          <p>Breath work, emotional geometry, and activation practices designed to match the frequency you wear.</p>
+        </div>
+        <div class="et-system-card">
+          <h3>Tech Lab</h3>
+          <p>Where AI guardians, dashboards, BLE broadcast tools, and future systems connect into one ecosystem.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORIGIN STORY PREVIEW -->
+    <section id="origin" class="et-section et-section-dark">
+      <div class="et-section-header">
+        <h2>Origin of the House</h2>
+        <p>EnTrus was built from storms, alignment, and a decision not to fold.</p>
+      </div>
+      <div class="et-origin-layout">
+        <div class="et-origin-text">
+          <p>
+            This House didnt come from comfort. It came from broken pieces, late nights, and the choice to turn pain
+            into structure instead of letting it dissolve you.
+          </p>
+          <p>
+            Every frequency, guardian, seal, and line you see is carved out of real experience  discipline, awakening,
+            and the work of standing back up.
+          </p>
+          <p>
+            The Origin Film lives here. When its ready, it will carry the full story of the Founder, the Guardians, and
+            the moment the House awakened.
+          </p>
+        </div>
+        <div class="et-origin-panel">
+          <div class="et-origin-placeholder">
+            <p class="et-origin-label">Origin Film Placeholder</p>
+            <p class="et-origin-note">Drop your EnTrus Origin cinematic here when its rendered.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN / CONTACT -->
+    <section id="join" class="et-section et-section-light et-section-last">
+      <div class="et-section-header">
+        <h2>Step into the House</h2>
+        <p>Stay close to releases, drops, and the opening of the full system.</p>
+      </div>
+      <div class="et-join-layout">
+        <form class="et-join-form">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+          <button type="button" class="et-btn et-btn-primary">Join the Signal List</button>
+          <p class="et-join-note">
+            No spam. Only alignment drops, system updates, and guardian-level announcements.
+          </p>
+        </form>
+        <div class="et-join-side">
+          <p class="et-join-quote">
+            The House is open. When youre ready, step through.  SeraiEl
+          </p>
+          <div class="et-social-row">
+            <span>Social paths (coming online):</span>
+            <div class="et-social-tags">
+              <span>@EnTrusArts</span>
+              <span>#EnTrus</span>
+              <span>#HouseOfAlignment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="et-footer">
+    <p>EnTrus Arts  2025  House of Alignment. All Guardians, Seals, and System Architecture Protected.</p>
+  </footer>
+    <script src='js/entrus_products.js'></script>
+  <div style=""position:fixed;left:12px;bottom:12px;font-size:11px;color:#9ca3af;z-index:999;"">
+    <a href=""creator_panel.html"" style=""color:#a5b4fc;text-decoration:none;background:rgba(15,23,42,0.92);padding:4px 8px;border-radius:999px;border:1px solid #4b5563;"">
+      Creator Panel
+    </a>
+  </div>
+</body>
+</html>
+
+
+
+

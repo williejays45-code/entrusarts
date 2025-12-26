@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="refresh" content="0;url=../apparel.html">
+  <meta charset="UTF-8" />
+  <title>Redirecting</title>
+</head>
+<body>
+  <p>Redirecting to catalog <a href="../apparel.html">click here</a> if not redirected.</p>
+<!-- ENTRUS PRODUCT GRID: APPAREL START -->
+<section class='ea-section ea-section-products'>
+    <header class='ea-section-header'>
+        <h2>EnTrus Apparel & Fusion Footwear</h2>
+        <p>Protector, Flow, Drive, Seer hoodies and the Fusion shoe prototype.</p>
+    </header>
+    <div class='ea-product-grid ea-product-grid-apparel'>
+    <article class='ea-product-card' data-product-id='hoodie_protector_v1' data-frequency='396 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_protector_v1.png' alt='396 Hz Protector Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Guard the Flame</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>396 Hz Protector Hoodie</h3>
+            <p class='ea-product-frequency'>396 Hz  HOODIE</p>
+            <p class='ea-product-desc'>Burnt ember tones, protector seal on chest, built for those who stand in front.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='hoodie_flow_v1' data-frequency='528 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_flow_v1.png' alt='528 Hz Flow Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Live in Rhythm</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>528 Hz Flow Hoodie</h3>
+            <p class='ea-product-frequency'>528 Hz  HOODIE</p>
+            <p class='ea-product-desc'>Forest-green flow line hoodie, breath-ready fit with spiral seal at the heart.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='hoodie_drive_v1' data-frequency='639 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_drive_v1.png' alt='639 Hz Drive Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Fuel the Bond</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>639 Hz Drive Hoodie</h3>
+            <p class='ea-product-frequency'>639 Hz  HOODIE</p>
+            <p class='ea-product-desc'>Connection-ready hoodie with tri-ring seal, made for builders and creatives.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='hoodie_seer_v1' data-frequency='852 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_seer_v1.png' alt='852 Hz Seer Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Reveal the Light</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>852 Hz Seer Hoodie</h3>
+            <p class='ea-product-frequency'>852 Hz  HOODIE</p>
+            <p class='ea-product-desc'>White Clarity hoodie with Seer eye seal for those who move like they saw it coming.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='shoe_fusion_v1' data-frequency='888 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/shoes/shoe_fusion_v1.png' alt='Fusion Shoe  Nightline' loading='lazy'>
+            <span class='ea-product-tag'>Street Alignment</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>Fusion Shoe  Nightline</h3>
+            <p class='ea-product-frequency'>888 Hz  SHOE</p>
+            <p class='ea-product-desc'>EnTrus Fusion shoe silhouette for night runs, studio sessions, and city flow.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>
+    </div>
+</section>
+<!-- ENTRUS PRODUCT GRID: APPAREL END -->
+</body>
+</html>
+

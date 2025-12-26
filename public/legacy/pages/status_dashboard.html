@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EnTrus Status Dashboard</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#020617; color:#e5e7eb; margin:0; padding:24px; }
+    .wrap { max-width:1100px; margin:0 auto; }
+    h1 { font-size:22px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px; }
+    .sub { font-size:11px; color:#9ca3af; margin-bottom:18px; }
+    .cards { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; }
+    .card { background:#0b1220; border-radius:14px; padding:14px; flex:1 1 200px; box-shadow:0 18px 30px rgba(0,0,0,0.55); }
+    .card h2 { font-size:12px; text-transform:uppercase; letter-spacing:0.14em; margin:0 0 6px 0; color:#bbf7d0; }
+    .metric { font-size:24px; font-weight:600; margin-bottom:4px; }
+    .metric-sub { font-size:11px; color:#9ca3af; }
+    table { width:100%; border-collapse:collapse; font-size:12px; margin-top:8px; }
+    th, td { padding:4px 6px; text-align:left; }
+    th { font-size:11px; text-transform:uppercase; letter-spacing:0.12em; border-bottom:1px solid #1f2937; color:#9ca3af; }
+    tr:nth-child(even) { background:#020617; }
+    .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:10px; text-transform:uppercase; letter-spacing:0.12em; }
+    .pill-ready { background:#10b98122; color:#6ee7b7; border:1px solid #10b981; }
+    .pill-partial { background:#f59e0b22; color:#fbbf24; border:1px solid #f59e0b; }
+    .pill-missing { background:#ef444422; color:#fca5a5; border:1px solid #ef4444; }
+    .pill-suspect { background:#f9731622; color:#fed7aa; border:1px solid #f97316; }
+    .pill-hybrid_only { background:#3b82f622; color:#93c5fd; border:1px solid #3b82f6; }
+    .pill-unknown { background:#4b556322; color:#e5e7eb; border:1px solid #4b5563; }
+    .section-title { margin-top:24px; font-size:13px; text-transform:uppercase; letter-spacing:0.16em; color:#a5b4fc; }
+    .footer { margin-top:24px; font-size:11px; color:#6b7280; }
+    a { color:#93c5fd; text-decoration:none; }
+    @media (max-width: 720px) { .cards { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>ENTRUS STATUS DASHBOARD</h1>
+    <div class="sub">Generated from product_registry.json on 2025-12-11 21:13:43  Internal view of product image coverage.</div>
+    <div class="cards">
+      <div class="card"><h2>Total Products</h2><div class="metric">43</div><div class="metric-sub">All SKUs in registry</div></div>
+      <div class="card"><h2>Ready</h2><div class="metric">0</div><div class="metric-sub">All required views present</div></div>
+      <div class="card"><h2>Partial</h2><div class="metric">0</div><div class="metric-sub">Some views missing</div></div>
+      <div class="card"><h2>Missing / Hybrid</h2><div class="metric">43</div><div class="metric-sub">Missing finals (hybrid_only: 0)</div></div>
+    </div>
+    <div class="section-title">Global Image Status</div>
+    <table>
+      <tr><th>Status</th><th>Count</th></tr>
+      <tr><td><span class="pill pill-missing">missing</span></td><td>43</td></tr>
+    </table>
+    <div class="section-title">By Category</div>
+    <table>
+      <tr><th>Category</th><th>Status</th><th>Count</th></tr>
+      <tr><td>shoes</td><td><span class="pill pill-missing">missing</span></td><td>7</td></tr>
+      <tr><td>kids</td><td><span class="pill pill-missing">missing</span></td><td>3</td></tr>
+      <tr><td>hat</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>hoodie</td><td><span class="pill pill-missing">missing</span></td><td>7</td></tr>
+      <tr><td>bracelet</td><td><span class="pill pill-missing">missing</span></td><td>7</td></tr>
+      <tr><td>joggers</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>tee</td><td><span class="pill pill-missing">missing</span></td><td>7</td></tr>
+    </table>
+    <div class="section-title">By Frequency Tag</div>
+    <table>
+      <tr><th>Frequency Tag</th><th>Status</th><th>Count</th></tr>
+      <tr><td>639</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>285</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>396</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>741</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>852</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>528</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>multi</td><td><span class="pill pill-missing">missing</span></td><td>4</td></tr>
+      <tr><td>none</td><td><span class="pill pill-missing">missing</span></td><td>3</td></tr>
+    </table>
+    <div class="footer">
+      Linked files: <a href="data/status_dashboard.json">status_dashboard.json</a>  <a href="product_gallery.html">product_gallery.html</a>
+      <br/>Use this dashboard to decide what to render next, which frequencies to prioritize, and when lines are ready for store launch.
+    </div>
+  </div>
+</body>
+</html>

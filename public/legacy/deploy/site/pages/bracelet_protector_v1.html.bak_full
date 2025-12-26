@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>396 Hz Protector Bracelet  Guard the Flame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="entrus-body">
+    <header class="entrus-header">
+        <div class="entrus-logo">
+            <a href="../index.html">EnTrus Arts  House of Alignment</a>
+        </div>
+        <nav class="entrus-nav">
+            <a href="../frequencies.html">Frequencies</a>
+            <a href="../apparel.html">Apparel</a>
+            <a href="../pages/bracelets.html">Bracelets</a>
+            <a href="../system.html">System</a>
+            <a href="../origin.html">Origin</a>
+            <a href="../join.html">Join</a>
+        </nav>
+    </header>
+
+    <main class="product-detail">
+        <section class="product-hero">
+            <div class="product-media">
+                <img src="../assets/images/bracelet_protector_v1.png" alt="396 Hz Protector Bracelet  Guard the Flame" class="product-image" />
+            </div>
+            <div class="product-copy">
+                <p class="product-line">396 Hz Protector Bracelet  Guard the Flame</p>
+                <h1 class="product-title">396 Hz Protector Bracelet  Guard the Flame</h1>
+                <p class="product-frequency">396 Hz  Guardian: Protector</p>
+                <p class="product-blurb">
+                    Grounded bead map aligned with the Protector seal for courage and stance.
+                </p>
+                <p class="product-note">
+                    This is a pre-release product view inside the EnTrus House. Final visuals will be rendered through the Guardian Image Lab (ComfyUI) and replace this placeholder image automatically.
+                </p>
+                <div class="product-actions">
+                    <button class="btn-primary">Add to Cart (Prototype)</button>
+                    <a href="../apparel.html" class="btn-secondary">Back to Apparel</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="entrus-footer">
+        <p>EnTrus Arts  2025  House of Alignment  All Guardians and Seals Protected.</p>
+    </footer>
+</body>
+</html>

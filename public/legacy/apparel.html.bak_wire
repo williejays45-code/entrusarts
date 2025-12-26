@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EnTrus Apparel & Bracelets  Catalog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="index.html">ENTRUS ARTS</a>
+      <span>Apparel & Bracelet Catalog  Authentic Seal Line</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="index.html">Home</a>
+      <a href="pages/bracelets.html">Bracelets</a>
+      <a href="apparel.html" class="active">Apparel</a>
+      <a href="pages/checkout.html">Checkout</a>
+    </nav>
+    <button id="ea-cart-toggle" class="ea-cart-toggle">
+      Cart <span id="ea-cart-badge" class="ea-cart-badge"></span>
+    </button>
+  </header>
+
+  <main class="ea-main">
+    <section class="catalog-hero">
+      <h1>EnTrus Catalog</h1>
+      <p>
+        Bracelets, hoodies, shoes, tees, and kids lines sharing the same frequency logic. This is a planning window:
+        select what matches your path, then move it through Cart and Checkout when you are ready.
+      </p>
+    </section>
+
+    <section class="catalog-controls">
+      <div class="catalog-control-group">
+        <label>
+          Category
+          <select id="filter-category">
+            <option value="all">All</option>
+            <option value="bracelet">Bracelets</option>
+            <option value="hoodie">Hoodies</option>
+            <option value="shoe">Shoes</option>
+            <option value="tee">Tees</option>
+            <option value="kids">Kids</option>
+            <option value="fusion">Fusion</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="catalog-control-group">
+        <label>
+          Frequency
+          <select id="filter-frequency">
+            <option value="all">All</option>
+            <option value="285">285 Hz</option>
+            <option value="396">396 Hz</option>
+            <option value="528">528 Hz</option>
+            <option value="639">639 Hz</option>
+            <option value="741">741 Hz</option>
+            <option value="852">852 Hz</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="catalog-control-group catalog-control-search">
+        <label>
+          Search
+          <input id="filter-query" type="text" placeholder="Search by name, seal, or note..." />
+        </label>
+      </div>
+
+      <div class="catalog-control-group">
+        <button id="filter-clear" class="catalog-clear">Reset</button>
+      </div>
+    </section>
+
+    <section id="catalog-grid" class="catalog-grid">
+      <!-- Cards injected by catalog_search.js -->
+    </section>
+  </main>
+
+  <div id="ea-cart-panel" class="ea-cart-panel">
+    <div class="ea-cart-inner">
+      <div class="ea-cart-header">
+        <h2>Your Selection</h2>
+        <button id="ea-cart-clear" class="ea-cart-clear">Clear</button>
+      </div>
+      <div id="ea-cart-items" class="ea-cart-items"></div>
+      <div class="ea-cart-footer">
+        <div class="ea-cart-total-row">
+          <span class="ea-cart-total-label">Estimated total</span>
+          <span id="ea-cart-total" class="ea-cart-total">$0.00</span>
+        </div>
+        <button id="ea-cart-checkout" class="ea-cart-checkout">
+          Go to Checkout
+        </button>
+        <p class="ea-cart-note">
+          This cart is for planning and alignment only. No payment is processed here.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  EnTrus Catalog Window</p>
+  </footer>
+
+  <script src="js/catalog_data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/catalog_search.js"></script>
+</body>
+</html>

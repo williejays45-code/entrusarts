@@ -1,0 +1,149 @@
+﻿{
+    "generatedAt":  "2025-12-11 21:13:43",
+    "totalProducts":  43,
+    "globalStatus":  [
+                         {
+                             "status":  "missing",
+                             "count":  43
+                         }
+                     ],
+    "byCategory":  [
+                       {
+                           "category":  "shoes",
+                           "statuses":  [
+                                            {
+                                                "status":  "missing",
+                                                "count":  7
+                                            }
+                                        ]
+                       },
+                       {
+                           "category":  "kids",
+                           "statuses":  [
+                                            {
+                                                "status":  "missing",
+                                                "count":  3
+                                            }
+                                        ]
+                       },
+                       {
+                           "category":  "hat",
+                           "statuses":  [
+                                            {
+                                                "status":  "missing",
+                                                "count":  6
+                                            }
+                                        ]
+                       },
+                       {
+                           "category":  "hoodie",
+                           "statuses":  [
+                                            {
+                                                "status":  "missing",
+                                                "count":  7
+                                            }
+                                        ]
+                       },
+                       {
+                           "category":  "bracelet",
+                           "statuses":  [
+                                            {
+                                                "status":  "missing",
+                                                "count":  7
+                                            }
+                                        ]
+                       },
+                       {
+                           "category":  "joggers",
+                           "statuses":  [
+                                            {
+                                                "status":  "missing",
+                                                "count":  6
+                                            }
+                                        ]
+                       },
+                       {
+                           "category":  "tee",
+                           "statuses":  [
+                                            {
+                                                "status":  "missing",
+                                                "count":  7
+                                            }
+                                        ]
+                       }
+                   ],
+    "byFrequencyTag":  [
+                           {
+                               "frequencyTag":  "639",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  6
+                                                }
+                                            ]
+                           },
+                           {
+                               "frequencyTag":  "285",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  6
+                                                }
+                                            ]
+                           },
+                           {
+                               "frequencyTag":  "396",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  6
+                                                }
+                                            ]
+                           },
+                           {
+                               "frequencyTag":  "741",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  6
+                                                }
+                                            ]
+                           },
+                           {
+                               "frequencyTag":  "852",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  6
+                                                }
+                                            ]
+                           },
+                           {
+                               "frequencyTag":  "528",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  6
+                                                }
+                                            ]
+                           },
+                           {
+                               "frequencyTag":  "multi",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  4
+                                                }
+                                            ]
+                           },
+                           {
+                               "frequencyTag":  "none",
+                               "statuses":  [
+                                                {
+                                                    "status":  "missing",
+                                                    "count":  3
+                                                }
+                                            ]
+                           }
+                       ]
+}

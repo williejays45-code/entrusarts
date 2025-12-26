@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EnTrus Core Tee  EnTrus Apparel Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header ea-header--viewer">
+    <div class="ea-brand">
+      <a href="../../index.html">ENTRUS ARTS</a>
+      <span>Apparel Detail  Authentic Seal Line</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../../index.html">Home</a>
+      <a href="../../apparel.html" class="active">Apparel</a>
+      <a href="../../pages/bracelets.html">Bracelets</a>
+      <a href="../../pages/cards.html">Activation Cards</a>
+      <a href="../../pages/system.html">System</a>
+    </nav>
+    <div class="ea-cart-pill">
+      <a href="../../pages/cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="ea-main bracelet-viewer-shell">
+    <section class="bracelet-viewer-card">
+      <div class="bracelet-viewer-header">
+        <h1>EnTrus Core Tee</h1>
+        <p class="bracelet-viewer-frequency">Neutral Base</p>
+      </div>
+
+      <div class="bracelet-viewer-body">
+        <div class="product-image-frame">
+          <img src="../../assets/images/products/apparel/entrus_core_tee.jpg" alt="EnTrus Core Tee apparel image" />
+        </div>
+        <p class="bracelet-viewer-tagline">Daily Neutral Layer</p>
+        <p class="bracelet-viewer-desc">Neutral base tee to pair with any frequency bracelet or hoodie. Left-heart core seal and subtle back text.</p>
+      </div>
+
+      <div class="bracelet-viewer-meta">
+        <span class="bracelet-viewer-code">CORE-TEE-01</span>
+        <span class="bracelet-viewer-price">$54.00</span>
+      </div>
+
+      <div class="activation-block">
+        <p class="activation-band">Guardian Band: Core Layer</p>
+        <p class="activation-hint">Neutral layer. Choose the mood youll pair it with.</p>
+      </div>
+
+      <div class="activation-qr">
+        <p class="activation-code-label">Activation code</p>
+        <p class="activation-code" id="activation-code">EA11-ENTRUSCORETEE-1111</p>
+        <p class="activation-code-note">
+          This code anchors the apparel piece to its QR / NFC activation when the physical tag is printed.
+        </p>
+      </div>
+
+      <div class="bracelet-viewer-note">
+        Status: Planned Drop
+      </div>
+
+      <div class="bracelet-viewer-actions">
+        <button id="ea-detail-add" class="bracelet-add">Add to Cart</button>
+        <a href="../../apparel.html" class="bracelet-viewer-back">Back to Catalog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Apparel Detail</p>
+  </footer>
+
+  <script src="../../js/catalog_data.js"></script>
+  <script src="../../js/cart.js"></script>
+  <script src="../../js/activation_codes.js"></script>
+  <script>
+    (function () {
+      var id = "entrus_core_tee";
+      var list = window.EnTrusCatalog || [];
+      var found = null;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id) { found = list[i]; break; }
+      }
+      var btn = document.getElementById("ea-detail-add");
+      if (!btn || !found || !window.EnTrusCart) return;
+      btn.addEventListener("click", function () {
+        window.EnTrusCart.add({
+          id:   found.id,
+          name: found.name,
+          price: found.price
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

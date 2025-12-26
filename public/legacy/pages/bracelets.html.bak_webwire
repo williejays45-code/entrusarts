@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>EnTrus Arts  Frequency Bracelets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="entrus-theme">
+<header class="site-header">
+    <div class="nav-bar">
+        <div class="nav-logo">
+            <a href="../index.html">ENTRUS ARTS</a>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html#frequencies">Frequencies</a>
+            <a href="../index.html#apparel">Apparel</a>
+            <a href="../index.html#system">System</a>
+            <a href="../index.html#origin">Origin</a>
+            <a href="../index.html#join">Join</a>
+        </nav>
+    </div>
+</header>
+
+<main class="page-main">
+    <section class="hero hero-compact">
+        <h1>Frequency Bracelets</h1>
+        <p>Six lines, one House. Every bracelet carries a seal, a story, and a frequency you can feel on the wrist.</p>
+    </section>
+
+    <section class="product-grid-section">
+        <div class="product-grid">
+
+            <!-- 396 Protector -->
+            <article class="product-card">
+                <div class="product-image-wrap">
+                    <img src="../assets/products/bracelets/bracelet_protector_v1.png"
+                         alt="396 Hz Protector bracelet"
+                         class="product-image" />
+                    <span class="product-tag">396 Hz  Protector</span>
+                </div>
+                <h2>396 Hz  Guard the Flame</h2>
+                <p class="product-copy">
+                    Grounded, shielded, and built for those who stand in front. Matte stones and Protector seal encoded into the design.
+                </p>
+                <div class="product-meta">
+                    <span class="meta-label">Line:</span> <span>Protector</span><br/>
+                    <span class="meta-label">Seal:</span> <span>Guard the Flame</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-secondary" type="button">View details</button>
+                    <button class="btn-primary"  type="button">Add to cart</button>
+                </div>
+            </article>
+
+            <!-- 528 Flow -->
+            <article class="product-card">
+                <div class="product-image-wrap">
+                    <img src="../assets/products/bracelets/bracelet_flow_v1.png"
+                         alt="528 Hz Flow bracelet"
+                         class="product-image" />
+                    <span class="product-tag">528 Hz  Flow</span>
+                </div>
+                <h2>528 Hz  Live in Rhythm</h2>
+                <p class="product-copy">
+                    Forest greens, morning gold, and a gentle spiral for those who train, breathe, and move in steady rhythm.
+                </p>
+                <div class="product-meta">
+                    <span class="meta-label">Line:</span> <span>Flow</span><br/>
+                    <span class="meta-label">Seal:</span> <span>Live in Rhythm</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-secondary" type="button">View details</button>
+                    <button class="btn-primary"  type="button">Add to cart</button>
+                </div>
+            </article>
+
+            <!-- 639 Drive -->
+            <article class="product-card">
+                <div class="product-image-wrap">
+                    <img src="../assets/products/bracelets/bracelet_drive_v1.png"
+                         alt="639 Hz Drive bracelet"
+                         class="product-image" />
+                    <span class="product-tag">639 Hz  Drive</span>
+                </div>
+                <h2>639 Hz  Fuel the Bond</h2>
+                <p class="product-copy">
+                    Connection, creativity, and exchange. Built for builders who carry their circle with them every day.
+                </p>
+                <div class="product-meta">
+                    <span class="meta-label">Line:</span> <span>Drive</span><br/>
+                    <span class="meta-label">Seal:</span> <span>Fuel the Bond</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-secondary" type="button">View details</button>
+                    <button class="btn-primary"  type="button">Add to cart</button>
+                </div>
+            </article>
+
+            <!-- 741 Expression -->
+            <article class="product-card">
+                <div class="product-image-wrap">
+                    <img src="../assets/products/bracelets/bracelet_expression_v1.png"
+                         alt="741 Hz Expression bracelet"
+                         class="product-image" />
+                    <span class="product-tag">741 Hz  Expression</span>
+                </div>
+                <h2>741 Hz  Speak the Light</h2>
+                <p class="product-copy">
+                    Indigo, desert gold, and a clear line for those who speak clean truth and move with honest expression.
+                </p>
+                <div class="product-meta">
+                    <span class="meta-label">Line:</span> <span>Expression</span><br/>
+                    <span class="meta-label">Seal:</span> <span>Speak the Light</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-secondary" type="button">View details</button>
+                    <button class="btn-primary"  type="button">Add to cart</button>
+                </div>
+            </article>
+
+            <!-- 852 Seer -->
+            <article class="product-card">
+                <div class="product-image-wrap">
+                    <img src="../assets/products/bracelets/bracelet_seer_v1.png"
+                         alt="852 Hz Seer bracelet"
+                         class="product-image" />
+                    <span class="product-tag">852 Hz  Seer</span>
+                </div>
+                <h2>852 Hz  Reveal the Light</h2>
+                <p class="product-copy">
+                    White clarity, gold eclipse, and a Seer seal designed for those who sense the move before it happens.
+                </p>
+                <div class="product-meta">
+                    <span class="meta-label">Line:</span> <span>Seer</span><br/>
+                    <span class="meta-label">Seal:</span> <span>Reveal the Light</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-secondary" type="button">View details</button>
+                    <button class="btn-primary"  type="button">Add to cart</button>
+                </div>
+            </article>
+
+            <!-- 888 Transfusion -->
+            <article class="product-card">
+                <div class="product-image-wrap">
+                    <img src="../assets/products/bracelets/bracelet_transfusion_v1.png"
+                         alt="Transfusion bracelet"
+                         class="product-image" />
+                    <span class="product-tag">888  Transfusion</span>
+                </div>
+                <h2>Transfusion Line  Alignment Band</h2>
+                <p class="product-copy">
+                    Neutral-to-green gradient stones, EnTrus seal bead, and a bridge band designed to sit between frequencies.
+                </p>
+                <div class="product-meta">
+                    <span class="meta-label">Line:</span> <span>Transfusion</span><br/>
+                    <span class="meta-label">Seal:</span> <span>Alignment Bridge</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-secondary" type="button">View details</button>
+                    <button class="btn-primary"  type="button">Add to cart</button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="page-footer-cta">
+        <a class="btn-secondary" href="../index.html#apparel">Back to Apparel overview</a>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>EnTrus Arts  2025  House of Alignment  All Guardians, Seals, and System Architecture Protected.</p>
+</footer>
+</body>
+</html>

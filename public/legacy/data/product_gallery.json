@@ -1,0 +1,346 @@
+﻿[
+    {
+        "productId":  "hoodie_Protector_v1",
+        "label":  "396 Hz Protector Hoodie",
+        "category":  "hoodie",
+        "frequency":  396,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "tee_Protector_v1",
+        "label":  "396 Hz Protector Tee",
+        "category":  "tee",
+        "frequency":  396,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "joggers_Protector_v1",
+        "label":  "396 Hz Protector Joggers",
+        "category":  "joggers",
+        "frequency":  396,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "shoe_Protector_v1",
+        "label":  "396 Hz Protector Shoe",
+        "category":  "shoes",
+        "frequency":  396,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "bracelet_Protector_v1",
+        "label":  "396 Hz Protector Bracelet",
+        "category":  "bracelet",
+        "frequency":  396,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hat_Protector_v1",
+        "label":  "396 Hz Protector Hat",
+        "category":  "hat",
+        "frequency":  396,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hoodie_Flow_v1",
+        "label":  "528 Hz Flow Hoodie",
+        "category":  "hoodie",
+        "frequency":  528,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "tee_Flow_v1",
+        "label":  "528 Hz Flow Tee",
+        "category":  "tee",
+        "frequency":  528,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "joggers_Flow_v1",
+        "label":  "528 Hz Flow Joggers",
+        "category":  "joggers",
+        "frequency":  528,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "shoe_Flow_v1",
+        "label":  "528 Hz Flow Shoe",
+        "category":  "shoes",
+        "frequency":  528,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "bracelet_Flow_v1",
+        "label":  "528 Hz Flow Bracelet",
+        "category":  "bracelet",
+        "frequency":  528,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hat_Flow_v1",
+        "label":  "528 Hz Flow Hat",
+        "category":  "hat",
+        "frequency":  528,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hoodie_Drive_v1",
+        "label":  "639 Hz Drive Hoodie",
+        "category":  "hoodie",
+        "frequency":  639,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "tee_Drive_v1",
+        "label":  "639 Hz Drive Tee",
+        "category":  "tee",
+        "frequency":  639,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "joggers_Drive_v1",
+        "label":  "639 Hz Drive Joggers",
+        "category":  "joggers",
+        "frequency":  639,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "shoe_Drive_v1",
+        "label":  "639 Hz Drive Shoe",
+        "category":  "shoes",
+        "frequency":  639,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "bracelet_Drive_v1",
+        "label":  "639 Hz Drive Bracelet",
+        "category":  "bracelet",
+        "frequency":  639,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hat_Drive_v1",
+        "label":  "639 Hz Drive Hat",
+        "category":  "hat",
+        "frequency":  639,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hoodie_Expression_v1",
+        "label":  "741 Hz Expression Hoodie",
+        "category":  "hoodie",
+        "frequency":  741,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "tee_Expression_v1",
+        "label":  "741 Hz Expression Tee",
+        "category":  "tee",
+        "frequency":  741,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "joggers_Expression_v1",
+        "label":  "741 Hz Expression Joggers",
+        "category":  "joggers",
+        "frequency":  741,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "shoe_Expression_v1",
+        "label":  "741 Hz Expression Shoe",
+        "category":  "shoes",
+        "frequency":  741,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "bracelet_Expression_v1",
+        "label":  "741 Hz Expression Bracelet",
+        "category":  "bracelet",
+        "frequency":  741,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hat_Expression_v1",
+        "label":  "741 Hz Expression Hat",
+        "category":  "hat",
+        "frequency":  741,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hoodie_Seer_v1",
+        "label":  "852 Hz Seer Hoodie",
+        "category":  "hoodie",
+        "frequency":  852,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "tee_Seer_v1",
+        "label":  "852 Hz Seer Tee",
+        "category":  "tee",
+        "frequency":  852,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "joggers_Seer_v1",
+        "label":  "852 Hz Seer Joggers",
+        "category":  "joggers",
+        "frequency":  852,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "shoe_Seer_v1",
+        "label":  "852 Hz Seer Shoe",
+        "category":  "shoes",
+        "frequency":  852,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "bracelet_Seer_v1",
+        "label":  "852 Hz Seer Bracelet",
+        "category":  "bracelet",
+        "frequency":  852,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hat_Seer_v1",
+        "label":  "852 Hz Seer Hat",
+        "category":  "hat",
+        "frequency":  852,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hoodie_Form_v1",
+        "label":  "285 Hz Form Hoodie",
+        "category":  "hoodie",
+        "frequency":  285,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "tee_Form_v1",
+        "label":  "285 Hz Form Tee",
+        "category":  "tee",
+        "frequency":  285,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "joggers_Form_v1",
+        "label":  "285 Hz Form Joggers",
+        "category":  "joggers",
+        "frequency":  285,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "shoe_Form_v1",
+        "label":  "285 Hz Form Shoe",
+        "category":  "shoes",
+        "frequency":  285,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "bracelet_Form_v1",
+        "label":  "285 Hz Form Bracelet",
+        "category":  "bracelet",
+        "frequency":  285,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "hat_Form_v1",
+        "label":  "285 Hz Form Hat",
+        "category":  "hat",
+        "frequency":  285,
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "kids_tee_basic_v1",
+        "label":  "Kids Basic Apparel / Beads",
+        "category":  "kids",
+        "frequency":  "none",
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "kids_hoodie_basic_v1",
+        "label":  "Kids Basic Apparel / Beads",
+        "category":  "kids",
+        "frequency":  "none",
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "kids_beads_basic_v1",
+        "label":  "Kids Basic Apparel / Beads",
+        "category":  "kids",
+        "frequency":  "none",
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "trifusion_tee_v1",
+        "label":  "Tri-Fusion Tee",
+        "category":  "tee",
+        "frequency":  "multi",
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "trifusion_hoodie_v1",
+        "label":  "Tri-Fusion Hoodie",
+        "category":  "hoodie",
+        "frequency":  "multi",
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "trifusion_shoe_v1",
+        "label":  "Tri-Fusion Shoe",
+        "category":  "shoes",
+        "frequency":  "multi",
+        "imageStatus":  "missing",
+        "heroImage":  null
+    },
+    {
+        "productId":  "trifusion_bracelet_v1",
+        "label":  "Tri-Fusion Bracelet",
+        "category":  "bracelet",
+        "frequency":  "multi",
+        "imageStatus":  "missing",
+        "heroImage":  null
+    }
+]

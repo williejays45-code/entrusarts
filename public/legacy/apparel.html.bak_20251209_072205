@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apparel  EnTrus Arts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="index.html">ENTRUS ARTS</a>
+      <span>Apparel Catalog  Authentic Seal Line</span>
+    </div>
+  <nav class="ea-nav">
+    <a href="index.html">Home</a>
+    <a href="apparel.html" class="active">Apparel</a>
+    <a href="pages/bracelets.html">Bracelets</a>
+    <a href="pages/cards.html">Activation Cards</a>
+    <a href="#system">System</a>
+    <a href="#origin">Origin</a>
+    <a href="#join">Join</a>
+  </nav>
+  <div class="ea-cart-pill">
+    <a href="pages/cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+  </div>
+  </header>
+
+  <main class="ea-main">
+    <section class="product-section">
+      <header class="product-header">
+        <h1>Apparel Catalog</h1>
+        <p>Every cut in this grid is wired to a seal, a frequency, and an activation code.</p>
+      </header>
+      <div class="product-grid">
+      <article class="product-card">
+        <h2>396 Hz Protector Hoodie</h2>
+        <p class="product-meta">hoodie  396 Hz</p>
+        <p class="product-tagline">Guard the Flame</p>
+        <p class="product-price">$128.00</p>
+        <p class="product-status">Planned Drop</p>
+        <div class="product-actions">
+          <a href="products/apparel/396_protector_hoodie.html" class="btn-secondary">View detail</a>
+          <a href="cards/396_protector_hoodie_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="396_protector_hoodie">Add to Cart</button>
+        </div>
+      </article>      <article class="product-card">
+        <h2>528 Hz Flow Hoodie</h2>
+        <p class="product-meta">hoodie  528 Hz</p>
+        <p class="product-tagline">Live in Rhythm</p>
+        <p class="product-price">$132.00</p>
+        <p class="product-status">Planned Drop</p>
+        <div class="product-actions">
+          <a href="products/apparel/528_flow_hoodie.html" class="btn-secondary">View detail</a>
+          <a href="cards/528_flow_hoodie_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="528_flow_hoodie">Add to Cart</button>
+        </div>
+      </article>      <article class="product-card">
+        <h2>Fusion Night Shoe</h2>
+        <p class="product-meta">shoe  Multi-Frequency</p>
+        <p class="product-tagline">City Night Fusion</p>
+        <p class="product-price">$160.00</p>
+        <p class="product-status">Planned Drop</p>
+        <div class="product-actions">
+          <a href="products/apparel/fusion_night_shoe.html" class="btn-secondary">View detail</a>
+          <a href="cards/fusion_night_shoe_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="fusion_night_shoe">Add to Cart</button>
+        </div>
+      </article>      <article class="product-card">
+        <h2>EnTrus Core Tee</h2>
+        <p class="product-meta">tee  Neutral Base</p>
+        <p class="product-tagline">Daily Neutral Layer</p>
+        <p class="product-price">$54.00</p>
+        <p class="product-status">Planned Drop</p>
+        <div class="product-actions">
+          <a href="products/apparel/entrus_core_tee.html" class="btn-secondary">View detail</a>
+          <a href="cards/entrus_core_tee_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="entrus_core_tee">Add to Cart</button>
+        </div>
+      </article>      <article class="product-card">
+        <h2>Kids Beads 118</h2>
+        <p class="product-meta">kids  Multi-Stage</p>
+        <p class="product-tagline">Age 118 Bead Path</p>
+        <p class="product-price">$99.00</p>
+        <p class="product-status">Planned Drop</p>
+        <div class="product-actions">
+          <a href="products/apparel/kids_beads_1_18.html" class="btn-secondary">View detail</a>
+          <a href="cards/kids_beads_1_18_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="kids_beads_1_18">Add to Cart</button>
+        </div>
+      </article>      <article class="product-card">
+        <h2>Transfusion Set</h2>
+        <p class="product-meta">fusion  Multi-Flow</p>
+        <p class="product-tagline">Bracelet + Tee + Shoe Mood</p>
+        <p class="product-price">$260.00</p>
+        <p class="product-status">Planned Drop</p>
+        <div class="product-actions">
+          <a href="products/apparel/transfusion_set.html" class="btn-secondary">View detail</a>
+          <a href="cards/transfusion_set_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="transfusion_set">Add to Cart</button>
+        </div>
+      </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Apparel Catalog</p>
+  </footer>
+
+  <script src="js/catalog_data.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    (function () {
+      var list = window.EnTrusCatalog || [];
+      if (!window.EnTrusCart) return;
+      var buttons = document.querySelectorAll('.product-actions button[data-id]');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-id');
+          var found = null;
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].id === id) { found = list[i]; break; }
+          }
+          if (!found) return;
+          window.EnTrusCart.add(found);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,185 @@
+﻿{
+    "generated_at":  "2025-12-09T15:23:26.1349698-06:00",
+    "source":  "entrus_product_catalog.ps1",
+    "items":  [
+                  {
+                      "description":  "Burnt ember tones, protector seal, and disciplined cuts for those built to stand in front.",
+                      "id":  "hoodie_protector_v1",
+                      "profile_file":  "hoodie_protector_v1.json",
+                      "subtitle":  "Guard the Flame",
+                      "frequency_hz":  396,
+                      "guardian":  "Protector",
+                      "line":  "Protector",
+                      "output_file":  "hoodie_protector_v1.png",
+                      "product_type":  "hoodie",
+                      "title":  "396 Hz Protector Hoodie",
+                      "tags":  [
+                                   "hoodie",
+                                   "396hz",
+                                   "protector",
+                                   "apparel"
+                               ]
+                  },
+                  {
+                      "description":  "Forest greens, sunrise gold accents, and motion-ready fit for breath, training, and everyday flow.",
+                      "id":  "hoodie_flow_v1",
+                      "profile_file":  "hoodie_flow_v1.json",
+                      "subtitle":  "Live in Rhythm",
+                      "frequency_hz":  528,
+                      "guardian":  "Flow",
+                      "line":  "Flow",
+                      "output_file":  "hoodie_flow_v1.png",
+                      "product_type":  "hoodie",
+                      "title":  "528 Hz Flow Hoodie",
+                      "tags":  [
+                                   "hoodie",
+                                   "528hz",
+                                   "flow",
+                                   "apparel"
+                               ]
+                  },
+                  {
+                      "description":  "Connection-driven cut with bonded color blocking for those building with others without losing themselves.",
+                      "id":  "hoodie_drive_v1",
+                      "profile_file":  "hoodie_drive_v1.json",
+                      "subtitle":  "Fuel the Bond",
+                      "frequency_hz":  639,
+                      "guardian":  "Drive",
+                      "line":  "Drive",
+                      "output_file":  "hoodie_drive_v1.png",
+                      "product_type":  "hoodie",
+                      "title":  "639 Hz Drive Hoodie",
+                      "tags":  [
+                                   "hoodie",
+                                   "639hz",
+                                   "drive",
+                                   "apparel"
+                               ]
+                  },
+                  {
+                      "description":  "White Clarity base with Gold Eclipse edges, built for those who move like they already see it coming.",
+                      "id":  "hoodie_seer_v1",
+                      "profile_file":  "hoodie_seer_v1.json",
+                      "subtitle":  "Reveal the Light",
+                      "frequency_hz":  852,
+                      "guardian":  "Seer",
+                      "line":  "Seer",
+                      "output_file":  "hoodie_seer_v1.png",
+                      "product_type":  "hoodie",
+                      "title":  "852 Hz Seer Hoodie",
+                      "tags":  [
+                                   "hoodie",
+                                   "852hz",
+                                   "seer",
+                                   "apparel"
+                               ]
+                  },
+                  {
+                      "description":  "Grounded bead pattern with protector seal bead for boundary, courage, and stance.",
+                      "id":  "bracelet_protector_v1",
+                      "profile_file":  "bracelet_protector_v1.json",
+                      "subtitle":  "Guard the Flame",
+                      "frequency_hz":  396,
+                      "guardian":  "Protector",
+                      "line":  "Protector",
+                      "output_file":  "bracelet_protector_v1.png",
+                      "product_type":  "bracelet",
+                      "title":  "396 Hz Protector Bracelet",
+                      "tags":  [
+                                   "bracelet",
+                                   "396hz",
+                                   "protector",
+                                   "accessory"
+                               ]
+                  },
+                  {
+                      "description":  "Forest-to-gold gradient stones tuned for breath, recovery, and quiet momentum.",
+                      "id":  "bracelet_flow_v1",
+                      "profile_file":  "bracelet_flow_v1.json",
+                      "subtitle":  "Live in Rhythm",
+                      "frequency_hz":  528,
+                      "guardian":  "Flow",
+                      "line":  "Flow",
+                      "output_file":  "bracelet_flow_v1.png",
+                      "product_type":  "bracelet",
+                      "title":  "528 Hz Flow Bracelet",
+                      "tags":  [
+                                   "bracelet",
+                                   "528hz",
+                                   "flow",
+                                   "accessory"
+                               ]
+                  },
+                  {
+                      "description":  "Tri-ring bead rhythm for connection, collaboration, and shared build energy.",
+                      "id":  "bracelet_drive_v1",
+                      "profile_file":  "bracelet_drive_v1.json",
+                      "subtitle":  "Fuel the Bond",
+                      "frequency_hz":  639,
+                      "guardian":  "Drive",
+                      "line":  "Drive",
+                      "output_file":  "bracelet_drive_v1.png",
+                      "product_type":  "bracelet",
+                      "title":  "639 Hz Drive Bracelet",
+                      "tags":  [
+                                   "bracelet",
+                                   "639hz",
+                                   "drive",
+                                   "accessory"
+                               ]
+                  },
+                  {
+                      "description":  "White-gold bead pattern with Seer core bead for intuition, clarity, and vision.",
+                      "id":  "bracelet_seer_v1",
+                      "profile_file":  "bracelet_seer_v1.json",
+                      "subtitle":  "Reveal the Light",
+                      "frequency_hz":  852,
+                      "guardian":  "Seer",
+                      "line":  "Seer",
+                      "output_file":  "bracelet_seer_v1.png",
+                      "product_type":  "bracelet",
+                      "title":  "852 Hz Seer Bracelet",
+                      "tags":  [
+                                   "bracelet",
+                                   "852hz",
+                                   "seer",
+                                   "accessory"
+                               ]
+                  },
+                  {
+                      "description":  "Transfusion bracelet with sandstone, pale yellow, and leaf-green core, framed by earth anchors and seal bead.",
+                      "id":  "bracelet_transfusion_v1",
+                      "profile_file":  "bracelet_transfusion_v1.json",
+                      "subtitle":  "Neutral  Yellow  Green",
+                      "frequency_hz":  888,
+                      "guardian":  "Fusion",
+                      "line":  "Transfusion",
+                      "output_file":  "bracelet_transfusion_v1.png",
+                      "product_type":  "bracelet",
+                      "title":  "Transfusion Gradient Bracelet",
+                      "tags":  [
+                                   "bracelet",
+                                   "fusion",
+                                   "transfusion",
+                                   "accessory"
+                               ]
+                  },
+                  {
+                      "description":  "Cream-blue-black fusion shoe tuned for EnTrus nightlife sets, balanced comfort core and seal details.",
+                      "id":  "shoe_fusion_v1",
+                      "profile_file":  "shoe_fusion_v1.json",
+                      "subtitle":  "Street to Studio",
+                      "frequency_hz":  888,
+                      "guardian":  "Fusion",
+                      "line":  "Fusion",
+                      "output_file":  "shoe_fusion_v1.png",
+                      "product_type":  "shoe",
+                      "title":  "Fusion Nightlife Shoe",
+                      "tags":  [
+                                   "shoe",
+                                   "fusion",
+                                   "footwear"
+                               ]
+                  }
+              ]
+}

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bracelet Collection  EnTrus Arts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>Authentic Seal Line  Bracelet Collection</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../index.html">Home</a>
+      <a href="../frequencies.html">Frequencies</a>
+      <a href="../apparel.html" class="active">Apparel</a>
+      <a href="../system.html">System</a>
+      <a href="../origin.html">Origin</a>
+      <a href="../join.html">Join</a>
+    </nav>
+    <button id="ea-cart-toggle" class="ea-cart-toggle">
+      Cart <span id="ea-cart-badge" class="ea-cart-badge"></span>
+    </button>
+  </header>
+
+  <main class="ea-main">
+    <section class="bracelet-hero">
+      <h1>Bracelet Collection</h1>
+      <p>
+        Frequency-coded bead lines for the EnTrus House. No fake promises: each piece is a physical reminder of a
+        decision, a path, and a frequency you chose to carry.
+      </p>
+    </section>
+
+    <section id="bracelet-grid" class="bracelet-grid">
+      <!-- Cards will be injected here by bracelets_render.js -->
+    </section>
+  </main>
+
+  <div id="ea-cart-panel" class="ea-cart-panel">
+    <div class="ea-cart-inner">
+      <div class="ea-cart-header">
+        <h2>Your Selection</h2>
+        <button id="ea-cart-clear" class="ea-cart-clear">Clear</button>
+      </div>
+      <div id="ea-cart-items" class="ea-cart-items"></div>
+      <div class="ea-cart-footer">
+        <div class="ea-cart-total-row">
+          <span class="ea-cart-total-label">Estimated total</span>
+          <span id="ea-cart-total" class="ea-cart-total">$0.00</span>
+        </div>
+        <p class="ea-cart-note">
+          This cart is for planning and alignment only. No payment is processed here.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Bracelet Collection</p>
+  </footer>
+
+  <script src="../js/bracelets_data.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/bracelets_render.js"></script>
+</body>
+</html>

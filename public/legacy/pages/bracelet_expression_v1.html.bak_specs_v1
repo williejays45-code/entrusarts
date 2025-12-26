@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>741 Hz Expression Bracelet  Speak the Light</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="entrus-body">
+    <header class="entrus-header">
+        <div class="entrus-logo">
+            <a href="../index.html">EnTrus Arts  House of Alignment</a>
+        </div>
+        <nav class="entrus-nav">
+            <a href="../frequencies.html">Frequencies</a>
+            <a href="../apparel.html">Apparel</a>
+            <a href="../pages/bracelets.html">Bracelets</a>
+            <a href="../system.html">System</a>
+            <a href="../origin.html">Origin</a>
+            <a href="../join.html">Join</a>
+        </nav>
+    </header>
+
+    <main class="product-detail">
+        <section class="product-hero">
+            <div class="product-media">
+                <img src="../assets/images/bracelet_expression_v1.png" alt="741 Hz Expression Bracelet  Speak the Light" class="product-image" />
+            </div>
+            <div class="product-copy">
+                <p class="product-line">741 Hz Expression Bracelet  Speak the Light</p>
+                <h1 class="product-title">741 Hz Expression Bracelet  Speak the Light</h1>
+                <p class="product-frequency">741 Hz  Guardian: Expression</p>
+                <p class="product-blurb">
+                    Clean, voice-forward bead map for boundary setting and clear truth.
+                </p>
+                <p class="product-note">
+                    This is a pre-release product view inside the EnTrus House. Final visuals will be rendered through the Guardian Image Lab (ComfyUI) and replace this placeholder image automatically.
+                </p>
+                <div class="product-actions">
+                    <button class="btn-primary">Add to Cart (Prototype)</button>
+                    <a href="../apparel.html" class="btn-secondary">Back to Apparel</a>
+                </div>
+            </div>
+        </section>
+      <!-- ENTRUS VARIANTS -->
+  <section class="ea-product-options" data-product-id="bracelet_expression_v1">
+    <h2>Options</h2>
+  <div class="ea-option-row">
+    <label for="size-bracelet_expression_v1">Size</label>
+    <select id="size-bracelet_expression_v1" class="ea-select-size">
+      <option value="S/M">S/M</option>
+      <option value="M/L">M/L</option>
+    </select>
+  </div>  <div class="ea-option-row">
+    <label for="color-bracelet_expression_v1">Colorway</label>
+    <select id="color-bracelet_expression_v1" class="ea-select-color">
+      <option value="Expression Standard">Expression Standard</option>
+    </select>
+  </div>
+  </section>
+  <!-- END ENTRUS VARIANTS -->
+</main>
+
+    <footer class="entrus-footer">
+        <p>EnTrus Arts  2025  House of Alignment  All Guardians and Seals Protected.</p>
+    </footer>
+  <script src="../js/products_variants.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+</html>
+
+

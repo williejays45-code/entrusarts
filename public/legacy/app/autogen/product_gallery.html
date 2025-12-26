@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnTrus Product Gallery</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; padding: 0; background: #07090b; color: #f8f5ec; }
+    .page { max-width: 1200px; margin: 0 auto; padding: 24px 16px 40px; }
+    h1 { font-size: 1.9rem; margin-bottom: 4px; }
+    .subtitle { color: #c4b998; font-size: 0.95rem; margin-bottom: 24px; }
+    .category-block { margin-top: 32px; }
+    .category-title { font-size: 1.3rem; margin-bottom: 12px; color: #f0e4c0; }
+    .category-meta { font-size: 0.8rem; color: #8c8470; margin-bottom: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .card { background: #111317; border-radius: 12px; padding: 10px 10px 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; }
+    .card img { width: 100%; border-radius: 10px; display: block; object-fit: cover; background: #0d0f12; }
+    .card-body { margin-top: 8px; display: flex; flex-direction: column; gap: 3px; }
+    .card-name { font-size: 0.95rem; font-weight: 600; }
+    .card-frequency { font-size: 0.8rem; color: #a8f1c3; }
+    .card-seal { font-size: 0.8rem; color: #eac17f; }
+    .card-meta { font-size: 0.75rem; color: #9b93a1; }
+    .card-link { margin-top: 6px; font-size: 0.78rem; }
+    .card-link a { color: #7fd3ff; text-decoration: none; }
+    .card-link a:hover { text-decoration: underline; }
+    @media (max-width: 600px) { .page { padding: 16px 10px 32px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>EnTrus Product Gallery</h1>
+    <div class="subtitle">Live bind from products_catalog.json  Renders synced via Layer 29.</div>
+    <div class="category-block">
+      <div class="category-title">hoodie_apparel</div>
+      <div class="category-meta">4 item(s)</div>
+      <div class="grid">
+  </div>
+</body>
+</html>

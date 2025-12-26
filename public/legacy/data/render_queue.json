@@ -1,0 +1,112 @@
+﻿[
+    {
+        "id":  "hoodie_396_guard_the_flame",
+        "comfy_profile":  "hoodie_protector_v1",
+        "output_image":  "assets/generated/hoodie_396_guard_the_flame.png",
+        "category":  "apparel",
+        "kind":  "hoodie",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\hoodie_protector_v1.json"
+    },
+    {
+        "id":  "hoodie_528_live_in_rhythm",
+        "comfy_profile":  "hoodie_flow_v1",
+        "output_image":  "assets/generated/hoodie_528_live_in_rhythm.png",
+        "category":  "apparel",
+        "kind":  "hoodie",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\hoodie_flow_v1.json"
+    },
+    {
+        "id":  "hoodie_639_fuel_the_bond",
+        "comfy_profile":  "hoodie_drive_v1",
+        "output_image":  "assets/generated/hoodie_639_fuel_the_bond.png",
+        "category":  "apparel",
+        "kind":  "hoodie",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\hoodie_drive_v1.json"
+    },
+    {
+        "id":  "hoodie_852_reveal_the_light",
+        "comfy_profile":  "hoodie_seer_v1",
+        "output_image":  "assets/generated/hoodie_852_reveal_the_light.png",
+        "category":  "apparel",
+        "kind":  "hoodie",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\hoodie_seer_v1.json"
+    },
+    {
+        "id":  "shoe_fusion_nightline",
+        "comfy_profile":  "shoe_fusion_v1",
+        "output_image":  "assets/generated/shoe_fusion_nightline.png",
+        "category":  "apparel",
+        "kind":  "shoe",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\shoe_fusion_v1.json"
+    },
+    {
+        "id":  "bracelet_396_protector",
+        "comfy_profile":  "bracelet_protector_v1",
+        "output_image":  "assets/generated/bracelet_396_protector.png",
+        "category":  "bracelet",
+        "kind":  "single_frequency",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\bracelet_protector_v1.json"
+    },
+    {
+        "id":  "bracelet_528_flow",
+        "comfy_profile":  "bracelet_flow_v1",
+        "output_image":  "assets/generated/bracelet_528_flow.png",
+        "category":  "bracelet",
+        "kind":  "single_frequency",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\bracelet_flow_v1.json"
+    },
+    {
+        "id":  "bracelet_639_drive",
+        "comfy_profile":  "bracelet_drive_v1",
+        "output_image":  "assets/generated/bracelet_639_drive.png",
+        "category":  "bracelet",
+        "kind":  "single_frequency",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\bracelet_drive_v1.json"
+    },
+    {
+        "id":  "bracelet_852_seer",
+        "comfy_profile":  "bracelet_seer_v1",
+        "output_image":  "assets/generated/bracelet_852_seer.png",
+        "category":  "bracelet",
+        "kind":  "single_frequency",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\bracelet_seer_v1.json"
+    },
+    {
+        "id":  "bracelet_transfusion_neutral",
+        "comfy_profile":  "bracelet_transfusion_v1",
+        "output_image":  "assets/generated/bracelet_transfusion_neutral.png",
+        "category":  "bracelet",
+        "kind":  "multi_frequency",
+        "status":  "missing_profile",
+        "requested_at":  "2025-12-09T07:44:08.8594196-06:00",
+        "updated_at":  "2025-12-09T08:32:03.8114792-06:00",
+        "notes":  "Profile not found: C:\\EnTrusRender\\profiles\\bracelet_transfusion_v1.json"
+    }
+]

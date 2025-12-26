@@ -1,0 +1,102 @@
+﻿[
+    {
+        "frequency":  "396 Hz",
+        "id":  "hoodie_protector_v1",
+        "category":  "hoodie_apparel",
+        "name":  "Protector Line Hoodie 396 Hz",
+        "seal":  "Guard the Flame",
+        "imagePath":  "/assets/images/hoodie_protector_v1.png",
+        "guardian":  "Protector",
+        "page":  "/pages/hoodie_protector_v1.html"
+    },
+    {
+        "frequency":  "528 Hz",
+        "id":  "hoodie_flow_v1",
+        "category":  "hoodie_apparel",
+        "name":  "Flow Line Hoodie 528 Hz",
+        "seal":  "Live in Rhythm",
+        "imagePath":  "/assets/images/hoodie_flow_v1.png",
+        "guardian":  "Flow",
+        "page":  "/pages/hoodie_flow_v1.html"
+    },
+    {
+        "frequency":  "639 Hz",
+        "id":  "hoodie_drive_v1",
+        "category":  "hoodie_apparel",
+        "name":  "Drive Line Hoodie 639 Hz",
+        "seal":  "Fuel the Bond",
+        "imagePath":  "/assets/images/hoodie_drive_v1.png",
+        "guardian":  "Drive",
+        "page":  "/pages/hoodie_drive_v1.html"
+    },
+    {
+        "frequency":  "852 Hz",
+        "id":  "hoodie_seer_v1",
+        "category":  "hoodie_apparel",
+        "name":  "Seer Line Hoodie 852 Hz",
+        "seal":  "Reveal the Light",
+        "imagePath":  "/assets/images/hoodie_seer_v1.png",
+        "guardian":  "Seer",
+        "page":  "/pages/hoodie_seer_v1.html"
+    },
+    {
+        "frequency":  "396 Hz",
+        "id":  "bracelet_protector_v1",
+        "category":  "bracelet",
+        "name":  "Protector Line Bracelet 396 Hz",
+        "seal":  "Guard the Flame",
+        "imagePath":  "/assets/images/bracelet_protector_v1.png",
+        "guardian":  "Protector",
+        "page":  "/pages/bracelet_protector_v1.html"
+    },
+    {
+        "frequency":  "528 Hz",
+        "id":  "bracelet_flow_v1",
+        "category":  "bracelet",
+        "name":  "Flow Line Bracelet 528 Hz",
+        "seal":  "Live in Rhythm",
+        "imagePath":  "/assets/images/bracelet_flow_v1.png",
+        "guardian":  "Flow",
+        "page":  "/pages/bracelet_flow_v1.html"
+    },
+    {
+        "frequency":  "639 Hz",
+        "id":  "bracelet_drive_v1",
+        "category":  "bracelet",
+        "name":  "Drive Line Bracelet 639 Hz",
+        "seal":  "Fuel the Bond",
+        "imagePath":  "/assets/images/bracelet_drive_v1.png",
+        "guardian":  "Drive",
+        "page":  "/pages/bracelet_drive_v1.html"
+    },
+    {
+        "frequency":  "852 Hz",
+        "id":  "bracelet_seer_v1",
+        "category":  "bracelet",
+        "name":  "Seer Line Bracelet 852 Hz",
+        "seal":  "Reveal the Light",
+        "imagePath":  "/assets/images/bracelet_seer_v1.png",
+        "guardian":  "Seer",
+        "page":  "/pages/bracelet_seer_v1.html"
+    },
+    {
+        "frequency":  "888 Hz",
+        "id":  "bracelet_transfusion_v1",
+        "category":  "bracelet",
+        "name":  "Transfusion Bracelet  Fusion Line",
+        "seal":  "Fusion Transfusion",
+        "imagePath":  "/assets/images/bracelet_transfusion_v1.png",
+        "guardian":  "Fusion",
+        "page":  "/pages/bracelet_transfusion_v1.html"
+    },
+    {
+        "frequency":  "888 Hz",
+        "id":  "shoe_fusion_v1",
+        "category":  "shoe",
+        "name":  "Fusion Shoe  Nightline Edition",
+        "seal":  "Fusion Step",
+        "imagePath":  "/assets/images/shoe_fusion_v1.png",
+        "guardian":  "Fusion",
+        "page":  "/pages/shoe_fusion_v1.html"
+    }
+]

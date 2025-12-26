@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bracelet Collection  EnTrus Arts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>Authentic Seal Line  Bracelet Collection</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../index.html">Home</a>
+      <a href="../pages/frequencies.html">Frequencies</a>
+      <a href="../pages/apparel.html" class="active">Apparel</a>
+      <a href="../pages/system.html">System</a>
+      <a href="../pages/origin.html">Origin</a>
+      <a href="../pages/join.html">Join</a>
+    </nav>
+  </header>
+
+  <main class="ea-main">
+    <section class="bracelet-hero">
+      <h1>Bracelet Collection</h1>
+      <p>
+        Frequency-coded bead lines for the EnTrus House. No fake promises: each piece is a physical reminder of a
+        decision, a path, and a frequency you chose to carry.
+      </p>
+    </section>
+
+    <section id="bracelet-grid" class="bracelet-grid">
+      <!-- Cards will be injected here by bracelets_render.js -->
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Bracelet Collection</p>
+  </footer>
+
+  <script src="../js/bracelets_data.js"></script>
+  <script src="../js/bracelets_render.js"></script>
+</body>
+</html>

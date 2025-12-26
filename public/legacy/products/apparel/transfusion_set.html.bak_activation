@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transfusion Set  EnTrus Apparel Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header ea-header--viewer">
+    <div class="ea-brand">
+      <a href="../../index.html">ENTRUS ARTS</a>
+      <span>Apparel Detail  Authentic Seal Line</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../../apparel.html" class="active">Catalog</a>
+    </nav>
+  </header>
+
+  <main class="ea-main bracelet-viewer-shell">
+    <section class="bracelet-viewer-card">
+      <div class="bracelet-viewer-header">
+        <h1>Transfusion Set</h1>
+        <p class="bracelet-viewer-frequency">Multi-Flow</p>
+      </div>
+
+      <div class="bracelet-viewer-body">
+        <p class="bracelet-viewer-tagline">Bracelet + Tee + Shoe Mood</p>
+        <p class="bracelet-viewer-desc">A future pack pairing the Transfusion bracelet with a matching tee and footwear layout for full-city movement.</p>
+      </div>
+
+      <div class="bracelet-viewer-meta">
+        <span class="bracelet-viewer-code">TF-SET-01</span>
+        <span class="bracelet-viewer-price">$260.00</span>
+      </div>
+
+      <div class="bracelet-viewer-note">
+        Status: Planned Drop
+        <br/>
+        This page will later connect to final renders, QR activation, and guardian notes for this item.
+      </div>
+
+      <div class="bracelet-viewer-actions">
+        <button id="ea-detail-add" class="bracelet-add">Add to Cart</button>
+        <a href="../../apparel.html" class="bracelet-viewer-back">Back to Catalog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Apparel Detail</p>
+  </footer>
+
+  <script src="../../js/catalog_data.js"></script>
+  <script src="../../js/cart.js"></script>
+  <script>
+    (function () {
+      var id = "transfusion_set";
+      var list = window.EnTrusCatalog || [];
+      var found = null;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id) {
+          found = list[i];
+          break;
+        }
+      }
+      var btn = document.getElementById("ea-detail-add");
+      if (!btn || !found || !window.EnTrusCart) return;
+      btn.addEventListener("click", function () {
+        window.EnTrusCart.add({
+          id: found.id,
+          name: found.name,
+          price: found.price
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

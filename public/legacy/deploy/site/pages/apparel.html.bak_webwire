@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="refresh" content="0;url=../apparel.html">
+  <meta charset="UTF-8" />
+  <title>Redirecting</title>
+</head>
+<body>
+  <p>Redirecting to catalog <a href="../apparel.html">click here</a> if not redirected.</p>
+</body>
+</html>

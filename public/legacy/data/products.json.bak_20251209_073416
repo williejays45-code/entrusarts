@@ -1,0 +1,72 @@
+﻿[
+    {
+        "id":  "hoodie_396_guard_the_flame",
+        "name":  "396 Hz Protector Hoodie  Guard the Flame",
+        "category":  "apparel",
+        "type":  "hoodie",
+        "frequency":  396,
+        "line":  "Seal of Protector",
+        "tagline":  "Guard the Flame.",
+        "description":  "EnTrus 396 Hz Protector hoodie with chest sigil and curved back text. Burnt copper tones, matte cotton blend, slim athletic fit.",
+        "price":  79,
+        "currency":  "USD",
+        "image":  "assets/generated/hoodie_396_guard_the_flame.png",
+        "status":  "active"
+    },
+    {
+        "id":  "hoodie_528_live_in_rhythm",
+        "name":  "528 Hz Flow Hoodie  Live in Rhythm",
+        "category":  "apparel",
+        "type":  "hoodie",
+        "frequency":  528,
+        "line":  "Seal of Flow",
+        "tagline":  "Live in Rhythm.",
+        "description":  "Morning Gold and Sage Mist hoodie with Flow spiral sigil. Relaxed street fit with matte-gold EnTrus watermark.",
+        "price":  79,
+        "currency":  "USD",
+        "image":  "assets/generated/hoodie_528_live_in_rhythm.png",
+        "status":  "active"
+    },
+    {
+        "id":  "hoodie_639_fuel_the_bond",
+        "name":  "639 Hz Drive Hoodie  Fuel the Bond",
+        "category":  "apparel",
+        "type":  "hoodie",
+        "frequency":  639,
+        "line":  "Seal of Drive",
+        "tagline":  "Fuel the Bond.",
+        "description":  "Sandstone Taupe hoodie with golden tri-ring Drive sigil. Connection-focused tone, matte cotton, everyday wearable.",
+        "price":  79,
+        "currency":  "USD",
+        "image":  "assets/generated/hoodie_639_fuel_the_bond.png",
+        "status":  "active"
+    },
+    {
+        "id":  "hoodie_852_reveal_the_light",
+        "name":  "852 Hz Seer Hoodie  Reveal the Light",
+        "category":  "apparel",
+        "type":  "hoodie",
+        "frequency":  852,
+        "line":  "Seal of Seer",
+        "tagline":  "Reveal the Light.",
+        "description":  "White Clarity hoodie with Gold Eclipse gradient and open-eye Seer sigil. Visionary oversized fit.",
+        "price":  82,
+        "currency":  "USD",
+        "image":  "assets/generated/hoodie_852_reveal_the_light.png",
+        "status":  "active"
+    },
+    {
+        "id":  "shoe_fusion_nightline",
+        "name":  "EnTrus Fusion Nightline Shoe",
+        "category":  "footwear",
+        "type":  "shoe",
+        "frequency":  0,
+        "line":  "Fusion",
+        "tagline":  "Move between worlds.",
+        "description":  "Fusion shoe with dual-plane sigil logic and soft cream / blue / fusion black palette. Nightlife-ready comfort.",
+        "price":  110,
+        "currency":  "USD",
+        "image":  "assets/generated/shoe_fusion_nightline.png",
+        "status":  "active"
+    }
+]

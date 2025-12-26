@@ -1,0 +1,50 @@
+﻿{
+    "generatedAt":  "2025-12-12 18:56:11",
+    "links":  [
+                  {
+                      "id":  "home",
+                      "label":  "Home",
+                      "href":  "index.html"
+                  },
+                  {
+                      "id":  "gallery",
+                      "label":  "Product Gallery",
+                      "href":  "product_gallery.html"
+                  },
+                  {
+                      "id":  "status",
+                      "label":  "Status Dashboard",
+                      "href":  "status_dashboard.html"
+                  },
+                  {
+                      "id":  "console",
+                      "label":  "Render Console",
+                      "href":  "render_console.html"
+                  },
+                  {
+                      "id":  "cat_hoodies",
+                      "label":  "Hoodies",
+                      "href":  "product_gallery.html#hoodies"
+                  },
+                  {
+                      "id":  "cat_tees",
+                      "label":  "Tees",
+                      "href":  "product_gallery.html#tees"
+                  },
+                  {
+                      "id":  "cat_shoes",
+                      "label":  "Shoes",
+                      "href":  "product_gallery.html#shoes"
+                  },
+                  {
+                      "id":  "cat_bracelets",
+                      "label":  "Bracelets",
+                      "href":  "product_gallery.html#bracelets"
+                  },
+                  {
+                      "id":  "cat_beads",
+                      "label":  "Beads",
+                      "href":  "product_gallery.html#beads"
+                  }
+              ]
+}

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bracelets  EnTrus Arts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>Bracelet Collection  Authentic Seal Line</span>
+    </div>
+  <nav class="ea-nav">
+    <a href="../index.html">Home</a>
+    <a href="../apparel.html">Apparel</a>
+    <a href="bracelets.html" class="active">Bracelets</a>
+    <a href="cards.html">Activation Cards</a>
+    <a href="../index.html#system">System</a>
+    <a href="../index.html#origin">Origin</a>
+    <a href="../index.html#join">Join</a>
+  </nav>
+  <div class="ea-cart-pill">
+    <a href="cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+  </div>
+  </header>
+
+  <main class="ea-main">
+    <section class="product-section">
+      <header class="product-header">
+        <h1>Bracelet Collection</h1>
+        <p>Frequency lines, Transfusion designs, and seal bracelets wired to their activation codes.</p>
+      </header>
+      <div class="product-grid bracelet-grid">
+      <article class="bracelet-card">
+        <h2>Transfusion Bracelet</h2>
+        <p class="bracelet-meta">Multi-Flow</p>
+        <p class="bracelet-tagline">Neutral  Yellow  Green  City Current Edition</p>
+        <p class="bracelet-price">$88.00</p>
+        <p class="bracelet-status">Available Soon</p>
+        <div class="bracelet-actions">
+          <a href="../products/bracelets/transfusion.html" class="btn-secondary">View detail</a>
+          <a href="../cards/transfusion_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="transfusion">Add to Cart</button>
+        </div>
+      </article>      <article class="bracelet-card">
+        <h2>396 Hz Protector Bracelet</h2>
+        <p class="bracelet-meta">396 Hz  Seal of Protector</p>
+        <p class="bracelet-tagline">Guard the Flame</p>
+        <p class="bracelet-price">$96.00</p>
+        <p class="bracelet-status">Planned Drop</p>
+        <div class="bracelet-actions">
+          <a href="../products/bracelets/396_protector.html" class="btn-secondary">View detail</a>
+          <a href="../cards/396_protector_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="396_protector">Add to Cart</button>
+        </div>
+      </article>      <article class="bracelet-card">
+        <h2>528 Hz Flow Bracelet</h2>
+        <p class="bracelet-meta">528 Hz  Seal of Flow</p>
+        <p class="bracelet-tagline">Live in Rhythm</p>
+        <p class="bracelet-price">$108.00</p>
+        <p class="bracelet-status">Planned Drop</p>
+        <div class="bracelet-actions">
+          <a href="../products/bracelets/528_flow.html" class="btn-secondary">View detail</a>
+          <a href="../cards/528_flow_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="528_flow">Add to Cart</button>
+        </div>
+      </article>      <article class="bracelet-card">
+        <h2>639 Hz Drive Bracelet</h2>
+        <p class="bracelet-meta">639 Hz  Seal of Drive</p>
+        <p class="bracelet-tagline">Fuel the Bond</p>
+        <p class="bracelet-price">$111.00</p>
+        <p class="bracelet-status">Planned Drop</p>
+        <div class="bracelet-actions">
+          <a href="../products/bracelets/639_drive.html" class="btn-secondary">View detail</a>
+          <a href="../cards/639_drive_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="639_drive">Add to Cart</button>
+        </div>
+      </article>      <article class="bracelet-card">
+        <h2>852 Hz Seer Bracelet</h2>
+        <p class="bracelet-meta">852 Hz  Seal of Seer</p>
+        <p class="bracelet-tagline">Reveal the Light</p>
+        <p class="bracelet-price">$124.00</p>
+        <p class="bracelet-status">Planned Drop</p>
+        <div class="bracelet-actions">
+          <a href="../products/bracelets/852_seer.html" class="btn-secondary">View detail</a>
+          <a href="../cards/852_seer_card.html" class="btn-tertiary" target="_blank">Activation card</a>
+          <button class="btn-primary" data-id="852_seer">Add to Cart</button>
+        </div>
+      </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Bracelet Collection</p>
+  </footer>
+
+  <script src="../js/bracelets_data.js"></script>
+  <script src="../js/cart.js"></script>
+  <script>
+    (function () {
+      var list = window.EnTrusBracelets || [];
+      if (!window.EnTrusCart) return;
+      var buttons = document.querySelectorAll('.bracelet-actions button[data-id]');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-id');
+          var found = null;
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].id === id) { found = list[i]; break; }
+          }
+          if (!found) return;
+          window.EnTrusCart.add(found);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+

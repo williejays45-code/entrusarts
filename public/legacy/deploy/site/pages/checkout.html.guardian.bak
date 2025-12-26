@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout  EnTrus Bracelet Alignment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header ea-header--viewer">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>Bracelet Checkout  Alignment Review</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="bracelets.html">Bracelets</a>
+    </nav>
+  </header>
+
+  <main class="ea-main checkout-shell">
+    <section class="checkout-card">
+      <header class="checkout-header">
+        <h1>Review Your Selection</h1>
+        <p>
+          This page is for alignment only. No payment is processed here. When you are ready, export or print this
+          selection as your reference for future drops or custom orders.
+        </p>
+      </header>
+
+      <div id="checkout-items" class="checkout-items">
+        <!-- Items filled by JS -->
+      </div>
+
+      <div class="checkout-summary">
+        <div class="checkout-total-row">
+          <span>Total alignment value</span>
+          <span id="checkout-total">$0.00</span>
+        </div>
+      </div>
+
+      <div class="checkout-form">
+        <label class="checkout-label">
+          Email / contact (optional, local only)
+          <input id="checkout-email" type="email" placeholder="you@example.com" />
+        </label>
+        <label class="checkout-label">
+          Notes for your future order or ritual:
+          <textarea id="checkout-notes" rows="3" placeholder="Example: 396 Protector for daily wear, Transfusion for travel, 852 Seer for night rituals."></textarea>
+        </label>
+      </div>
+
+      <div class="checkout-actions">
+        <button id="checkout-confirm" class="checkout-confirm">Confirm Alignment</button>
+        <button id="checkout-clear" class="checkout-clear">Clear Cart</button>
+        <a href="bracelets.html" class="checkout-back">Back to Bracelets</a>
+      </div>
+
+      <p class="checkout-note">
+        All data remains local in your browser (localStorage). When you close this browser or clear site data, the cart
+        and notes are removed.
+      </p>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Bracelet Checkout</p>
+  </footer>
+
+  <script src="../js/cart.js"></script>
+  <script>
+    (function () {
+      function render() {
+        var container = document.getElementById("checkout-items");
+        var totalEl = document.getElementById("checkout-total");
+        if (!container || !totalEl || !window.EnTrusCart) return;
+
+        var items = window.EnTrusCart.getItems();
+        container.innerHTML = "";
+
+        if (!items.length) {
+          container.innerHTML = '<p class="checkout-empty">Your cart is empty. Go back and choose at least one bracelet.</p>';
+          totalEl.textContent = "$0.00";
+          return;
+        }
+
+        var fragment = document.createDocumentFragment();
+        items.forEach(function (item) {
+          var row = document.createElement("div");
+          row.className = "checkout-row";
+          row.innerHTML =
+            '<div class="checkout-main">' +
+              '<div class="checkout-name">' + item.name + "</div>" +
+              '<div class="checkout-meta">Qty ' + item.qty + "  $" + item.price + "</div>" +
+            "</div>";
+          fragment.appendChild(row);
+        });
+        container.appendChild(fragment);
+
+        var total = window.EnTrusCart.getTotal();
+        totalEl.textContent = "$" + total.toFixed(2);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        render();
+
+        var clearBtn = document.getElementById("checkout-clear");
+        if (clearBtn && window.EnTrusCart) {
+          clearBtn.addEventListener("click", function () {
+            if (confirm("Clear the current cart?")) {
+              window.EnTrusCart.clear();
+              render();
+            }
+          });
+        }
+
+        var confirmBtn = document.getElementById("checkout-confirm");
+        if (confirmBtn) {
+          confirmBtn.addEventListener("click", function () {
+            var email = (document.getElementById("checkout-email") || {}).value || "";
+            var notes = (document.getElementById("checkout-notes") || {}).value || "";
+            console.log("EnTrus checkout snapshot (local only):", {
+              email: email,
+              notes: notes,
+              items: window.EnTrusCart ? window.EnTrusCart.getItems() : []
+            });
+            alert("Alignment confirmed locally. When the full EnTrus House opens, this flow will connect to real ordering.");
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

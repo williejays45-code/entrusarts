@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>852 Hz Seer Bracelet  Reveal the Light</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="entrus-body">
+    <header class="entrus-header">
+        <div class="entrus-logo">
+            <a href="../index.html">EnTrus Arts  House of Alignment</a>
+        </div>
+        <nav class="entrus-nav">
+            <a href="../frequencies.html">Frequencies</a>
+            <a href="../apparel.html">Apparel</a>
+            <a href="../pages/bracelets.html">Bracelets</a>
+            <a href="../system.html">System</a>
+            <a href="../origin.html">Origin</a>
+            <a href="../join.html">Join</a>
+        </nav>
+    </header>
+
+    <main class="product-detail">
+        <section class="product-hero">
+            <div class="product-media">
+                <img src="../assets/images/bracelet_seer_v1.png" alt="852 Hz Seer Bracelet  Reveal the Light" class="product-image" />
+            </div>
+            <div class="product-copy">
+                <p class="product-line">852 Hz Seer Bracelet  Reveal the Light</p>
+                <h1 class="product-title">852 Hz Seer Bracelet  Reveal the Light</h1>
+                <p class="product-frequency">852 Hz  Guardian: Seer</p>
+                <p class="product-blurb">
+                    Lightfield bead pattern tuned for intuition, vision, and calm foresight.
+                </p>
+                <p class="product-note">
+                    This is a pre-release product view inside the EnTrus House. Final visuals will be rendered through the Guardian Image Lab (ComfyUI) and replace this placeholder image automatically.
+                </p>
+                <div class="product-actions">
+                    <button class="btn-primary">Add to Cart (Prototype)</button>
+                    <a href="../apparel.html" class="btn-secondary">Back to Apparel</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="entrus-footer">
+        <p>EnTrus Arts  2025  House of Alignment  All Guardians and Seals Protected.</p>
+    </footer>
+</body>
+</html>

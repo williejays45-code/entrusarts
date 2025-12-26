@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transfusion Bracelet  EnTrus Bracelet Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header ea-header--viewer">
+    <div class="ea-brand">
+      <a href="../../index.html">ENTRUS ARTS</a>
+      <span>Bracelet Detail  Authentic Seal Line</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../../pages/bracelets.html" class="active">Bracelets</a>
+      <a href="../../apparel.html">Catalog</a>
+    </nav>
+  </header>
+
+  <main class="ea-main bracelet-viewer-shell">
+    <section class="bracelet-viewer-card">
+      <div class="bracelet-viewer-header">
+        <h1>Transfusion Bracelet</h1>
+        <p class="bracelet-viewer-frequency">Multi-Flow</p>
+      </div>
+
+      <div class="bracelet-viewer-body">
+        <p class="bracelet-viewer-tagline">Neutral  Yellow  Green  City Current Edition</p>
+        <p class="bracelet-viewer-desc">Matte stone gradient from neutral sandstone to pale yellow and leaf green, with sage and moss transition beads, taupe earth anchors, and cream echo beads. Two matte-gold spacer rings frame the center bead cluster.</p>
+      </div>
+
+      <div class="bracelet-viewer-meta">
+        <span class="bracelet-viewer-code">TF-001</span>
+        <span class="bracelet-viewer-price">$88.00</span>
+      </div>
+
+      <div class="activation-block">
+        <p class="activation-band">Guardian Band: Bracelet Core</p>
+        <p class="activation-hint">Choose how and when youll actually wear this, not just imagine it.</p>
+      </div>
+
+      <div class="activation-qr">
+        <p class="activation-code-label">Activation code</p>
+        <p class="activation-code" id="activation-code">EA11-TRANSFUSION-1111</p>
+        <p class="activation-code-note">
+          This code will mirror onto the QR / NFC card when the physical bracelet ships.
+        </p>
+      </div>
+
+      <div class="bracelet-viewer-note">
+        Status: Available Soon<br />
+        Local preview only. Cart + codes stay on your device until the full EnTrus House opens.
+      </div>
+
+      <div class="bracelet-viewer-actions">
+        <button id="ea-detail-add" class="bracelet-add">Add to Cart</button>
+        <a href="../../pages/bracelets.html" class="bracelet-viewer-back">Back to Collection</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Bracelet Detail</p>
+  </footer>
+
+  <script src="../../js/bracelets_data.js"></script>
+  <script src="../../js/cart.js"></script>
+  <script src="../../js/activation_codes.js"></script>
+  <script>
+    (function () {
+      var id = "transfusion";
+      var list = window.EnTrusBracelets || [];
+      var found = null;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id) { found = list[i]; break; }
+      }
+      var btn = document.getElementById("ea-detail-add");
+      if (!btn || !found || !window.EnTrusCart) return;
+      btn.addEventListener("click", function () {
+        window.EnTrusCart.add(found);
+      });
+    })();
+  </script>
+</body>
+</html>

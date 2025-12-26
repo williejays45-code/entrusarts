@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>396 Hz Protector Bracelet  EnTrus Bracelet Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header ea-header--viewer">
+    <div class="ea-brand">
+      <a href="../../index.html">ENTRUS ARTS</a>
+      <span>Authentic Seal Line  Bracelet Detail</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../../pages/bracelets.html" class="active">Bracelets</a>
+    </nav>
+  </header>
+
+  <main class="ea-main bracelet-viewer-shell">
+    <section class="bracelet-viewer-card">
+      <div class="bracelet-viewer-header">
+        <h1>396 Hz Protector Bracelet</h1>
+        <p class="bracelet-viewer-frequency">396 Hz  Seal of Protector</p>
+      </div>
+
+      <div class="bracelet-viewer-body">
+        <p class="bracelet-viewer-tagline">Guard the Flame</p>
+        <p class="bracelet-viewer-desc">Burnt copper and deep onyx beads with a single Protector seal bead. Built for those who stand at the front and carry responsibility on their chest.</p>
+      </div>
+
+      <div class="bracelet-viewer-meta">
+        <span class="bracelet-viewer-code">396-PRT-01</span>
+        <span class="bracelet-viewer-price">$96.00</span>
+      </div>
+
+      <div class="bracelet-viewer-note">
+        Status: Planned Drop
+        <br/>
+        Detail page is driven from the same product data used by the Bracelet Collection and Cart.
+      </div>
+
+      <div class="bracelet-viewer-actions">
+        <button id="ea-detail-add" class="bracelet-add">Add to Cart</button>
+        <a href="../../pages/bracelets.html" class="bracelet-viewer-back">Back to Collection</a>        <a href="../pages/bracelet_viewer.html?id=396_protector" class="bracelet-viewer-back">Open Viewer</a>      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Bracelet Detail</p>
+  </footer>
+
+  <script src="../../js/bracelets_data.js"></script>
+  <script src="../../js/cart.js"></script>
+  <script>
+    (function () {
+      var id = "396_protector";
+      var list = window.EnTrusBracelets || [];
+      var found = null;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id) {
+          found = list[i];
+          break;
+        }
+      }
+      var btn = document.getElementById("ea-detail-add");
+      if (!btn || !found || !window.EnTrusCart) return;
+      btn.addEventListener("click", function () {
+        window.EnTrusCart.add(found);
+      });
+    })();
+  </script>
+</body>
+</html>
