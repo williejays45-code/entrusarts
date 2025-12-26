@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EnTrus System  Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>EnTrus System  Overview</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../index.html">Home</a>
+      <a href="../apparel.html">Apparel</a>
+      <a href="bracelets.html">Bracelets</a>
+      <a href="cards.html">Activation Cards</a>
+      <a href="system.html" class="active">System</a>
+      <a href="guardians.html">Guardians</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <div class="ea-cart-pill">
+      <a href="cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="ea-main">
+    <section class="product-section">
+      <header class="product-header">
+        <h1>The EnTrus System</h1>
+        <p>
+          Apparel, bracelets, and activation codes built around frequencies and guardians, with everything staying honest
+          and local-first until the full House goes live.
+        </p>
+      </header>
+
+      <div class="system-grid">
+        <article class="system-card">
+          <h2>Frequency Lines</h2>
+          <p>
+            285 Hz (Form), 396 Hz (Protector), 528 Hz (Flow), 639 Hz (Drive), 741 Hz (Expression), 852 Hz (Seer).
+            Each line maps to specific apparel and bracelet pieces in the catalog.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <h2>Apparel Layers</h2>
+          <p>
+            Tees, hoodies, joggers, and shoes act as visible layers. Placement of sigils and phrases follows the
+            standard EnTrus layout so every garment feels intentional instead of random.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <h2>Bracelet Lines</h2>
+          <p>
+            Single-frequency bracelets and the Transfusion line act as portable anchors. Their activation cards and codes
+            track how and when they are used, not just the design.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <h2>Activation Codes</h2>
+          <p>
+            Each product has a local activation code that will later sync with QR / NFC tags. For now, those codes are
+            printed on activation cards and detail pages so the structure is in place before the tech goes live.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <h2>Guardians & Origin</h2>
+          <p>
+            Origin guardians and frequency guardians sit behind the system. Their role is to guide mood, timing,
+            and perspective &mdash; never to control decisions. The Guardians page breaks this down visually.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <h2>Local Integrity</h2>
+          <p>
+            Everything here runs from your machine: files, cart, activation cards. That keeps the work grounded until
+            you decide when and how to connect it to public servers and real orders.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  EnTrus System Overview</p>
+  </footer>
+
+  <script src="../js/cart.js"></script>
+</body>
+</html>

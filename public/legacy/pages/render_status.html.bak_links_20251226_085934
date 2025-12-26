@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>EnTrus Render Status Panel</title>
+    <style>
+        body {
+            background: #050608;
+            color: #f5f5f5;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            padding: 24px;
+        }
+        h1 {
+            margin-bottom: 4px;
+        }
+        h2 {
+            margin-top: 24px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .ea-status-summary {
+            margin-bottom: 16px;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 13px;
+        }
+        th, td {
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        th {
+            text-align: left;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        td.right {
+            text-align: right;
+        }
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.01);
+        }
+        .status-ready {
+            color: #9df09d;
+            font-weight: 600;
+        }
+        .status-placeholder {
+            color: #f4dc7a;
+            font-weight: 600;
+        }
+        .status-missing {
+            color: #ff7a7a;
+            font-weight: 600;
+        }
+        .ea-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 999px;
+            border: 1px solid rgba(230,210,160,0.5);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+    </style>
+<style>
+    /* ENTRUS NAV v1 */
+    .ea-nav {
+        display: flex;
+        gap: 16px;
+        padding: 10px 18px;
+        border-bottom: 1px solid rgba(230,210,160,0.3);
+        background: rgba(5,5,7,0.92);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+    .ea-nav a {
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #f5f5f5;
+        opacity: 0.82;
+    }
+    .ea-nav a:hover {
+        opacity: 1;
+        color: #f0e0a8;
+    }
+    </style>
+</head>
+<body>
+    <!-- ENTRUS NAV v1 -->
+    <nav class="ea-nav">
+        <a href="index.html">Home</a>
+        <a href="apparel.html">Apparel</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="render_status.html">Render Status</a>
+    </nav>
+    <!-- /ENTRUS NAV v1 -->
+    <h1>EnTrus Render Status Panel</h1>
+    <div class="ea-status-summary">
+        <span class="ea-tag">Layer 43  Render Health</span>
+        <div>Shows current PNG status for hoodie, bracelet, and shoe renders in <code>C:\EnTrusRender\output</code>.</div>
+        <div><strong>READY</strong> = real render (&gt; 2 KB), <strong>PLACEHOLDER</strong> = lab placeholder, <strong>MISSING_FILE</strong> = no PNG yet.</div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Group</th>
+                <th>Product ID</th>
+                <th>Label</th>
+                <th class="right">Size (KB)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>bracelets</td>
+                <td>bracelet_drive_v1</td>
+                <td>639 Hz Drive Bracelet</td>
+                <td class="right">21.4</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>bracelets</td>
+                <td>bracelet_expression_v1</td>
+                <td>741 Hz Expression Bracelet</td>
+                <td class="right">23</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>bracelets</td>
+                <td>bracelet_flow_v1</td>
+                <td>528 Hz Flow Bracelet</td>
+                <td class="right">21.3</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>bracelets</td>
+                <td>bracelet_protector_v1</td>
+                <td>396 Hz Protector Bracelet</td>
+                <td class="right">22.5</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>bracelets</td>
+                <td>bracelet_seer_v1</td>
+                <td>852 Hz Seer Bracelet</td>
+                <td class="right">21</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>bracelets</td>
+                <td>bracelet_transfusion_v1</td>
+                <td>Transfusion Bracelet</td>
+                <td class="right">21.6</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>hoodies</td>
+                <td>hoodie_drive_v1</td>
+                <td>639 Hz Drive Hoodie</td>
+                <td class="right">20.7</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>hoodies</td>
+                <td>hoodie_flow_v1</td>
+                <td>528 Hz Flow Hoodie</td>
+                <td class="right">20.6</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>hoodies</td>
+                <td>hoodie_protector_v1</td>
+                <td>396 Hz Protector Hoodie</td>
+                <td class="right">22.3</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>hoodies</td>
+                <td>hoodie_seer_v1</td>
+                <td>852 Hz Seer Hoodie</td>
+                <td class="right">20.4</td>
+                <td class="status-ready">READY</td>
+            </tr>
+            <tr>
+                <td>shoes</td>
+                <td>shoe_fusion_v1</td>
+                <td>Fusion Prototype Shoe</td>
+                <td class="right">21.4</td>
+                <td class="status-ready">READY</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+

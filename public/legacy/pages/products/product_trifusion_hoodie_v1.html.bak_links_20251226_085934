@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EnTrus  Tri-Fusion Hoodie</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#05050a; color:#f9fafb; margin:0; padding:24px; }
+    .wrap { max-width:960px; margin:0 auto; }
+    .crumbs { font-size:11px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:16px; }
+    .crumbs a { color:#9ca3af; text-decoration:none; }
+    h1 { font-size:22px; letter-spacing:0.08em; text-transform:uppercase; margin:0 0 6px 0; }
+    .meta { font-size:12px; color:#9ca3af; margin-bottom:18px; }
+    .layout { display:flex; flex-wrap:wrap; gap:24px; }
+    .left { flex:1 1 320px; }
+    .right { flex:1 1 260px; }
+    .hero { background:#0b0b14; border-radius:16px; padding:12px; box-shadow:0 18px 30px rgba(0,0,0,0.55); }
+    .hero img { width:100%; border-radius:12px; display:block; background:#020617; }
+    .hero-placeholder { width:100%; height:260px; border-radius:12px; background:linear-gradient(135deg,#111827,#020617); display:flex; align-items:center; justify-content:center; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.12em; }
+    .status { margin-top:10px; font-size:11px; }
+    .badge { display:inline-block; padding:3px 10px; border-radius:999px; font-size:10px; text-transform:uppercase; letter-spacing:0.12em; }
+    .badge-ready { background:#10b98122; color:#6ee7b7; border:1px solid #10b981; }
+    .badge-partial { background:#f59e0b22; color:#fbbf24; border:1px solid #f59e0b; }
+    .badge-missing { background:#ef444422; color:#fca5a5; border:1px solid #ef4444; }
+    .badge-suspect { background:#f9731622; color:#fed7aa; border:1px solid #f97316; }
+    .badge-hybrid_only { background:#3b82f622; color:#93c5fd; border:1px solid #3b82f6; }
+    .views-strip { margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; }
+    .thumb { width:84px; }
+    .thumb img { width:100%; border-radius:8px; background:#020617; display:block; }
+    .thumb span { display:block; font-size:10px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.12em; margin-top:4px; }
+    .panel { background:#0b0b14; border-radius:16px; padding:16px; margin-bottom:16px; box-shadow:0 14px 24px rgba(0,0,0,0.45); }
+    .panel h2 { font-size:13px; text-transform:uppercase; letter-spacing:0.12em; margin:0 0 8px 0; color:#c0ffb3; }
+    .panel p { font-size:12px; line-height:1.6; color:#e5e7eb; margin:0 0 8px 0; }
+    .field { font-size:12px; margin-bottom:4px; color:#d1d5db; }
+    .field span { color:#9ca3af; }
+    .tag { display:inline-block; padding:2px 8px; border-radius:999px; background:#111827; font-size:11px; margin-right:4px; margin-top:4px; }
+    .footer-note { margin-top:24px; font-size:11px; color:#6b7280; }
+    @media (max-width: 720px) { .layout { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="crumbs"><a href="../product_gallery.html">Gallery</a>  <span>hoodie</span></div>
+    <h1>Tri-Fusion Hoodie</h1>
+    <div class="meta">Multi-frequency  Tri-Fusion</div>
+    <div class="layout">
+      <div class="left">
+        <div class="hero">
+          <div class="hero-placeholder">IMAGE COMING SOON</div>
+          <div class="status"><span class="badge badge-missing">missing</span></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="panel">
+          <h2>Product Details</h2>
+          <div class="field"><span>ID:</span> trifusion_hoodie_v1</div>
+          <div class="field"><span>Category:</span> hoodie</div>
+          <div class="field"><span>Frequency:</span> Multi-frequency  Tri-Fusion</div>
+          <div class="field"><span>Image Status:</span> missing</div>
+        </div>
+        <div class="panel">
+          <h2>Frequency & Intent</h2>
+          <p>This EnTrus piece is aligned with its frequency path inside the EnTrus System. Visuals, sigils, and layout follow the internal EnTrus rules you defined  no external brands, no noise, just the line youre building.</p>
+          <p>As images are completed, this page will update to reflect real renders and final presentation angles.</p>
+        </div>
+        <div class="panel">
+          <h2>Status</h2>
+          <p>Use this page as a live reference for render completion and gallery readiness. When all views are present and validated, this item is ready for catalog and storefront integration.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">Generated from product_registry.json on 2025-12-11 21:13:14  EnTrus internal product page</div>
+  </div>
+</body>
+</html>

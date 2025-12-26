@@ -1,0 +1,127 @@
+﻿type FrequencyCard = {
+  hz: string;
+  seal: string;
+  line1: string;
+  line2: string;
+};
+
+const CARDS: FrequencyCard[] = [
+  {
+    hz: "285 Hz",
+    seal: "Seal of Form",
+    line1: "Return to Origin.",
+    line2: "Foundational grounding, repair, physical renewal.",
+  },
+  {
+    hz: "396 Hz",
+    seal: "Seal of Protector",
+    line1: "Guard the Flame.",
+    line2: "Hold the line. Courage made wearable.",
+  },
+  {
+    hz: "528 Hz",
+    seal: "Seal of Flow",
+    line1: "Live in Rhythm.",
+    line2: "Alignment in motion — breath, movement, balance.",
+  },
+  {
+    hz: "639 Hz",
+    seal: "Seal of Drive",
+    line1: "Fuel the Bond.",
+    line2: "Connection, creativity, building without losing self.",
+  },
+  {
+    hz: "741 Hz",
+    seal: "Seal of Expression",
+    line1: "Speak the Light.",
+    line2: "Awakening, truth, liberation through voice.",
+  },
+  {
+    hz: "852 Hz",
+    seal: "Seal of Seer",
+    line1: "Reveal the Light.",
+    line2: "Intuition, vision, illumination — clarity forward.",
+  },
+];
+
+function FrequencyCardView({ hz, seal, line1, line2 }: FrequencyCard) {
+  return (
+    <div className="card">
+      <div className="cardHz">{hz}</div>
+      <div className="cardSeal">{seal}</div>
+      <p className="cardDesc">
+        <strong>{line1}</strong> {line2}
+      </p>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <>
+      <div className="nav">
+        <div className="container navInner">
+          <div className="brand">
+            <span className="dot" />
+            <span>ENTRUS ARTS</span>
+          </div>
+
+          <div className="navLinks" aria-label="Primary">
+            <a href="#frequencies">Frequencies</a>
+            <a href="#apparel">Apparel</a>
+            <a href="#system">System</a>
+            <a href="#origin">Origin</a>
+            <a href="#join">Join</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="container hero">
+        <div className="heroGrid">
+          <div>
+            <div className="kicker">House of Alignment 2025</div>
+            <h1 className="h1">
+              Where your <span className="gold">frequency</span> becomes your power.
+            </h1>
+            <p className="p">
+              EnTrus Arts is a living system of Guardians, Frequencies, and design. Not just apparel — a mapped path
+              of discipline, presence, and expression.
+            </p>
+
+            <div className="actions">
+              <button className="btn btnGold" onClick={() => document.getElementById("frequencies")?.scrollIntoView({ behavior: "smooth" })}>
+                CHOOSE YOUR FREQUENCY
+              </button>
+              <button className="btn" onClick={() => document.getElementById("origin")?.scrollIntoView({ behavior: "smooth" })}>
+                WATCH THE ORIGIN
+              </button>
+            </div>
+          </div>
+
+          <div className="panel">
+            <div className="panelTitle">SERAI’EL — VOICE OF THE ENTRUS SYSTEM</div>
+            <p className="panelText">
+              Welcome. Every seal, every guardian, every garment has a function. I can guide you through the House.
+            </p>
+            <p className="panelHint">
+              Next step: we’ll wire the “Serai’El” panel into your real files (EnTrusWeb data → Next components) without breaking anything.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container section" id="frequencies">
+        <h2 className="sectionTitle">Frequencies & Guardians</h2>
+        <p className="sectionSub">Each frequency carries a role in the EnTrus House.</p>
+
+        <div className="cards">
+          {CARDS.map((c) => (
+            <FrequencyCardView key={c.hz} {...c} />
+          ))}
+        </div>
+      </div>
+
+      <div className="container footerSpace" />
+    </>
+  );
+}

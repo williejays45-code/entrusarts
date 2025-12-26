@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>EnTrus Arts  Drive Line Hoodie 639 Hz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body class="entrus-body">
+    <header class="entrus-header">
+        <nav class="entrus-nav">
+            <a href="../index.html" class="nav-logo">ENTRUS ARTS</a>
+            <a href="../index.html#frequencies">Frequencies</a>
+            <a href="../apparel.html">Apparel</a>
+            <a href="../system.html">System</a>
+            <a href="../origin.html">Origin</a>
+            <a href="../join.html">Join</a>
+        </nav>
+    </header>
+
+    <main class="entrus-main">
+        <section class="product-hero">
+            <div class="product-image">
+                <img src="../assets/images/hoodie_drive_v1.png" alt="Drive Line Hoodie 639 Hz" />
+            </div>
+            <div class="product-meta">
+                <h1>Drive Line Hoodie 639 Hz</h1>
+                <p class="product-frequency">639 Hz  Fuel the Bond</p>
+                <p class="product-category">Category: hoodie</p>
+                <p class="product-desc">
+                    Connection, creativity, and balanced energy exchange for building with others without losing yourself.
+                </p>
+                <p class="product-tagline">
+                    EnTrus Arts Frequency System  Wear the Code.
+                </p>
+                <a href="../apparel.html" class="btn-primary">Back to Apparel Index</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="entrus-footer">
+        <p>EnTrus Arts  House of Alignment 2025  Authentic Seal Line</p>
+    </footer>
+</body>
+</html>

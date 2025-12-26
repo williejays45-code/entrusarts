@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EnTrus Frequency Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      margin: 0;
+    }
+    .ea-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+    .ea-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .ea-title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .ea-sub {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .ea-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .ea-nav a {
+      font-size: 11px;
+      color: #c4b5fd;
+      text-decoration: none;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      background: rgba(15,23,42,0.9);
+    }
+    .ea-nav a:hover {
+      border-color: #a5b4fc;
+    }
+    .ea-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .ea-card {
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      background: radial-gradient(circle at top left, #0b1120, #020617 60%);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ea-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .ea-freq {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .ea-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+    }
+    .ea-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+    .ea-phrase {
+      font-size: 12px;
+      color: #a5b4fc;
+    }
+    .ea-desc {
+      font-size: 12px;
+      color: #d1d5db;
+    }
+    .ea-links {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .ea-links span {
+      color: #bbf7d0;
+    }
+    .ea-note {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #6b7280;
+      max-width: 720px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ea-shell">
+    <header class="ea-header">
+      <div>
+        <div class="ea-title">EnTrus Frequency Map</div>
+        <div class="ea-sub">
+          How each seal line carries its job in the system. Numbers, phrases, and intent  not promises.
+        </div>
+        <nav class="ea-nav">
+          <a href="index.html">Home</a>
+          <a href="apparel.html">Apparel Catalog</a>
+          <a href="guardian_council.html">Guardian Council</a>
+          <a href="creator_panel.html">Creator Panel</a>
+        </nav>
+      </div>
+      <div class="ea-sub">
+        Local view  C:\EnTrusWeb
+      </div>
+    </header>
+
+    <section>
+      <p class="ea-sub">
+        Every frequency in EnTrus is a way to hold a role, not a shortcut or superstition. Clothing, beads, and cards use
+        these maps to remind the wearer who they chose to be that day.
+      </p>
+    </section>
+
+    <section class="ea-grid">
+      <article class="ea-card">
+        <div class="ea-badge-row">
+          <div class="ea-freq">285 Hz</div>
+          <div class="ea-tag">Seal of Form</div>
+        </div>
+        <div class="ea-name">Return to Origin</div>
+        <div class="ea-phrase">Return to Origin (R t O)</div>
+        <p class="ea-desc">
+          Grounding, repair, and physical renewal. This line is the base grid: steady colors, sturdy forms, and
+          a reminder to rebuild the foundation before chasing the next thing.
+        </p>
+        <p class="ea-links">
+          Linked items: <span>Foundational hats, grounding apparel, base beads</span>
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-badge-row">
+          <div class="ea-freq">396 Hz</div>
+          <div class="ea-tag">Seal of Protector</div>
+        </div>
+        <div class="ea-name">Guard the Flame</div>
+        <div class="ea-phrase">Guard the Flame (G t F)</div>
+        <p class="ea-desc">
+          Duty, courage, and boundary. Built for the people who stand in front, hold the door, or keep watch while others rest.
+          Ember tones, protector sigils, and firm placement on chest and wrist.
+        </p>
+        <p class="ea-links">
+          Linked items: <span>Protector hoodie, hat, bracelet, activation card</span>
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-badge-row">
+          <div class="ea-freq">528 Hz</div>
+          <div class="ea-tag">Seal of Flow</div>
+        </div>
+        <div class="ea-name">Live in Rhythm</div>
+        <div class="ea-phrase">Live in Rhythm (L i R)</div>
+        <p class="ea-desc">
+          Breath, recovery, and motion. Forest greens and morning gold for people rebuilding their pace, protecting their
+          health, and learning to move without burning out.
+        </p>
+        <p class="ea-links">
+          Linked items: <span>Flow hoodie, tee, joggers, bracelets, Transfusion blend</span>
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-badge-row">
+          <div class="ea-freq">639 Hz</div>
+          <div class="ea-tag">Seal of Drive</div>
+        </div>
+        <div class="ea-name">Fuel the Bond</div>
+        <div class="ea-phrase">Fuel the Bond (F t B)</div>
+        <p class="ea-desc">
+          Connection, collaboration, and shared drive. This line is for building with others  family, crew, or team 
+          without losing yourself in the process.
+        </p>
+        <p class="ea-links">
+          Linked items: <span>Drive apparel, bracelets, connection-focused layouts</span>
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-badge-row">
+          <div class="ea-freq">741 Hz</div>
+          <div class="ea-tag">Seal of Expression</div>
+        </div>
+        <div class="ea-name">Speak the Light</div>
+        <div class="ea-phrase">Speak the Light (S t L)</div>
+        <p class="ea-desc">
+          Truth, voice, and liberation. Designed for people learning to say what they really mean  clear, kind, and firm 
+          in art, conversation, or leadership.
+        </p>
+        <p class="ea-links">
+          Linked items: <span>Expression hats, future tees, bead lines</span>
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-badge-row">
+          <div class="ea-freq">852 Hz</div>
+          <div class="ea-tag">Seal of Seer</div>
+        </div>
+        <div class="ea-name">Reveal the Light</div>
+        <div class="ea-phrase">Reveal the Light</div>
+        <p class="ea-desc">
+          Intuition, pattern recognition, and quiet clarity. White Clarity and Gold Eclipse tones mark people who read rooms,
+          spot patterns, and see the long path before others do.
+        </p>
+        <p class="ea-links">
+          Linked items: <span>Seer hoodie, beads, hats, vision pieces</span>
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-badge-row">
+          <div class="ea-freq">888 Hz</div>
+          <div class="ea-tag">Fusion Line</div>
+        </div>
+        <div class="ea-name">Alignment in Motion</div>
+        <div class="ea-phrase">Fusion channel for multi-frequency pieces</div>
+        <p class="ea-desc">
+          Movement between roles. Fusion is for bracelets, shoes, and outfits that carry more than one seal at once:
+          Protector + Flow, Drive + Seer, and beyond.
+        </p>
+        <p class="ea-links">
+          Linked items: <span>Transfusion bracelet, Fusion shoe, multi-line layouts</span>
+        </p>
+      </article>
+    </section>
+
+    <p class="ea-note">
+      These descriptions are guidance, not guarantees. EnTrus uses frequency language and clothing design to help people
+      make deliberate choices about how they show up  day by day, outfit by outfit.
+    </p>
+  </div>
+</body>
+</html>

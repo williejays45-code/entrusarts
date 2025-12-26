@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EnTrus Arts  528 Hz Flow Bracelet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="entrus-product-page">
+  <header class="ea-site-header">
+    <div class="ea-logo">EnTrus Arts</div>
+    <nav class="ea-nav">
+      <a href="../index.html">House</a>
+      <a href="../frequencies.html">Frequencies</a>
+      <a href="../apparel.html" class="active">Apparel</a>
+      <a href="../system.html">System</a>
+      <a href="../origin.html">Origin</a>
+      <a href="../join.html">Join</a>
+    </nav>
+  </header>
+
+  <main class="ea-product-shell">
+    <section class="ea-product-hero">
+      <div class="ea-product-media">
+        <img src="../assets/images/bracelet_flow_v1.png" alt="528 Hz Flow Bracelet" class="ea-product-image" />
+      </div>
+      <div class="ea-product-meta">
+        <p class="ea-product-line">Flow Line 528 Hz</p>
+        <h1 class="ea-product-title">528 Hz Flow Bracelet</h1>
+        <p class="ea-product-frequency">528 Hz  SEAL OF FLOW</p>
+        <p class="ea-product-tagline">For breath, stretch, and everyday recovery.</p>
+        <p class="ea-product-desc">
+          Forest and sage greens with morning-gold accents, coded for motion and gentle reset throughout the day.
+        </p>
+
+        <ul class="ea-product-specs">
+          <li>Cut: Frequency-weighted fit tuned for real movement.</li>
+          <li>Fabric: Matte cotton blend and comfort-core materials.</li>
+          <li>Sigils: Front seal, echo code, and EnTrus watermark.</li>
+          <li>Activation: Paired with your product activation card and QR.</li>
+        </ul>
+
+        <button class="ea-btn-primary" data-product-id="bracelet_flow_v1">Add to Cart</button>
+      </div>
+    </section>
+  <!-- ENTRUS VARIANTS -->
+  <section class="ea-product-options" data-product-id="bracelet_flow_v1">
+    <h2>Options</h2>
+  <div class="ea-option-row">
+    <label for="size-bracelet_flow_v1">Size</label>
+    <select id="size-bracelet_flow_v1" class="ea-select-size">
+      <option value="S/M">S/M</option>
+      <option value="M/L">M/L</option>
+    </select>
+  </div>  <div class="ea-option-row">
+    <label for="color-bracelet_flow_v1">Colorway</label>
+    <select id="color-bracelet_flow_v1" class="ea-select-color">
+      <option value="Flow Standard">Flow Standard</option>
+    </select>
+  </div>
+  </section>
+  <!-- END ENTRUS VARIANTS -->
+<section class="ea-product-frequency-block">
+      <h2>Frequency Code</h2>
+      <p class="ea-frequency-copy">
+        Keeps the reminder on your wrist: inhale, move, and let tension drain instead of stacking up.
+      </p>
+    </section>
+    <section class="ea-activation-cta" data-activation-id="bracelet_flow_v1">
+    <h2>Activation Card</h2>
+    <p>Mark this piece before you wear it. Open the activation card for a short breath and intent sequence.</p>
+    <a class="ea-btn-secondary"
+       href="../cards/bracelet_flow_v1_card.html"
+       target="_blank"
+       rel="noopener">
+      View Activation Card
+    </a>
+  </section>
+</main>
+
+  <footer class="ea-site-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line</p>
+  </footer>
+  <script src="../js/products_variants.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+</html>
+
+
+

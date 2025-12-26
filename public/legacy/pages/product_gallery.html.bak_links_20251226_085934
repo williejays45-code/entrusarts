@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnTrus Product Gallery</title>
+  <style>
+    :root{ --bg:#020617; --panel:#0b1220; --ink:#e5e7eb; --muted:#9ca3af; --line:#1f2937; }
+    body{ font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--ink); margin:0; padding:24px; }
+    .wrap{ max-width:1200px; margin:0 auto; }
+    h1{ font-size:22px; text-transform:uppercase; letter-spacing:.16em; margin:0 0 6px 0; }
+    .sub{ font-size:11px; color:var(--muted); margin-bottom:14px; }
+    .bar{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:12px; box-shadow:0 18px 34px rgba(0,0,0,.55); }
+    .bar input,.bar select{ background:#020617; color:var(--ink); border:1px solid var(--line); border-radius:12px; padding:10px 10px; font-size:12px; }
+    .bar input{ min-width:220px; flex:1 1 260px; }
+    .btn{ background:#111827; border:1px solid var(--line); border-radius:12px; padding:10px 12px; color:var(--ink); cursor:pointer; font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+    .btn:hover{ border-color:#93c5fd; }
+    .toggle{ display:flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; background:#111827; border:1px solid var(--line); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+    .toggle input{ transform: scale(1.1); }
+    .meta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:12px; font-size:11px; color:var(--muted); }
+    .grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap:14px; margin-top:16px; }
+    .card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 18px 34px rgba(0,0,0,.55); display:flex; flex-direction:column; }
+    .thumb{ width:100%; aspect-ratio: 4/3; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .body{ padding:12px; display:flex; flex-direction:column; gap:8px; }
+    .title{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+    .row{ display:flex; flex-wrap:wrap; gap:6px; }
+    .pill{ display:inline-block; padding:2px 8px; border-radius:999px; font-size:10px; text-transform:uppercase; letter-spacing:.12em; border:1px solid var(--line); color:var(--muted); }
+    .p-ready{ border-color:#10b981; color:#6ee7b7; background:#10b98122; }
+    .p-partial{ border-color:#f59e0b; color:#fbbf24; background:#f59e0b22; }
+    .p-missing{ border-color:#ef4444; color:#fca5a5; background:#ef444422; }
+    .p-suspect{ border-color:#f97316; color:#fed7aa; background:#f9731622; }
+    .p-hybrid{ border-color:#3b82f6; color:#93c5fd; background:#3b82f622; }
+    .p-unknown{ border-color:#4b5563; color:#e5e7eb; background:#4b556322; }
+    a{ color:#93c5fd; text-decoration:none; }
+    .foot{ margin-top:18px; color:var(--muted); font-size:11px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>ENTRUS PRODUCT GALLERY</h1>
+    <div class="sub">Phase 14  Generated 2025-12-12 18:57:04  Missing-only toggle + Export  Products embedded: 0</div>
+    <div class="bar">
+      <input id="q" type="text" placeholder="Search by label or productId" />
+      <select id="cat"><option value="">All Categories</option></select>
+      <select id="freq"><option value="">All Frequencies</option></select>
+      <select id="st"><option value="">All Status</option></select>
+      <label class="toggle"><input id="missingOnly" type="checkbox"> Missing Only</label>
+      <button class="btn" id="exportCsv">Export CSV</button>
+      <button class="btn" id="reset">Reset</button>
+    </div>
+    <div class="meta">
+      <div><span id="count">0</span> shown</div>
+      <div><a href="creator_panel.html">Creator Panel</a>  <a href="status_dashboard.html">Status Dashboard</a>  <a href="render_console.html">Render Console</a></div>
+      <div>Disk exports: <a href="../data/export_missing_products.csv">export_missing_products.csv</a>  <a href="../data/export_missing_products.json">export_missing_products.json</a></div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div class="foot">Export CSV downloads the CURRENT filtered view. Disk exports are written by Phase 14.</div>
+  </div>
+  <script>
+    const DATA = ;
+    const CATS = ;
+    const FREQS = ;
+    const STS = ;
+    const MISSING_STATUSES = new Set(['missing','partial','suspect','hybrid_only']);
+
+    const elQ = document.getElementById('q');
+    const elCat = document.getElementById('cat');
+    const elFreq = document.getElementById('freq');
+    const elSt = document.getElementById('st');
+    const elMissing = document.getElementById('missingOnly');
+    const elGrid = document.getElementById('grid');
+    const elCount = document.getElementById('count');
+
+    function fillSelect(el, arr){
+      arr.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = String(v);
+        opt.textContent = String(v);
+        el.appendChild(opt);
+      });
+    }
+    fillSelect(elCat, CATS);
+    fillSelect(elFreq, FREQS);
+    fillSelect(elSt, STS);
+
+    function statusClass(s){
+      const t = (s || 'unknown').toLowerCase();
+      if(t === 'ready') return 'p-ready';
+      if(t === 'partial') return 'p-partial';
+      if(t === 'missing') return 'p-missing';
+      if(t === 'suspect') return 'p-suspect';
+      if(t === 'hybrid_only') return 'p-hybrid';
+      return 'p-unknown';
+    }
+
+    function render(list){
+      elGrid.innerHTML = '';
+      elCount.textContent = String(list.length);
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const thumb = document.createElement('div');
+        thumb.className = 'thumb';
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.src = p.primaryImage;
+        img.alt = p.label || p.productId;
+        img.onerror = () => { img.remove(); thumb.textContent = 'NO IMAGE'; thumb.style.color='#9ca3af'; thumb.style.fontSize='12px'; thumb.style.letterSpacing='.12em'; };
+        thumb.appendChild(img);
+
+        const body = document.createElement('div');
+        body.className = 'body';
+        const title = document.createElement('div');
+        title.className = 'title';
+        const a = document.createElement('a');
+        a.href = p.productPage;
+        a.textContent = p.label || p.productId;
+        title.appendChild(a);
+
+        const row1 = document.createElement('div');
+        row1.className = 'row';
+        const pillCat = document.createElement('span'); pillCat.className='pill'; pillCat.textContent = p.category;
+        const pillFreq = document.createElement('span'); pillFreq.className='pill'; pillFreq.textContent = String(p.frequency);
+        const pillSt = document.createElement('span'); pillSt.className='pill ' + statusClass(p.imageStatus); pillSt.textContent = p.imageStatus;
+        row1.appendChild(pillCat); row1.appendChild(pillFreq); row1.appendChild(pillSt);
+
+        const row2 = document.createElement('div');
+        row2.className = 'row';
+        const idPill = document.createElement('span'); idPill.className='pill'; idPill.textContent = p.productId;
+        row2.appendChild(idPill);
+
+        body.appendChild(title);
+        body.appendChild(row1);
+        body.appendChild(row2);
+
+        card.appendChild(thumb);
+        card.appendChild(body);
+        elGrid.appendChild(card);
+      });
+    }
+
+    function apply(){
+      const q = (elQ.value || '').trim().toLowerCase();
+      const cat = elCat.value;
+      const freq = elFreq.value;
+      const st = elSt.value;
+      const missingOnly = elMissing.checked;
+
+      let out = DATA.slice();
+      if(cat) out = out.filter(p => p.category === cat);
+      if(freq) out = out.filter(p => String(p.frequency) === String(freq));
+      if(st) out = out.filter(p => (p.imageStatus || 'unknown') === st);
+      if(missingOnly) out = out.filter(p => MISSING_STATUSES.has((p.imageStatus || 'unknown').toLowerCase()));
+      if(q){
+        out = out.filter(p => {
+          const a = (p.label || '').toLowerCase();
+          const b = (p.productId || '').toLowerCase();
+          return a.includes(q) || b.includes(q);
+        });
+      }
+      window.__ENTRUS_FILTERED__ = out;
+      render(out);
+    }
+
+    function exportCurrentToCsv(){
+      const rows = window.__ENTRUS_FILTERED__ || DATA;
+      const header = ['productId','label','category','frequency','imageStatus','productPage','primaryImage'];
+      const esc = (v) => {
+        const s = String(v ?? '');
+        return s;
+      };
+      const lines = [header.join(',')];
+      rows.forEach(p => {
+        lines.push([
+          esc(p.productId),
+          esc(p.label),
+          esc(p.category),
+          esc(p.frequency),
+          esc(p.imageStatus),
+          esc(p.productPage),
+          esc(p.primaryImage)
+        ].join(','));
+      });
+      const blob = new Blob([lines.join('\\n')], {type:'text/csv;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const stamp = new Date().toISOString().replace(/[:.]/g,'-');
+      a.download = entrus_export_.csv;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    elQ.addEventListener('input', apply);
+    elCat.addEventListener('change', apply);
+    elFreq.addEventListener('change', apply);
+    elSt.addEventListener('change', apply);
+    elMissing.addEventListener('change', apply);
+    document.getElementById('exportCsv').addEventListener('click', exportCurrentToCsv);
+    document.getElementById('reset').addEventListener('click', () => {
+      elQ.value=''; elCat.value=''; elFreq.value=''; elSt.value=''; elMissing.checked=false; apply();
+    });
+
+    apply();
+  </script>
+</body>
+</html>

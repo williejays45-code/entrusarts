@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EnTrus Render &amp; Sync Status</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-site-header">
+    <div class="ea-logo">EnTrus Arts</div>
+    <nav class="ea-nav">
+      <a href="../index.html">House</a>
+      <a href="../frequencies.html">Frequencies</a>
+      <a href="../apparel.html">Apparel</a>
+      <a href="../system.html">System</a>
+      <a href="../origin.html">Origin</a>
+    </nav>
+  </header>
+
+  <main class="ea-main ea-product-main">
+    <section class="ea-product-details">
+      <h1>Render &amp; Sync Status</h1>
+      <p>Total items in queue: <strong>10</strong></p>
+      <ul>
+<li><strong>queued</strong>  10</li>
+
+      </ul>
+
+      <table class="ea-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Profile</th>
+            <th>Freq</th>
+            <th>Guardian</th>
+            <th>Status</th>
+            <th>Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td>hoodie_protector_v1</td><td>hoodie</td><td>hoodie_protector_v1.json</td><td>396</td><td>Protector</td><td>queued</td><td>2025-12-09T18:55:56.6827251-06:00</td></tr>
+<tr><td>hoodie_flow_v1</td><td>hoodie</td><td>hoodie_flow_v1.json</td><td>528</td><td>Flow</td><td>queued</td><td>2025-12-09T18:55:56.6842319-06:00</td></tr>
+<tr><td>hoodie_drive_v1</td><td>hoodie</td><td>hoodie_drive_v1.json</td><td>639</td><td>Drive</td><td>queued</td><td>2025-12-09T18:55:56.6842319-06:00</td></tr>
+<tr><td>hoodie_seer_v1</td><td>hoodie</td><td>hoodie_seer_v1.json</td><td>852</td><td>Seer</td><td>queued</td><td>2025-12-09T18:55:56.6890166-06:00</td></tr>
+<tr><td>bracelet_protector_v1</td><td>bracelet</td><td>bracelet_protector_v1.json</td><td>396</td><td>Protector</td><td>queued</td><td>2025-12-09T18:55:56.6890166-06:00</td></tr>
+<tr><td>bracelet_flow_v1</td><td>bracelet</td><td>bracelet_flow_v1.json</td><td>528</td><td>Flow</td><td>queued</td><td>2025-12-09T18:55:56.6890166-06:00</td></tr>
+<tr><td>bracelet_drive_v1</td><td>bracelet</td><td>bracelet_drive_v1.json</td><td>639</td><td>Drive</td><td>queued</td><td>2025-12-09T18:55:56.6936895-06:00</td></tr>
+<tr><td>bracelet_seer_v1</td><td>bracelet</td><td>bracelet_seer_v1.json</td><td>852</td><td>Seer</td><td>queued</td><td>2025-12-09T18:55:56.6936895-06:00</td></tr>
+<tr><td>bracelet_transfusion_v1</td><td>bracelet</td><td>bracelet_transfusion_v1.json</td><td>888</td><td>Fusion</td><td>queued</td><td>2025-12-09T18:55:56.6936895-06:00</td></tr>
+<tr><td>shoe_fusion_v1</td><td>shoe</td><td>shoe_fusion_v1.json</td><td>888</td><td>Fusion</td><td>queued</td><td>2025-12-09T18:55:56.6977915-06:00</td></tr>
+
+        </tbody>
+      </table>
+
+      <p class="ea-note">Update this page by re-running <code>entrus_render_status_update.ps1</code>.</p>
+    </section>
+  </main>
+
+  <footer class="ea-site-footer">
+    <p>EnTrus Arts 2025  Local Render Monitor</p>
+  </footer>
+</body>
+</html>

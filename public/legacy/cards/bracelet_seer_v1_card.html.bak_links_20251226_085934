@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>852 Hz Seer Bracelet  Activation Card</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="ea-card-page">
+  <main class="ea-card-shell">
+    <section class="ea-card-hero">
+      <h1 class="ea-card-title">852 Hz Seer Bracelet</h1>
+      <p class="ea-card-meta">
+        <span class="ea-pill ea-pill-type">Bracelet</span>
+        <span class="ea-pill ea-pill-line">Seer Line</span>
+        <span class="ea-pill ea-pill-frequency">852 Hz</span>
+      </p>
+    </section>
+
+    <section class="ea-card-layout">
+      <div class="ea-card-visual">
+        <!-- Drop rendered activation card image here when ready -->
+        <img src="../assets/cards/bracelet_seer_v1.png"
+             alt="852 Hz Seer Bracelet Activation Card"
+             class="ea-card-img-main" />
+      </div>
+
+      <div class="ea-card-copy">
+        <h2>Activation Phrase</h2>
+        <p class="ea-card-mantra">Reveal the Light</p>
+
+        <h3>How to use this card</h3>
+        <ol class="ea-card-steps">
+          <li>Hold the card at heart or wrist level before you wear the piece.</li>
+          <li>Take three slow breaths, in through the nose and out through the mouth.</li>
+          <li>On the third exhale, quietly repeat the activation phrase in your own words.</li>
+          <li>Put on the garment or bracelet and move once  step, stretch, or bow  to lock the code.</li>
+        </ol>
+
+        <p class="ea-card-note">
+          This card doesnt promise outcomes. It marks your intent and links your movement to the frequency you chose.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

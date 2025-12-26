@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EnTrus Creator Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050608;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .ea-panel-shell {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+    .ea-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .ea-panel-title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .ea-panel-sub {
+      font-size: 13px;
+      color: #a3a3a3;
+    }
+    .ea-panel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .ea-panel-card {
+      border-radius: 12px;
+      border: 1px solid #262626;
+      background: radial-gradient(circle at top left, #111827, #020617 55%);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ea-panel-card h2 {
+      font-size: 15px;
+      margin: 0;
+    }
+    .ea-panel-card p {
+      font-size: 12px;
+      margin: 0;
+      color: #d4d4d4;
+    }
+    .ea-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
+      margin-top: 4px;
+    }
+    .ea-chip span {
+      opacity: 0.8;
+    }
+    .ea-panel-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .ea-btn-link {
+      font-size: 11px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ea-btn-link:hover {
+      border-color: #a3e635;
+      color: #bbf7d0;
+    }
+    .ea-path {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+      word-break: break-all;
+    }
+    .ea-section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 24px;
+      margin-bottom: 6px;
+    }
+    .ea-footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: #6b7280;
+      border-top: 1px solid #111827;
+      padding-top: 12px;
+    }
+    .ea-footer a {
+      color: #a5b4fc;
+      text-decoration: none;
+    }
+    .ea-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="ea-panel-shell">
+    <header class="ea-panel-header">
+      <div>
+        <div class="ea-panel-title">EnTrus Creator Panel</div>
+        <div class="ea-panel-sub">
+          Local control surface for checks, sync, and catalog wiring on this machine.
+        </div>
+      </div>
+      <div class="ea-panel-sub">
+        Root: <code>C:\EnTrusWeb</code>
+      </div>
+    </header>
+
+    <div class="ea-section-label">Checks &amp; Catalog</div>
+    <div class="ea-panel-grid">
+      <article class="ea-panel-card">
+        <h2>Web Products Check</h2>
+        <p>Verify hoodie, bracelet, and shoe pages plus catalog markers (ALL GREEN or report missing items).</p>
+        <div class="ea-chip"><span>Script</span><strong>entrus_web_products_check.ps1</strong></div>
+        <div class="ea-panel-actions">
+          <a class="ea-btn-link" href="control/run_products_check.cmd">
+            Launch check (Windows)
+          </a>
+          <a class="ea-btn-link" href="scripts/entrus_web_products_check.ps1">
+            View script
+          </a>
+        </div>
+        <div class="ea-path">Path: C:\EnTrusWeb\scripts\entrus_web_products_check.ps1</div>
+      </article>
+
+      <article class="ea-panel-card">
+        <h2>Card Images Sync + Check</h2>
+        <p>Sync activation card art from EnTrusRender to web and fill placeholders where needed.</p>
+        <div class="ea-chip"><span>Script</span><strong>entrus_cards_sync_and_check.ps1</strong></div>
+        <div class="ea-panel-actions">
+          <a class="ea-btn-link" href="control/run_cards_sync_check.cmd">
+            Launch sync + check
+          </a>
+          <a class="ea-btn-link" href="scripts/entrus_cards_sync_and_check.ps1">
+            View script
+          </a>
+        </div>
+        <div class="ea-path">Path: C:\EnTrusWeb\scripts\entrus_cards_sync_and_check.ps1</div>
+      </article>
+    </div>
+
+    <div class="ea-section-label">Renders &amp; Assets</div>
+    <div class="ea-panel-grid">
+      <article class="ea-panel-card">
+        <h2>Phase 1  Renders Sync</h2>
+        <p>Move real product and activation card renders from EnTrusRender into the website assets folders.</p>
+        <div class="ea-chip"><span>Script</span><strong>entrus_phase1_renders_sync.ps1</strong></div>
+        <div class="ea-panel-actions">
+          <a class="ea-btn-link" href="control/run_renders_sync.cmd">
+            Launch render sync
+          </a>
+          <a class="ea-btn-link" href="scripts/entrus_phase1_renders_sync.ps1">
+            View script
+          </a>
+        </div>
+        <div class="ea-path">Render input: C:\EnTrusRender\output\ and C:\EnTrusRender\cards_output\</div>
+      </article>
+
+      <article class="ea-panel-card">
+        <h2>Open Apparel Catalog</h2>
+        <p>Open the current apparel catalog page in your browser to visually inspect product cards and links.</p>
+        <div class="ea-chip"><span>View</span><strong>apparel.html</strong></div>
+        <div class="ea-panel-actions">
+          <a class="ea-btn-link" href="apparel.html">
+            Open apparel.html
+          </a>
+        </div>
+        <div class="ea-path">Path: C:\EnTrusWeb\apparel.html</div>
+      </article>
+    </div>
+
+    <div class="ea-section-label">Cart &amp; Variants</div>
+    <div class="ea-panel-grid">
+      <article class="ea-panel-card">
+        <h2>Layer 2 &amp; 3 Status</h2>
+        <p>Variant options and cart behavior are wired via <code>products_variants.js</code> and <code>cart.js</code>.</p>
+        <div class="ea-chip"><span>JS</span><strong>products_variants.js, cart.js</strong></div>
+        <div class="ea-panel-actions">
+          <a class="ea-btn-link" href="js/products_variants.js">
+            View variants JS
+          </a>
+          <a class="ea-btn-link" href="js/cart.js">
+            View cart JS
+          </a>
+        </div>
+        <div class="ea-path">Folder: C:\EnTrusWeb\js\</div>
+      </article>
+    </div>
+
+    <div class="ea-footer">
+      This panel is local to your machine. The buttons that open <code>.cmd</code> files may ask Windows for permission.
+      For live deployments, this page should stay dev-only.
+    </div>
+  </div>
+<div class="ea-section-label">System Health</div>
+<div class="ea-panel-grid">
+  <article class="ea-panel-card">
+    <h2>System Health Check</h2>
+    <p>Live status for renders, assets, and page sync.</p>
+    <div class="ea-chip">
+      <span>Status</span>
+      <strong>Active</strong>
+    </div>
+    <div class="ea-panel-actions">
+      <a class="ea-btn-link" href="render_sync_status.html">
+        Open System Health
+      </a>
+    </div>
+  </article>
+</div>
+    <div class="ea-section-label">House Health</div>
+    <div class="ea-panel-grid">
+      <article class="ea-panel-card">
+        <h2>House Health Overview</h2>
+        <p>Runs core health checks and regenerates the Render Status page, then you review it from the browser.</p>
+        <div class="ea-chip">
+          <span>PowerShell</span>
+          <strong>.\entrus_layer16_house_health.ps1</strong>
+        </div>
+        <div class="ea-panel-actions">
+          <a class="ea-btn-link" href="pages/render_status.html">
+            Open Render Status Page
+          </a>
+        </div>
+        <div class="ea-path">Scripts: entrus_house_health.ps1  entrus_layer15_render_status_page.ps1</div>
+      </article>
+    </div>
+</body>
+</html>
+
+

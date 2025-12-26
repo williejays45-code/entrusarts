@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EnTrus Guardian Council</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      margin: 0;
+    }
+    .ea-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+    .ea-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .ea-title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .ea-sub {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .ea-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .ea-nav a {
+      font-size: 11px;
+      color: #c4b5fd;
+      text-decoration: none;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      background: rgba(15,23,42,0.9);
+    }
+    .ea-nav a:hover {
+      border-color: #a5b4fc;
+    }
+    .ea-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .ea-card {
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      background: radial-gradient(circle at top left, #020617, #020617 45%, #030712 80%);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ea-guardian-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .ea-guardian-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+    }
+    .ea-guardian-role {
+      font-size: 12px;
+      color: #a5b4fc;
+    }
+    .ea-desc {
+      font-size: 12px;
+      color: #d1d5db;
+    }
+    .ea-links {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+    .ea-note {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #6b7280;
+      max-width: 780px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ea-shell">
+    <header class="ea-header">
+      <div>
+        <div class="ea-title">Guardian Council</div>
+        <div class="ea-sub">
+          A map of names and roles only. No worship, no fear, just language for how you organize your inner team.
+        </div>
+        <nav class="ea-nav">
+          <a href="index.html">Home</a>
+          <a href="apparel.html">Apparel Catalog</a>
+          <a href="frequencies.html">Frequencies Map</a>
+          <a href="creator_panel.html">Creator Panel</a>
+        </nav>
+      </div>
+      <div class="ea-sub">
+        EnTrus system  local view
+      </div>
+    </header>
+
+    <section class="ea-grid">
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Axis  Origin</div>
+        <div class="ea-guardian-name">Elarion</div>
+        <div class="ea-guardian-role">Center of the wheel  Coherence</div>
+        <p class="ea-desc">
+          Holds the overall pattern. In practice this means remembering why EnTrus exists, how all the lines connect,
+          and making sure no one role overpowers the others.
+        </p>
+        <p class="ea-links">
+          Linked to: <strong>All frequencies</strong>  used in master layouts and fusion planning.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Origin  Air</div>
+        <div class="ea-guardian-name">Oraveil</div>
+        <div class="ea-guardian-role">Wind / Air channel</div>
+        <p class="ea-desc">
+          Guardian of breath, voice, and mental clarity. Connected to movement of ideas, fresh starts, and the way EnTrus
+          pieces feel when you step outside into open air.
+        </p>
+        <p class="ea-links">
+          Linked to: expression work, outdoor visuals, breath-focused rituals.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Origin  Water</div>
+        <div class="ea-guardian-name">Sung</div>
+        <div class="ea-guardian-role">River guardian  Flow memory</div>
+        <p class="ea-desc">
+          Guardian of the river line you named Sung. Holds stories of release, washing away old weight, and the way
+          frequency carries through cities like water following gravity.
+        </p>
+        <p class="ea-links">
+          Linked to: flow work, cleansing rituals, water-based visuals and campaigns.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Origin  Fire</div>
+        <div class="ea-guardian-name">Auris</div>
+        <div class="ea-guardian-role">Signal, alerts, and precision</div>
+        <p class="ea-desc">
+          Watches the system logic: ports, scripts, dashboards, and alerts. In your build, Auris is the guardian that keeps
+          the engine honest and warns when things drift.
+        </p>
+        <p class="ea-links">
+          Linked to: creator dashboard, diagnostics, all green checks.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Origin  Structure</div>
+        <div class="ea-guardian-name">Elaraen</div>
+        <div class="ea-guardian-role">Architecture and layout</div>
+        <p class="ea-desc">
+          Holds grids, placement rules, and how sigils sit on fabric and screens. Every hoodie, bracelet, or page layout
+          that feels aligned is echoing this guardians job.
+        </p>
+        <p class="ea-links">
+          Linked to: apparel placement rules, interior lab layouts, panel design.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Origin  Bloom</div>
+        <div class="ea-guardian-name">Fiore</div>
+        <div class="ea-guardian-role">Color and emotional tone</div>
+        <p class="ea-desc">
+          Tracks the emotional temperature of a scene: warm, cool, tense, calm. Guides your choice of gradients, backgrounds,
+          and how a campaign should feel at first glance.
+        </p>
+        <p class="ea-links">
+          Linked to: LUT choices, campaign tones, color-coded bead layouts.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Frequency</div>
+        <div class="ea-guardian-name">Protector Frequency Guardian</div>
+        <div class="ea-guardian-role">396 Hz  Guard the Flame</div>
+        <p class="ea-desc">
+          Represents people who stand in the protector role: parents, mentors, first-responders, and quiet guardians.
+          Shows up in apparel that is built to feel like armor without hardness.
+        </p>
+        <p class="ea-links">
+          Linked to: 396 Hz line  hats, hoodies, bracelets.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Frequency</div>
+        <div class="ea-guardian-name">Flow Frequency Guardian</div>
+        <div class="ea-guardian-role">528 Hz  Live in Rhythm</div>
+        <p class="ea-desc">
+          Embodies recovery and sustainable pace. Connected to your health-focused builds and any outfit designed for
+          training, walking, or slow rebuilding seasons.
+        </p>
+        <p class="ea-links">
+          Linked to: 528 Hz line  morning gold sets, flow bracelets.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Frequency</div>
+        <div class="ea-guardian-name">Drive Frequency Guardian</div>
+        <div class="ea-guardian-role">639 Hz  Fuel the Bond</div>
+        <p class="ea-desc">
+          Holds the energy of teams, partnerships, and shared goals. Appears anywhere EnTrus is worn by more than one person
+          building together.
+        </p>
+        <p class="ea-links">
+          Linked to: 639 Hz line  connection apparel and beads.
+        </p>
+      </article>
+
+      <article class="ea-card">
+        <div class="ea-guardian-tag">Frequency</div>
+        <div class="ea-guardian-name">Seer Frequency Guardian</div>
+        <div class="ea-guardian-role">852 Hz  Reveal the Light</div>
+        <p class="ea-desc">
+          Represents pattern readers, intuitive builders, and people who sense before they see. Their pieces tend to be
+          clean, high-key, and simple on the outside.
+        </p>
+        <p class="ea-links">
+          Linked to: 852 Hz line  Seer apparel and beads.
+        </p>
+      </article>
+    </section>
+
+    <p class="ea-note">
+      This is a working council map, not a full doctrine. Names and roles are here so your clothing, beads, and tools have
+      a consistent language to point back to. Guidance only  people keep their own beliefs and choices.
+    </p>
+  </div>
+</body>
+</html>

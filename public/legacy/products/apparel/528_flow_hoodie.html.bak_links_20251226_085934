@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>528 Hz Flow Hoodie  EnTrus Apparel Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header ea-header--viewer">
+    <div class="ea-brand">
+      <a href="../../index.html">ENTRUS ARTS</a>
+      <span>Apparel Detail  Authentic Seal Line</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../../index.html">Home</a>
+      <a href="../../apparel.html" class="active">Apparel</a>
+      <a href="../../pages/bracelets.html">Bracelets</a>
+      <a href="../../pages/cards.html">Activation Cards</a>
+      <a href="../../pages/system.html">System</a>
+    </nav>
+    <div class="ea-cart-pill">
+      <a href="../../pages/cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="ea-main bracelet-viewer-shell">
+    <section class="bracelet-viewer-card">
+      <div class="bracelet-viewer-header">
+        <h1>528 Hz Flow Hoodie</h1>
+        <p class="bracelet-viewer-frequency">528 Hz</p>
+      </div>
+
+      <div class="bracelet-viewer-body">
+        <div class="product-image-frame">
+          <img src="../../assets/images/products/apparel/528_flow_hoodie.jpg" alt="528 Hz Flow Hoodie apparel image" />
+        </div>
+        <p class="bracelet-viewer-tagline">Live in Rhythm</p>
+        <p class="bracelet-viewer-desc">Forest green / sage hoodie with left-heart Flow spiral seal and sunrise tone logic. Designed for training days and quiet walks.</p>
+      </div>
+
+      <div class="bracelet-viewer-meta">
+        <span class="bracelet-viewer-code">528-HOOD-01</span>
+        <span class="bracelet-viewer-price">$132.00</span>
+      </div>
+
+      <div class="activation-block">
+        <p class="activation-band">Guardian Band: Flow</p>
+        <p class="activation-hint">Use for walks, training, or writing. Sync to your natural rhythm.</p>
+      </div>
+
+      <div class="activation-qr">
+        <p class="activation-code-label">Activation code</p>
+        <p class="activation-code" id="activation-code">EA11-528FLOWHOODIE-1111</p>
+        <p class="activation-code-note">
+          This code anchors the apparel piece to its QR / NFC activation when the physical tag is printed.
+        </p>
+      </div>
+
+      <div class="bracelet-viewer-note">
+        Status: Planned Drop
+      </div>
+
+      <div class="bracelet-viewer-actions">
+        <button id="ea-detail-add" class="bracelet-add">Add to Cart</button>
+        <a href="../../apparel.html" class="bracelet-viewer-back">Back to Catalog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Apparel Detail</p>
+  </footer>
+
+  <script src="../../js/catalog_data.js"></script>
+  <script src="../../js/cart.js"></script>
+  <script src="../../js/activation_codes.js"></script>
+  <script>
+    (function () {
+      var id = "528_flow_hoodie";
+      var list = window.EnTrusCatalog || [];
+      var found = null;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id) { found = list[i]; break; }
+      }
+      var btn = document.getElementById("ea-detail-add");
+      if (!btn || !found || !window.EnTrusCart) return;
+      btn.addEventListener("click", function () {
+        window.EnTrusCart.add({
+          id:   found.id,
+          name: found.name,
+          price: found.price
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

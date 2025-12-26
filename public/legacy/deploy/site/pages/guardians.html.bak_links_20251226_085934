@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guardian Council  EnTrus Arts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>Guardian Council  Overview</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../index.html">Home</a>
+      <a href="../apparel.html">Apparel</a>
+      <a href="bracelets.html">Bracelets</a>
+      <a href="cards.html">Activation Cards</a>
+      <a href="system.html">System</a>
+      <a href="guardians.html" class="active">Guardians</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <div class="ea-cart-pill">
+      <a href="cart.html">Cart (<span data-cart-count="true">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="ea-main">
+    <section class="product-section">
+      <header class="product-header">
+        <h1>Guardian Council</h1>
+        <p>
+          High-level view of the guardians connected to the EnTrus system: origin guardians from the Elarion wheel and
+          the frequency guardians that hold each Hertz line. No new names are invented here &mdash; this page is a
+          structured placeholder you can refine as you go.
+        </p>
+      </header>
+
+      <div class="guardian-grid">
+        <article class="guardian-card">
+          <h2>Elarion</h2>
+          <p class="guardian-role">Center  Origin Axis</p>
+          <p class="guardian-note">
+            Holds the center of the wheel. Ties together origin guardians and frequency bands, keeping the structure
+            consistent as you build.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>Auris</h2>
+          <p class="guardian-role">Signal  Listening</p>
+          <p class="guardian-note">
+            Linked to perception, signal, and quiet measurement. Useful when you are watching more than acting.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>Elaraen</h2>
+          <p class="guardian-role">Axis  Balance</p>
+          <p class="guardian-note">
+            Holds vertical balance between inner work and outer expression. Good for decisions about direction.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>Sung</h2>
+          <p class="guardian-role">River Guardian</p>
+          <p class="guardian-note">
+            Guardian of flow and movement. You already tied Sung to river work and emotional current. Useful in
+            transitions and travel.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>Oraveil</h2>
+          <p class="guardian-role">Wind  Air</p>
+          <p class="guardian-note">
+            Connected to breath, thought, and subtle shifts. Good for mental clarity and shifting perspective lightly.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>285 Hz  Seal of Form</h2>
+          <p class="guardian-role">Restorer Frequency</p>
+          <p class="guardian-note">
+            Linked to repair, stability, and physical renewal. Connects strongly to the 285 apparel and bracelet line.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>396 Hz  Seal of Protector</h2>
+          <p class="guardian-role">Guard the Flame</p>
+          <p class="guardian-note">
+            Protector line. Anchors courage and boundary work. Tied to the 396 apparel and bracelets.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>528 Hz  Seal of Flow</h2>
+          <p class="guardian-role">Live in Rhythm</p>
+          <p class="guardian-note">
+            Flow line. Movement, creativity, and natural rhythm. Good for daily wear and training.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>639 Hz  Seal of Drive</h2>
+          <p class="guardian-role">Fuel the Bond</p>
+          <p class="guardian-note">
+            Connection and collaboration. Supports work done with or for others, not just solo.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>741 Hz  Seal of Expression</h2>
+          <p class="guardian-role">Speak the Light</p>
+          <p class="guardian-note">
+            Expression and liberation. Good for speaking, creating, and saying what needed to be said.
+          </p>
+        </article>
+
+        <article class="guardian-card">
+          <h2>852 Hz  Seal of Seer</h2>
+          <p class="guardian-role">Reveal the Light</p>
+          <p class="guardian-note">
+            Vision and insight. Night work, planning, and high-level decision moments.
+          </p>
+        </article>
+
+        <article class="guardian-card guardian-slot">
+          <h2>Reserved Origin Slot</h2>
+          <p class="guardian-role">To be defined by you</p>
+          <p class="guardian-note">
+            Placeholder for an origin guardian you formally name later. This prevents random names from appearing in
+            the system.
+          </p>
+        </article>
+
+        <article class="guardian-card guardian-slot">
+          <h2>Reserved Origin Slot</h2>
+          <p class="guardian-role">To be defined by you</p>
+          <p class="guardian-note">
+            Another open slot for future naming. When you seal a new guardian, this card can be updated with its
+            exact name and role.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Guardian Council Overview</p>
+  </footer>
+
+  <script src="../js/cart.js"></script>
+</body>
+</html>

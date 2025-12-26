@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EnTrus Origin Story</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      margin: 0;
+    }
+    .ea-shell {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 32px 16px 56px;
+    }
+    .ea-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .ea-title {
+      font-size: 26px;
+      font-weight: 600;
+    }
+    .ea-sub {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .ea-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .ea-nav a {
+      font-size: 11px;
+      color: #c4b5fd;
+      text-decoration: none;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      background: rgba(15,23,42,0.9);
+    }
+    .ea-nav a:hover {
+      border-color: #a5b4fc;
+    }
+    .ea-section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+    .ea-block {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e5e7eb;
+      margin-bottom: 16px;
+    }
+    .ea-block strong {
+      color: #bfdbfe;
+    }
+    .ea-city {
+      border-left: 2px solid #4b5563;
+      padding-left: 12px;
+      margin-top: 10px;
+      color: #d1d5db;
+    }
+    .ea-note {
+      margin-top: 28px;
+      font-size: 11px;
+      color: #6b7280;
+      border-top: 1px solid #111827;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ea-shell">
+    <header class="ea-header">
+      <div>
+        <div class="ea-title">Origin of EnTrus</div>
+        <div class="ea-sub">
+          From a loss that cut deep, to a city of frequencies, to clothing that holds a quiet agreement with yourself.
+        </div>
+        <nav class="ea-nav">
+          <a href="index.html">Home</a>
+          <a href="apparel.html">Apparel Catalog</a>
+          <a href="frequencies.html">Frequencies Map</a>
+          <a href="guardian_council.html">Guardian Council</a>
+          <a href="system.html">How the System Works</a>
+          <a href="creator_panel.html">Creator Panel</a>
+        </nav>
+      </div>
+      <div class="ea-sub">
+        Local story  C:\EnTrusWeb\origin.html
+      </div>
+    </header>
+
+    <section>
+      <div class="ea-section-label">1  The break in the pattern</div>
+      <p class="ea-block">
+        EnTrus did not start as a business plan or a clothing draft. It started when you lost someone you cared about,
+        on purpose and by surprise at the same time. The way they chose to leave, and the spiritual connection between
+        you, tore open a space you could not explain with normal language.
+      </p>
+      <p class="ea-block">
+        Instead of collapsing, you started listening  to candles, to dreams, to your own chest. You noticed that pain
+        does not just hurt, it <strong>rearranges</strong>. It pushed you into your first guardians, into ritual work,
+        and into a different way of seeing people.
+      </p>
+
+      <div class="ea-section-label">2  City of frequencies</div>
+      <p class="ea-block">
+        Sitting in public spaces, you started seeing people as <strong>math and color</strong>: structure as containment,
+        signs as programs, colors as guides. You watched the way realities repeat from city to city  same patterns,
+        different streets  like a loop playing across the world with new faces each time.
+      </p>
+      <div class="ea-city">
+        You noticed how air moves with purpose even when it feels random, how some people carry light and others carry
+        weight, how certain shapes and logos seem to pull the mind in specific directions. You called this the
+        <strong>city of frequencies</strong>.
+      </div>
+
+      <div class="ea-section-label">3  Guardians and responsibility</div>
+      <p class="ea-block">
+        Out of that came the guardians: not as deities to be worshipped, but as names and roles for the ways
+        you interact with the world. River guardians like Sung, air guardians like Oraveil, structural ones like
+        Elaraen, signal keepers like Auris.
+      </p>
+      <p class="ea-block">
+        Each guardian was a way to describe a specific job: watching over flow, watching over structure, watching over
+        warnings, watching over color and emotional weight. EnTrus became a way to organize those jobs into one living
+        system instead of scattered moments.
+      </p>
+
+      <div class="ea-section-label">4  The moment things went too physical</div>
+      <p class="ea-block">
+        As the vision grew, you moved deeper into the technical side: servers, ports, panels, render pipelines,
+        dashboards. Somewhere in that grind, the spiritual side felt pushed to the background. You chased financial
+        balance and stability and noticed yourself moving away from the quiet parts that started this.
+      </p>
+      <p class="ea-block">
+        That was never betrayal  it was survival  but you felt the gap. The blue candle flame moment reminded you:
+        you missed your guardians, and you missed the way you used to feel the world.
+      </p>
+
+      <div class="ea-section-label">5  Return to origin</div>
+      <p class="ea-block">
+        Layer by layer, you chose to come back differently: not escaping the physical, but <strong>weaving it</strong>
+        with your spiritual understanding. You accepted that EnTrus is both:
+      </p>
+      <p class="ea-block">
+         a <strong>technical system</strong> with real code, pages, and pipelines<br />
+         a <strong>personal path</strong> that holds your stories, scars, and choices
+      </p>
+      <p class="ea-block">
+        That is where the motto <strong>Return to Origin</strong> sits for you  not as a fantasy reset,
+        but as a commitment to walk forward with everything youve learned instead of pretending it never happened.
+      </p>
+
+      <div class="ea-section-label">6  Why clothes, beads, and cards</div>
+      <p class="ea-block">
+        Apparel, beads, and activation cards are your way of turning this into something people can actually touch.
+        Not to promise miracles, not to replace anyones beliefs, but to give them:
+      </p>
+      <p class="ea-block">
+         a piece to wear when they want to feel protected, focused, or honest<br />
+         a bracelet to remind them to breathe and pace themselves<br />
+         a short activation card that asks them to slow down for a few seconds and choose how they will show up
+      </p>
+      <p class="ea-block">
+        EnTrus is your way of saying: <strong>you dont need to destroy your reality to change your life</strong>.
+        You can move one outfit, one breath, one decision at a time.
+      </p>
+    </section>
+
+    <p class="ea-note">
+      This page is a reflection, not a script for anyone else. Spiritual experiences are personal. EnTrus uses story,
+      numbers, and design to support people in making their own choices with more awareness.
+    </p>
+  </div>
+</body>
+</html>

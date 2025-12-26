@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>852 Hz Seer Bracelet  Activation Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body card-print-body">
+  <main class="card-print-shell">
+    <section class="card-print">
+      <header class="card-print-header">
+        <h1 class="card-print-title">852 Hz Seer Bracelet</h1>
+        <p class="card-print-sub">bracelet  852 Hz</p>
+      </header>
+
+      <div class="card-print-main">
+        <p class="card-print-band">Guardian Band: Seer</p>
+        <p class="card-print-code-label">Activation Code</p>
+        <p class="card-print-code">EA11-852SEERBRACELET-1111</p>
+        <p class="card-print-note">
+          Use this code once you receive the physical bracelet or apparel.
+          It will mirror the QR / NFC activation on your EnTrus card or tag.
+        </p>
+      </div>
+
+      <footer class="card-print-footer">
+        <p>EnTrus Arts  Authentic Seal Line  2025</p>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

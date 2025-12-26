@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>EnTrus  Creator Panel</title>
+  <link rel="stylesheet" href="../assets/creator.css"/>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <div class="t">EnTrus Creator Panel</div>
+      <div class="s">Truth view: plan + queue + missing list (read-only UI)</div>
+    </div>
+    <div class="btns">
+      <a class="btn" href="./gallery.html">Open Gallery</a>
+      <button class="btn" id="reload">Reload Data</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <div class="card">
+        <div class="h">Missing Apparel</div>
+        <div class="m" id="missingCounts"></div>
+        <pre class="pre" id="missingList">Loading</pre>
+      </div>
+
+      <div class="card">
+        <div class="h">Render Plan Snapshot</div>
+        <div class="m" id="planCounts"></div>
+        <pre class="pre" id="planList">Loading</pre>
+      </div>
+
+      <div class="card">
+        <div class="h">Render Queue Snapshot</div>
+        <div class="m" id="queueCounts"></div>
+        <pre class="pre" id="queueList">Loading</pre>
+      </div>
+
+      <div class="card">
+        <div class="h">Run Commands (Copy/Paste)</div>
+        <div class="m">Panel doesnt execute PowerShell. It outputs the exact commands.</div>
+        <pre class="pre" id="cmds"></pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/creator.js"></script>
+</body>
+</html>

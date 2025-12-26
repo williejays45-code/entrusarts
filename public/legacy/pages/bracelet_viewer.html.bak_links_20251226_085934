@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bracelet Viewer  EnTrus Arts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="ea-body">
+  <header class="ea-header ea-header--viewer">
+    <div class="ea-brand">
+      <a href="../index.html">ENTRUS ARTS</a>
+      <span>Authentic Seal Line  Bracelet Viewer</span>
+    </div>
+    <nav class="ea-nav">
+      <a href="../index.html">Home</a>
+      <a href="bracelets.html" class="active">Bracelets</a>
+      <a href="../apparel.html">Catalog</a>
+    </nav>
+  </header>
+
+  <main class="ea-main bracelet-viewer-shell">
+    <section class="bracelet-viewer-card" id="viewer-card">
+      <p>Loading bracelet details</p>
+    </section>
+  </main>
+
+  <footer class="ea-footer">
+    <p>EnTrus Arts  2025  Authentic Seal Line  Bracelet Viewer</p>
+  </footer>
+
+  <script src="../js/bracelets_data.js"></script>
+  <script src="../js/catalog_data.js"></script>
+  <script>
+    (function () {
+      function getQueryId() {
+        var params = new URLSearchParams(window.location.search);
+        return params.get("id");
+      }
+
+      var slug = getQueryId();
+      var card = document.getElementById("viewer-card");
+      if (!card) return;
+
+      var list = window.EnTrusBracelets || [];
+      var found = null;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].viewerSlug === slug || list[i].id === slug) {
+          found = list[i];
+          break;
+        }
+      }
+
+      if (!found) {
+        card.innerHTML = "<h1>Bracelet not found</h1><p>The viewer could not locate this item.</p>";
+        return;
+      }
+
+      var guardianBand = "";
+      var activationHint = "";
+      if (window.EnTrusCatalog) {
+        var catalog = window.EnTrusCatalog;
+        var route = "products/bracelets/" + (found.id || slug) + ".html";
+        for (var j = 0; j < catalog.length; j++) {
+          var c = catalog[j];
+          if (c.routePath === route || c.id === found.id || c.id === (found.id + "_bracelet")) {
+            guardianBand = c.guardianBand || "";
+            activationHint = c.activationHint || "";
+            break;
+          }
+        }
+      }
+
+      var price = found.price ? "$" + (found.price.toFixed ? found.price.toFixed(2) : found.price) : "";
+      var activationHtml = "";
+      if (guardianBand || activationHint) {
+        activationHtml =
+          '<div class="activation-block">' +
+            (guardianBand ? '<p class="activation-band">Guardian Band: ' + guardianBand + '</p>' : '') +
+            (activationHint ? '<p class="activation-hint">' + activationHint + '</p>' : '') +
+          "</div>";
+      }
+
+      card.innerHTML =
+        '<div class="bracelet-viewer-header">' +
+          '<h1>' + (found.name || "") + "</h1>" +
+          '<p class="bracelet-viewer-frequency">' + (found.frequency || "") + "</p>" +
+        "</div>" +
+        '<div class="bracelet-viewer-body">' +
+          '<p class="bracelet-viewer-tagline">' + (found.tagline || "") + "</p>" +
+          '<p class="bracelet-viewer-desc">' + (found.description || "") + "</p>" +
+        "</div>" +
+        '<div class="bracelet-viewer-meta">' +
+          '<span class="bracelet-viewer-code">' + (found.code || "") + "</span>" +
+          (price ? '<span class="bracelet-viewer-price">' + price + "</span>" : "") +
+        "</div>" +
+        activationHtml +
+        '<div class="bracelet-viewer-note">' +
+          "3D / imaging hook: when we connect ComfyUI / external renders, this is where the live bracelet visual will sit." +
+        "</div>" +
+        '<div class="bracelet-viewer-actions">' +
+          '<a href="bracelets.html" class="bracelet-viewer-back">Back to Collection</a>' +
+        "</div>";
+    })();
+  </script>
+</body>
+</html>

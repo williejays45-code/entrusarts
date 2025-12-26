@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EnTrus Render Control Console</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#020617; color:#e5e7eb; margin:0; padding:24px; }
+    .wrap { max-width:1200px; margin:0 auto; }
+    h1 { font-size:22px; text-transform:uppercase; letter-spacing:0.16em; margin:0 0 6px 0; }
+    .sub { font-size:11px; color:#9ca3af; margin-bottom:18px; }
+    .cards { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; }
+    .card { background:#020617; border-radius:14px; padding:14px; flex:1 1 200px; box-shadow:0 18px 34px rgba(0,0,0,0.65); border:1px solid #111827; }
+    .card h2 { font-size:12px; margin:0 0 4px 0; text-transform:uppercase; letter-spacing:0.14em; color:#bbf7d0; }
+    .metric { font-size:24px; font-weight:600; margin-bottom:4px; }
+    .metric-sub { font-size:11px; color:#9ca3af; }
+    .section-title { margin-top:24px; font-size:13px; text-transform:uppercase; letter-spacing:0.16em; color:#a5b4fc; }
+    table { width:100%; border-collapse:collapse; font-size:12px; margin-top:8px; }
+    th, td { padding:4px 6px; text-align:left; }
+    th { font-size:11px; text-transform:uppercase; letter-spacing:0.12em; border-bottom:1px solid #1f2937; color:#9ca3af; }
+    tr:nth-child(even) { background:#020617; }
+    .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:10px; text-transform:uppercase; letter-spacing:0.12em; }
+    .pill-ready { background:#10b98122; color:#6ee7b7; border:1px solid #10b981; }
+    .pill-partial { background:#f59e0b22; color:#fbbf24; border:1px solid #f59e0b; }
+    .pill-missing { background:#ef444422; color:#fca5a5; border:1px solid #ef4444; }
+    .pill-suspect { background:#f9731622; color:#fed7aa; border:1px solid #f97316; }
+    .pill-hybrid_only { background:#3b82f622; color:#93c5fd; border:1px solid #3b82f6; }
+    .pill-unknown { background:#4b556322; color:#e5e7eb; border:1px solid #4b5563; }
+    .links { font-size:11px; margin-bottom:12px; }
+    .links a { color:#93c5fd; text-decoration:none; margin-right:10px; }
+    .footer { margin-top:24px; font-size:11px; color:#6b7280; }
+    @media (max-width: 720px) { .cards { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>ENTRUS RENDER CONTROL CONSOLE</h1>
+    <div class="sub">Snapshot built on 2025-12-12 18:55:50  Read-only view of current EnTrus product, image, and render state.</div>
+    <div class="links">
+      <a href="status_dashboard.html">Status Dashboard</a>
+      <a href="product_gallery.html">Product Gallery</a>
+      <a href="data/status_dashboard.json">status_dashboard.json</a>
+      <a href="../EnTrusRender/data/render_todo.json">render_todo.json</a>
+      <a href="../EnTrusRender/data/comfy_render_queue.json">comfy_render_queue.json</a>
+    </div>
+    <div class="cards">
+      <div class="card"><h2>Registry</h2><div class="metric">43</div><div class="metric-sub">Products in product_registry.json</div></div>
+      <div class="card"><h2>Ready</h2><div class="metric">0</div><div class="metric-sub">All required views present</div></div>
+      <div class="card"><h2>Partial / Missing</h2><div class="metric">0 / 43</div><div class="metric-sub">Partial vs fully missing finals</div></div>
+      <div class="card"><h2>Render / Queue</h2><div class="metric">0 / 0</div><div class="metric-sub">To-do entries / Comfy queue stubs</div></div>
+    </div>
+    <div class="section-title">Global Image Status</div>
+    <table>
+      <tr><th>Status</th><th>Count</th></tr>
+      <tr><td><span class="pill pill-missing">missing</span></td><td>43</td></tr>
+    </table>
+    <div class="section-title">Status by Frequency Tag</div>
+    <table>
+      <tr><th>Frequency</th><th>Status</th><th>Count</th></tr>
+      <tr><td>639</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>285</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>396</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>741</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>852</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>528</td><td><span class="pill pill-missing">missing</span></td><td>6</td></tr>
+      <tr><td>multi</td><td><span class="pill pill-missing">missing</span></td><td>4</td></tr>
+      <tr><td>none</td><td><span class="pill pill-missing">missing</span></td><td>3</td></tr>
+    </table>
+    <div class="footer">This console does not start ComfyUI or modify any images. It only reads registry/state JSON and renders a control view so you can decide what to do next.</div>
+  </div>
+</body>
+</html>

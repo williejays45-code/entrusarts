@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="refresh" content="0;url=../apparel.html">
+  <meta charset="UTF-8" />
+  <title>Redirecting</title>
+<style>
+    /* ENTRUS NAV v1 */
+    .ea-nav {
+        display: flex;
+        gap: 16px;
+        padding: 10px 18px;
+        border-bottom: 1px solid rgba(230,210,160,0.3);
+        background: rgba(5,5,7,0.92);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+    .ea-nav a {
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #f5f5f5;
+        opacity: 0.82;
+    }
+    .ea-nav a:hover {
+        opacity: 1;
+        color: #f0e0a8;
+    }
+    </style>
+</head>
+<body>
+        <!-- ENTRUS NAV v1 -->
+    <nav class="ea-nav">
+        <a href="index.html">Home</a>
+        <a href="apparel.html">Apparel</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="render_status.html">Render Status</a>
+    </nav>
+    <!-- /ENTRUS NAV v1 -->
+  <p>Redirecting to catalog <a href="../apparel.html">click here</a> if not redirected.</p>
+<!-- ENTRUS PRODUCT GRID: APPAREL START -->
+<section class='ea-section ea-section-products'>
+    <header class='ea-section-header'>
+        <h2>EnTrus Apparel & Fusion Footwear</h2>
+        <p>Protector, Flow, Drive, Seer hoodies and the Fusion shoe prototype.</p>
+    </header>
+    <div class='ea-product-grid ea-product-grid-apparel'>
+    <article class='ea-product-card' data-product-id='hoodie_protector_v1' data-frequency='396 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_protector_v1.png' alt='396 Hz Protector Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Guard the Flame</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>396 Hz Protector Hoodie</h3>
+            <p class='ea-product-frequency'>396 Hz  HOODIE</p>
+            <p class='ea-product-desc'>Burnt ember tones, protector seal on chest, built for those who stand in front.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='hoodie_flow_v1' data-frequency='528 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_flow_v1.png' alt='528 Hz Flow Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Live in Rhythm</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>528 Hz Flow Hoodie</h3>
+            <p class='ea-product-frequency'>528 Hz  HOODIE</p>
+            <p class='ea-product-desc'>Forest-green flow line hoodie, breath-ready fit with spiral seal at the heart.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='hoodie_drive_v1' data-frequency='639 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_drive_v1.png' alt='639 Hz Drive Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Fuel the Bond</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>639 Hz Drive Hoodie</h3>
+            <p class='ea-product-frequency'>639 Hz  HOODIE</p>
+            <p class='ea-product-desc'>Connection-ready hoodie with tri-ring seal, made for builders and creatives.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='hoodie_seer_v1' data-frequency='852 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/hoodies/hoodie_seer_v1.png' alt='852 Hz Seer Hoodie' loading='lazy'>
+            <span class='ea-product-tag'>Reveal the Light</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>852 Hz Seer Hoodie</h3>
+            <p class='ea-product-frequency'>852 Hz  HOODIE</p>
+            <p class='ea-product-desc'>White Clarity hoodie with Seer eye seal for those who move like they saw it coming.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>    <article class='ea-product-card' data-product-id='shoe_fusion_v1' data-frequency='888 Hz'>
+        <div class='ea-product-media'>
+            <img src='assets/products/shoes/shoe_fusion_v1.png' alt='Fusion Shoe  Nightline' loading='lazy'>
+            <span class='ea-product-tag'>Street Alignment</span>
+        </div>
+        <div class='ea-product-body'>
+            <h3 class='ea-product-name'>Fusion Shoe  Nightline</h3>
+            <p class='ea-product-frequency'>888 Hz  SHOE</p>
+            <p class='ea-product-desc'>EnTrus Fusion shoe silhouette for night runs, studio sessions, and city flow.</p>
+        </div>
+        <div class='ea-product-actions'>
+            <button class='ea-btn ea-btn-secondary' data-ea-action='view-details'>View Details</button>
+            <button class='ea-btn ea-btn-primary' data-ea-action='add-to-cart'>Add to Cart</button>
+        </div>
+    </article>
+    </div>
+</section>
+<!-- ENTRUS PRODUCT GRID: APPAREL END -->
+    <script src='../js/entrus_products.js'></script>
+</body>
+</html>
+
+
+
+
+<!-- ENTRUS AUTO CATALOG - APPAREL -->
+<section class="entrus-auto-catalog">
+  <h2>EnTrus Product Catalog</h2>
+  <div class="catalog-grid">
+    <article class="catalog-item">
+      <a href="./hoodie_protector_v1.html">
+        <img src="../assets/images/hoodie_protector_v1.png" alt="396 Hz Protector Hoodie  Guard the Flame" class="catalog-image" />
+        <div class="catalog-body">
+          <p class="catalog-line">Protector Line 396 Hz  Guard the Flame</p>
+          <h3 class="catalog-title">396 Hz Protector Hoodie  Guard the Flame</h3>
+          <p class="catalog-frequency">396 Hz  Protector</p>
+        </div>
+      </a>
+    </article>
+    <article class="catalog-item">
+      <a href="./hoodie_flow_v1.html">
+        <img src="../assets/images/hoodie_flow_v1.png" alt="528 Hz Flow Hoodie  Live in Rhythm" class="catalog-image" />
+        <div class="catalog-body">
+          <p class="catalog-line">Flow Line 528 Hz  Live in Rhythm</p>
+          <h3 class="catalog-title">528 Hz Flow Hoodie  Live in Rhythm</h3>
+          <p class="catalog-frequency">528 Hz  Flow</p>
+        </div>
+      </a>
+    </article>
+    <article class="catalog-item">
+      <a href="./hoodie_drive_v1.html">
+        <img src="../assets/images/hoodie_drive_v1.png" alt="639 Hz Drive Hoodie  Fuel the Bond" class="catalog-image" />
+        <div class="catalog-body">
+          <p class="catalog-line">Drive Line 639 Hz  Fuel the Bond</p>
+          <h3 class="catalog-title">639 Hz Drive Hoodie  Fuel the Bond</h3>
+          <p class="catalog-frequency">639 Hz  Drive</p>
+        </div>
+      </a>
+    </article>
+    <article class="catalog-item">
+      <a href="./hoodie_seer_v1.html">
+        <img src="../assets/images/hoodie_seer_v1.png" alt="852 Hz Seer Hoodie  Reveal the Light" class="catalog-image" />
+        <div class="catalog-body">
+          <p class="catalog-line">Seer Line 852 Hz  Reveal the Light</p>
+          <h3 class="catalog-title">852 Hz Seer Hoodie  Reveal the Light</h3>
+          <p class="catalog-frequency">852 Hz  Seer</p>
+        </div>
+      </a>
+    </article>
+    <article class="catalog-item">
+      <a href="./shoe_fusion_v1.html">
+        <img src="../assets/images/shoe_fusion_v1.png" alt="Fusion Shoe  Field Runner Edition" class="catalog-image" />
+        <div class="catalog-body">
+          <p class="catalog-line">Fusion Shoe  Field Runner</p>
+          <h3 class="catalog-title">Fusion Shoe  Field Runner Edition</h3>
+          <p class="catalog-frequency">888 Hz  Fusion</p>
+        </div>
+      </a>
+    </article>
+  </div>
+</section>
+<!-- END ENTRUS AUTO CATALOG - APPAREL -->
+
+
+
