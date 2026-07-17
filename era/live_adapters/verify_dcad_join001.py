@@ -22,15 +22,32 @@ print("=" * 70)
 checks = {}
 URL = "https://www.dallascad.org/data-products/2025-certified.zip"  # placeholder, never asserted real
 
-from era.live_adapters.dcad_test_data import resolve_dcad_test_paths
+from era.live_adapters.dcad_test_data import (
+    SYNTHETIC_ACCOUNT_BASELINE, SYNTHETIC_ACCOUNT_HALF, SYNTHETIC_ACCOUNT_UNIT,
+    SYNTHETIC_BASE_ADDRESS, SYNTHETIC_BASE_LEGAL, SYNTHETIC_BASE_OWNER,
+    SYNTHETIC_CITY, SYNTHETIC_HALF_ADDRESS_PREFIX, SYNTHETIC_UNIT_ADDRESS,
+    resolve_dcad_test_paths,
+)
 APPR_PATH, INFO_PATH, USING_FULL_DCAD_DATA = resolve_dcad_test_paths()
 
 # Real accounts, confirmed directly against the actual uploaded files
 # (see conversation history for the independent verification of each).
-ACCT_BASELINE = "00000416479000000"    # no half-num, no bldg, no unit -- "4562 CATINA LN"
-ACCT_UNIT_BLDG = "60001000011030000"   # real BLDG_ID="A", UNIT_ID="103"
-ACCT_HALFNUM = "99131207600000000"
+ACCT_BASELINE = "00000416479000000" if USING_FULL_DCAD_DATA else SYNTHETIC_ACCOUNT_BASELINE
+ACCT_UNIT_BLDG = "60001000011030000" if USING_FULL_DCAD_DATA else SYNTHETIC_ACCOUNT_UNIT
+ACCT_HALFNUM = "99131207600000000" if USING_FULL_DCAD_DATA else SYNTHETIC_ACCOUNT_HALF
 ADMIN_TOKEN = "admin-token"     # real STREET_HALF_NUM="A" (and coincidentally UNIT_ID="A" too)
+EXPECTED_BASE_OWNER = "MEDITZ RICHARD A" if USING_FULL_DCAD_DATA else SYNTHETIC_BASE_OWNER
+EXPECTED_BASE_ADDRESS = "4562 CATINA LN" if USING_FULL_DCAD_DATA else SYNTHETIC_BASE_ADDRESS
+EXPECTED_UNIT_ADDRESS = (
+    "4712 ABBOTT AVE BLDG A UNIT 103" if USING_FULL_DCAD_DATA else SYNTHETIC_UNIT_ADDRESS
+)
+EXPECTED_HALF_PREFIX = "44A " if USING_FULL_DCAD_DATA else SYNTHETIC_HALF_ADDRESS_PREFIX
+EXPECTED_CITY = "DALLAS" if USING_FULL_DCAD_DATA else SYNTHETIC_CITY
+EXPECTED_BASE_LEGAL = (
+    "WILSON ESTATES | BLK D/5534  LT 4 | CATINA LN & WELCH RD | "
+    "VOL95069/3403 DD032995 CO-DALLAS | 5534 00D   004        1005534 00D"
+    if USING_FULL_DCAD_DATA else SYNTHETIC_BASE_LEGAL
+)
 
 appr_df = pd.read_csv(APPR_PATH, dtype=str)
 info_df = pd.read_csv(INFO_PATH, dtype=str)
@@ -94,7 +111,7 @@ checks["leading_zero_account_num_survives_join"] = evidence.get("parcel_id") == 
 checks["leading_zero_preserved_as_string_type"] = isinstance(evidence.get("parcel_id"), str)
 
 # --- 4. Owner fields preserved. -----------------------------------------------
-checks["owner_name_preserved_real_data"] = evidence.get("owner_name") == "MEDITZ RICHARD A"
+checks["owner_name_preserved_selected_data"] = evidence.get("owner_name") == EXPECTED_BASE_OWNER
 
 # Dual-owner path: real data has ZERO rows with OWNER_NAME2 populated
 # (confirmed directly against the full 858,533-row file). Tested here
@@ -123,7 +140,7 @@ checks["dual_owner_synthetic_case_combined_correctly"] = (
 )
 
 # --- 5. Situs address assembled correctly (real data, baseline case). -------
-checks["situs_address_assembled_baseline"] = evidence.get("property_address") == "4562 CATINA LN"
+checks["situs_address_assembled_baseline"] = evidence.get("property_address") == EXPECTED_BASE_ADDRESS
 
 # --- 6. Unit/building components handled (real data). -----------------------
 unit_adapter = new_joined_adapter(main_zip)
@@ -131,7 +148,7 @@ unit_adapter.register_account_mapping(DCADAccountMapping("P-UNIT", ACCT_UNIT_BLD
 status, payload = unit_adapter.retrieve("P-UNIT")
 unit_evidence = {e.field_name: e.raw_value for e in payload.get("evidence", [])}
 checks["unit_and_building_components_in_address"] = (
-    unit_evidence.get("property_address") == "4712 ABBOTT AVE BLDG A UNIT 103"
+    unit_evidence.get("property_address") == EXPECTED_UNIT_ADDRESS
 )
 
 halfnum_adapter = new_joined_adapter(main_zip)
@@ -139,14 +156,11 @@ halfnum_adapter.register_account_mapping(DCADAccountMapping("P-HALF", ACCT_HALFN
 status, payload = halfnum_adapter.retrieve("P-HALF")
 halfnum_evidence = {e.field_name: e.raw_value for e in payload.get("evidence", [])}
 checks["half_number_directly_appended_to_street_num"] = (
-    halfnum_evidence.get("property_address", "").startswith("44A ")
+    halfnum_evidence.get("property_address", "").startswith(EXPECTED_HALF_PREFIX)
 )
 
 # --- 7. Legal lines combined without blanks. ---------------------------------
-checks["legal_lines_combined_baseline"] = evidence.get("legal_description") == (
-    "WILSON ESTATES | BLK D/5534  LT 4 | CATINA LN & WELCH RD | "
-    "VOL95069/3403 DD032995 CO-DALLAS | 5534 00D   004        1005534 00D"
-)
+checks["legal_lines_combined_baseline"] = evidence.get("legal_description") == EXPECTED_BASE_LEGAL
 checks["legal_description_has_no_empty_segments"] = (
     "||" not in evidence.get("legal_description", "") and
     not evidence.get("legal_description", "").startswith("|") and
@@ -203,7 +217,7 @@ unmatched_evidence = {e.field_name: e.raw_value for e in payload.get("evidence",
 checks["unmatched_central_record_still_succeeds"] = status == "PASS"
 checks["unmatched_record_has_appraisal_data"] = "total_appraised_value" in unmatched_evidence
 checks["unmatched_record_has_no_situs_address"] = "property_address" not in unmatched_evidence
-checks["unmatched_record_falls_back_to_juris_city"] = unmatched_evidence.get("city") == "DALLAS"
+checks["unmatched_record_falls_back_to_juris_city"] = unmatched_evidence.get("city") == EXPECTED_CITY
 checks["unmatched_event_recorded_in_audit"] = any(
     e["event_type"] == "DCAD_ACCOUNT_INFO_UNMATCHED" for e in unmatched_adapter.audit.events
 )
@@ -380,7 +394,7 @@ phase1_adapter = DCADBulkDataAdapter(download_url=URL, transport=phase1_transpor
 phase1_adapter.register_account_mapping(DCADAccountMapping("P-PHASE1", ACCT_BASELINE, "2025"), ADMIN_TOKEN)
 status, payload = phase1_adapter.retrieve("P-PHASE1")
 phase1_evidence = {e.field_name: e.raw_value for e in payload.get("evidence", [])}
-checks["phase1_still_uses_juris_city_not_property_city"] = phase1_evidence.get("city") == "DALLAS"
+checks["phase1_still_uses_juris_city_not_property_city"] = phase1_evidence.get("city") == EXPECTED_CITY
 checks["phase1_still_has_no_address"] = "property_address" not in phase1_evidence
 checks["phase1_still_has_no_owner_or_legal"] = (
     "owner_name" not in phase1_evidence and "legal_description" not in phase1_evidence

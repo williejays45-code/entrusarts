@@ -59,4 +59,8 @@ __pycache__/
 /LIVE_DCAD_VERIFY_*.log
 
 # Real external DCAD excerpts; replace with synthetic fixtures
-/era/live_adapters/fixtures/
+/era/live_adapters/fixtures/ACCOUNT_APPRL_YEAR_FIXTURE.CSV
+/era/live_adapters/fixtures/ACCOUNT_INFO_FIXTURE.CSV
+
+# ERA clean-clone verification environment
+/.venv-era-repro/

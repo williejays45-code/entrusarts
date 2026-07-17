@@ -20,11 +20,21 @@ print("=" * 70)
 checks = {}
 URL = "https://www.dallascad.org/data-products/2025-certified.zip"
 
-from era.live_adapters.dcad_test_data import resolve_dcad_test_paths
+from era.live_adapters.dcad_test_data import (
+    SYNTHETIC_ACCOUNT_BASELINE, SYNTHETIC_ACCOUNT_UNIT,
+    SYNTHETIC_BASE_ADDRESS, SYNTHETIC_BASE_OWNER, SYNTHETIC_BASE_TOTAL,
+    SYNTHETIC_UNIT_ADDRESS, resolve_dcad_test_paths,
+)
 APPR_PATH, INFO_PATH, USING_FULL_DCAD_DATA = resolve_dcad_test_paths()
-ACCT_BASELINE = "00000416479000000"
+ACCT_BASELINE = "00000416479000000" if USING_FULL_DCAD_DATA else SYNTHETIC_ACCOUNT_BASELINE
 ADMIN_TOKEN = "admin-token"
-ACCT_UNIT_BLDG = "60001000011030000"
+ACCT_UNIT_BLDG = "60001000011030000" if USING_FULL_DCAD_DATA else SYNTHETIC_ACCOUNT_UNIT
+EXPECTED_BASE_TOTAL = "3300000.00" if USING_FULL_DCAD_DATA else SYNTHETIC_BASE_TOTAL
+EXPECTED_BASE_OWNER = "MEDITZ RICHARD A" if USING_FULL_DCAD_DATA else SYNTHETIC_BASE_OWNER
+EXPECTED_BASE_ADDRESS = "4562 CATINA LN" if USING_FULL_DCAD_DATA else SYNTHETIC_BASE_ADDRESS
+EXPECTED_UNIT_ADDRESS = (
+    "4712 ABBOTT AVE BLDG A UNIT 103" if USING_FULL_DCAD_DATA else SYNTHETIC_UNIT_ADDRESS
+)
 
 REQUIRED = {"ACCOUNT_NUM", "APPRAISAL_YR"}
 
@@ -129,10 +139,10 @@ try:
     real_appr_row = verify_store.lookup_appraisal(ACCT_BASELINE, "2025")
     real_info_row = verify_store.lookup_info(ACCT_BASELINE, "2025")
     checks["full_scale_real_lookup_appraisal_correct"] = (
-        real_appr_row is not None and real_appr_row["TOT_VAL"] == "3300000.00"
+        real_appr_row is not None and real_appr_row["TOT_VAL"] == EXPECTED_BASE_TOTAL
     )
     checks["full_scale_real_lookup_info_correct"] = (
-        real_info_row is not None and real_info_row["OWNER_NAME1"] == "MEDITZ RICHARD A"
+        real_info_row is not None and real_info_row["OWNER_NAME1"] == EXPECTED_BASE_OWNER
     )
 finally:
     cleanup(isolated_db_path)
@@ -215,7 +225,7 @@ try:
 
     # --- 6. Exact two-table join succeeds. ------------------------------------
     checks["exact_two_table_join_succeeds"] = (
-        status == "PASS" and evidence.get("property_address") == "4562 CATINA LN"
+        status == "PASS" and evidence.get("property_address") == EXPECTED_BASE_ADDRESS
         and "total_appraised_value" in evidence
     )
 
@@ -243,7 +253,7 @@ try:
     _, unit_payload = unit_adapter.retrieve("P-UNIT")
     unit_evidence = {e.field_name: e.raw_value for e in unit_payload.get("evidence", [])}
     checks["fixture_behavior_unchanged_unit_bldg_address"] = (
-        unit_evidence.get("property_address") == "4712 ABBOTT AVE BLDG A UNIT 103"
+        unit_evidence.get("property_address") == EXPECTED_UNIT_ADDRESS
     )
     checks["fixture_behavior_unchanged_legal_description_present"] = "legal_description" in unit_evidence
 finally:

@@ -136,6 +136,29 @@ def reason(callable_):
     return "NO_ERROR"
 
 
+def real_aes256_gcm_checks():
+    """Smoke-test the deployed cryptography adapter entirely in memory."""
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+    checks = {}
+    cipher = Aes256GcmEnvelopeCipher(TestKeyAuthority())
+    plaintext = b"ERA ART-001 generated dependency smoke-test bytes"
+    authenticated_metadata = b"ERA-ART-001-AESGCM-SMOKE"
+    envelope = cipher.encrypt(plaintext, authenticated_metadata)
+    checks["real_cryptography_aesgcm_selected"] = cipher._aesgcm() is AESGCM
+    checks["real_aes256_gcm_round_trip"] = (
+        envelope.algorithm == "AES-256-GCM"
+        and cipher.decrypt(envelope, authenticated_metadata) == plaintext
+    )
+    tampered = bytearray(envelope.ciphertext)
+    tampered[-1] ^= 1
+    tampered_envelope = replace(envelope, ciphertext=bytes(tampered))
+    checks["real_aes256_gcm_tamper_fails_authentication"] = reason(
+        lambda: cipher.decrypt(tampered_envelope, authenticated_metadata)
+    ) == "CORRUPT"
+    return checks
+
+
 @contextmanager
 def verification_directory():
     root = Path(__file__).parent / "verification_runtime"
@@ -148,7 +171,7 @@ def verification_directory():
 
 
 def run_checks():
-    checks = {}
+    checks = real_aes256_gcm_checks()
     with verification_directory() as root:
         backend = AppendOnlyFilesystemBackend(root / "store", STORAGE_ID)
         audit = AppendOnlyFileAuditSink(root / "audit")

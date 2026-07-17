@@ -11,7 +11,7 @@ from era.network.mock_transport import MockHttpTransport
 from era.network.network_models import HttpResponse
 from era.auth.auth_engine import AuthEngine
 from era.auth.token_store import TokenStore, MockTokenStore
-from era.live_adapters.dcad_test_data import resolve_dcad_test_paths
+from era.live_adapters.dcad_test_data import SYNTHETIC_ACCOUNT_BASELINE, resolve_dcad_test_paths
 APPR_PATH, INFO_PATH, USING_FULL_DCAD_DATA = resolve_dcad_test_paths()
 
 print("DCAD-MAP-AUTH-001 HARD REVIEW VERIFICATION")
@@ -20,7 +20,7 @@ print("=" * 70)
 checks = {}
 
 URL = "https://test/dcad.zip"
-ACCT_BASELINE = "00000416479000000"
+ACCT_BASELINE = "00000416479000000" if USING_FULL_DCAD_DATA else SYNTHETIC_ACCOUNT_BASELINE
 
 appr_df = pd.read_csv(APPR_PATH, dtype=str, nrows=50)
 buf = io.BytesIO()
