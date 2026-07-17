@@ -39,3 +39,24 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+/pytest-cache-files-*/
+
+# ERA runtime databases and journals
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# ERA generated reports and temporary artifact stores
+/verification_reports/
+/era/artifact_storage/era-art001-*/
+/LIVE_DCAD_VERIFY_*.log
+
+# Real external DCAD excerpts; replace with synthetic fixtures
+/era/live_adapters/fixtures/
