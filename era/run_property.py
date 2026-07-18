@@ -13,6 +13,7 @@ from pathlib import Path
 
 from era.acquisition.provider_health_authority import ReadinessObservation
 from era.app import bootstrap_collin_demo, build_app
+from era.live_adapters.collin_bulk_data_adapter import CollinBulkDataAdapter
 from era.property_record.property_enums import PropertyType, StrategyType
 from era.property_record.property_models import PropertyIdentity
 
@@ -24,6 +25,7 @@ PRIVATE_FIELDS = frozenset({
     "legal_description", "source_record_id", "parcel_id", "zip_code",
 })
 EXPECTED_FIELDS = frozenset({"city", "state", "current_appraised_value", "certified_appraised_value"})
+PROVIDER_ROUTES = {"collin": {"provider_id": COLLIN_PROVIDER, "county": "Collin", "jurisdiction": "TX-COLLIN"}}
 
 
 def _sha256_file(path: str) -> str:
@@ -71,15 +73,21 @@ def build_operator_pipeline(mdb_path: str, code_path: str, account_id: str):
     return pipeline
 
 
-def execute_operator(provider, account_id, environ=None, pipeline_factory=build_operator_pipeline,
-                     run_id=None, utc=None, salt=None):
+def execute_operator(provider, account_id=None, environ=None, pipeline_factory=build_operator_pipeline,
+                     run_id=None, utc=None, salt=None, address=None, county="Collin",
+                     address_resolver_factory=CollinBulkDataAdapter):
     environ = os.environ if environ is None else environ
     if not provider:
         raise ValueError("PROVIDER_REQUIRED")
-    if provider.lower() != "collin":
-        raise ValueError("UNSUPPORTED_PROVIDER")
-    if not account_id or not str(account_id).strip():
-        raise ValueError("ACCOUNT_ID_REQUIRED")
+    route = PROVIDER_ROUTES.get(str(provider).lower())
+    if route is None:
+        raise ValueError("UNSUPPORTED_PROVIDER;SUPPORTED_PROVIDERS=collin")
+    if str(county).strip().lower() != route["county"].lower():
+        raise ValueError("UNSUPPORTED_COUNTY;SUPPORTED_COUNTIES=Collin")
+    has_account = bool(account_id and str(account_id).strip())
+    has_address = bool(address and str(address).strip())
+    if has_account == has_address:
+        raise ValueError("EXACTLY_ONE_SELECTOR_REQUIRED")
     mdb_path = environ.get("ERA_COLLIN_MDB_PATH")
     code_path = environ.get("ERA_COLLIN_CODE_LIST_PATH")
     if not mdb_path or not code_path:
@@ -90,7 +98,40 @@ def execute_operator(provider, account_id, environ=None, pipeline_factory=build_
     run_id = run_id or f"ERA-RUN-{uuid.uuid4().hex}"
     utc = utc or datetime.now(timezone.utc).isoformat()
     salt = salt or uuid.uuid4().hex
-    account_hash = hashlib.sha256(f"{salt}:{account_id}".encode()).hexdigest()
+    resolution_status = "ACCOUNT_ID_SUPPLIED"
+    match_count = 1
+    selector_identity = {
+        "account_identity": {
+            "scheme": "SHA-256-RUN-SALTED",
+            "hash": hashlib.sha256(f"{salt}:{account_id}".encode()).hexdigest(),
+        }
+    }
+    if has_address:
+        selector_identity = {
+            "address_identity": {
+                "scheme": "SHA-256-RUN-SALTED",
+                "hash": hashlib.sha256(f"{salt}:{address}".encode()).hexdigest(),
+            }
+        }
+        resolver = address_resolver_factory(mdb_path, code_path)
+        resolution_status, account_id, match_count = resolver.resolve_address(address)
+        if resolution_status != "PASS":
+            return {
+                "run_id": run_id, "utc": utc, "provider": str(provider).lower(),
+                "provider_id": route["provider_id"], "jurisdiction": route["jurisdiction"],
+                **selector_identity,
+                "resolution": {"status": resolution_status, "match_count": match_count},
+                "source_files": [
+                    {"name": Path(mdb_path).name, "sha256": _sha256_file(mdb_path)},
+                    {"name": Path(code_path).name, "sha256": _sha256_file(code_path)},
+                ],
+                "acquisition_status": "NOT_STARTED", "evidence_sufficiency": None,
+                "pipeline_stages": [], "decision": None,
+                "confidence": {"status": "NOT_ASSIGNED", "reason": "Acquisition did not produce evidence"},
+                "policy_verdict": None, "export_status": None, "export_label": None,
+                "limitations": ["Address resolution failed closed; no candidate identities disclosed"],
+                "ok": False,
+            }
     opaque_property_id = f"OP-COLLIN-{hashlib.sha256((run_id + salt).encode()).hexdigest()[:20]}"
     pipeline = pipeline_factory(mdb_path, code_path, str(account_id))
     identity = PropertyIdentity(
@@ -119,10 +160,11 @@ def execute_operator(provider, account_id, environ=None, pipeline_factory=build_
     report = {
         "run_id": run_id,
         "utc": utc,
-        "provider": "collin",
-        "provider_id": COLLIN_PROVIDER,
-        "jurisdiction": "TX-COLLIN",
-        "account_identity": {"scheme": "SHA-256-RUN-SALTED", "hash": account_hash},
+        "provider": str(provider).lower(),
+        "provider_id": route["provider_id"],
+        "jurisdiction": route["jurisdiction"],
+        **selector_identity,
+        "resolution": {"status": resolution_status, "match_count": match_count},
         "source_files": [
             {"name": Path(mdb_path).name, "sha256": _sha256_file(mdb_path)},
             {"name": Path(code_path).name, "sha256": _sha256_file(code_path)},
@@ -160,10 +202,13 @@ def execute_operator(provider, account_id, environ=None, pipeline_factory=build_
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--provider", required=True)
-    parser.add_argument("--account-id", required=True)
+    parser.add_argument("--county", default="Collin")
+    selector = parser.add_mutually_exclusive_group(required=True)
+    selector.add_argument("--account-id")
+    selector.add_argument("--address")
     args = parser.parse_args(argv)
     try:
-        report = execute_operator(args.provider, args.account_id)
+        report = execute_operator(args.provider, args.account_id, address=args.address, county=args.county)
     except (ValueError, RuntimeError) as exc:
         print(json.dumps({"ok": False, "error": str(exc).split(":", 1)[0]}, sort_keys=True))
         return 2

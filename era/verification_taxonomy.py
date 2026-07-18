@@ -309,6 +309,10 @@ TAXONOMY = {
         "level": INTEGRATION, "engine": "COLLIN_BULK_ADAPTER+PIPELINE", "status": PRODUCTION,
         "purpose": "Privacy-preserving explicit Collin operator command through the established ERA pipeline.",
     },
+    "era.verify_run_property_address": {
+        "level": INTEGRATION, "engine": "COLLIN_ADDRESS_RESOLUTION+PIPELINE", "status": PRODUCTION,
+        "purpose": "Deterministic, privacy-preserving Collin address resolution and explicit provider routing.",
+    },
     "era.acquisition.providers.county.verify_dcad_index_operational": {
         "level": SYSTEM, "engine": "DCAD_INDEX_STORE", "status": PRODUCTION,
         "purpose": "Operational memory benchmark: psutil-sampled RSS in an isolated child process, 3-run matrix.",

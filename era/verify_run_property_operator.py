@@ -68,7 +68,7 @@ try:
     execute_operator("collin", None, {})
     checks["missing_account_id_fails_closed"] = False
 except ValueError as exc:
-    checks["missing_account_id_fails_closed"] = str(exc) == "ACCOUNT_ID_REQUIRED"
+    checks["missing_account_id_fails_closed"] = str(exc) == "EXACTLY_ONE_SELECTOR_REQUIRED"
 try:
     execute_operator("collin", "A", {})
     checks["missing_environment_paths_fail_closed"] = False

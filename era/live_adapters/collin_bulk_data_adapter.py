@@ -3,6 +3,7 @@
 import base64
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 
@@ -24,6 +25,31 @@ ACCESS_QUERY_FAILED = "ACCESS_QUERY_FAILED"
 COLLIN_RECORD_NOT_FOUND = "COLLIN_RECORD_NOT_FOUND"
 COLLIN_RECORD_AMBIGUOUS = "COLLIN_RECORD_AMBIGUOUS"
 CODE_LIST_SOURCE_MISSING = "CODE_LIST_SOURCE_MISSING"
+COLLIN_ADDRESS_NOT_FOUND = "COLLIN_ADDRESS_NOT_FOUND"
+COLLIN_ADDRESS_AMBIGUOUS = "COLLIN_ADDRESS_AMBIGUOUS"
+
+_ADDRESS_TOKENS = {
+    "NORTH": "N", "SOUTH": "S", "EAST": "E", "WEST": "W",
+    "NORTHEAST": "NE", "NORTHWEST": "NW", "SOUTHEAST": "SE", "SOUTHWEST": "SW",
+    "STREET": "ST", "AVENUE": "AVE", "BOULEVARD": "BLVD", "ROAD": "RD",
+    "DRIVE": "DR", "LANE": "LN", "COURT": "CT", "CIRCLE": "CIR",
+    "PARKWAY": "PKWY", "HIGHWAY": "HWY", "PLACE": "PL", "TERRACE": "TER",
+    "APARTMENT": "UNIT", "APT": "UNIT", "SUITE": "UNIT", "STE": "UNIT",
+}
+
+
+def normalize_collin_address(value):
+    """Deterministic acquisition normalization; never performs geocoding."""
+    text = str(value or "").upper().replace("#", " UNIT ")
+    text = re.sub(r"(?<=\d)[- ](?=\d{4}\b)", "", text)
+    text = re.sub(r"[^A-Z0-9 ]+", " ", text)
+    tokens = []
+    for token in text.split():
+        token = _ADDRESS_TOKENS.get(token, token)
+        if token.isdigit() and len(token) == 9:
+            token = token[:5]
+        tokens.append(token)
+    return " ".join(tokens)
 
 
 def _encoded_command(script):
@@ -126,6 +152,51 @@ finally { $connection.Close() }
         self._last_raw_query_bytes = raw_output
         output = raw_output.decode("utf-8", errors="replace")
         return json.loads(output or "[]")
+
+    def _query_address_candidates(self, street_number):
+        if not Path(self._mdb_path).is_file():
+            raise RuntimeError(ACCESS_SOURCE_MISSING)
+        script = r'''
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$ErrorActionPreference = 'Stop'
+$connection = New-Object System.Data.OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=$env:ERA_MDB_PATH;Mode=Read;")
+$connection.Open()
+try {
+    $command = $connection.CreateCommand()
+    $command.CommandText = "SELECT prop_id, situs_display FROM AD_Public WHERE Left(Trim(situs_display), ?) = ?"
+    [void]$command.Parameters.AddWithValue('@p1', $env:ERA_STREET_NUMBER.Length)
+    [void]$command.Parameters.AddWithValue('@p2', $env:ERA_STREET_NUMBER)
+    $reader = $command.ExecuteReader()
+    $rows = @()
+    while ($reader.Read()) {
+        $rows += [pscustomobject][ordered]@{
+            prop_id = if ($reader.IsDBNull(0)) { $null } else { $reader.GetValue(0) }
+            situs_display = if ($reader.IsDBNull(1)) { $null } else { $reader.GetValue(1) }
+        }
+    }
+    $reader.Close()
+    ConvertTo-Json -InputObject @($rows) -Compress -Depth 3
+}
+finally { $connection.Close() }
+'''
+        output = self._run_script(script, {
+            "ERA_MDB_PATH": self._mdb_path,
+            "ERA_STREET_NUMBER": street_number,
+        })
+        return json.loads(output or "[]")
+
+    def resolve_address(self, address):
+        normalized = normalize_collin_address(address)
+        first = normalized.split(" ", 1)[0] if normalized else ""
+        if not first.isdigit():
+            return COLLIN_ADDRESS_NOT_FOUND, None, 0
+        rows = self._query_address_candidates(first)
+        matches = [row for row in rows if normalize_collin_address(row.get("situs_display")) == normalized]
+        if not matches:
+            return COLLIN_ADDRESS_NOT_FOUND, None, 0
+        if len(matches) != 1:
+            return COLLIN_ADDRESS_AMBIGUOUS, None, len(matches)
+        return provider_errors.PASS, str(matches[0]["prop_id"]), 1
 
     def _load_code_lists(self):
         if self._code_lists is not None:
