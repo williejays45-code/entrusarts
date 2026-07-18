@@ -313,6 +313,10 @@ TAXONOMY = {
         "level": INTEGRATION, "engine": "COLLIN_ADDRESS_RESOLUTION+PIPELINE", "status": PRODUCTION,
         "purpose": "Deterministic, privacy-preserving Collin address resolution and explicit provider routing.",
     },
+    "era.api.verify_property_api": {
+        "level": INTEGRATION, "engine": "ERA_API+PROPERTY_OPERATOR", "status": PRODUCTION,
+        "purpose": "Authenticated, bounded, privacy-preserving FastAPI boundary over the verified property operator.",
+    },
     "era.acquisition.providers.county.verify_dcad_index_operational": {
         "level": SYSTEM, "engine": "DCAD_INDEX_STORE", "status": PRODUCTION,
         "purpose": "Operational memory benchmark: psutil-sampled RSS in an isolated child process, 3-run matrix.",
