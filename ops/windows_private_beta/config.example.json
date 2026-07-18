@@ -1,0 +1,21 @@
+{
+  "sourceRoot": "C:\\path\\to\\entrus-site",
+  "pythonExe": "C:\\path\\to\\entrus-site\\.venv-era-repro\\Scripts\\python.exe",
+  "credentialFile": "C:\\ProgramData\\EnTrus\\ERA\\secrets\\api-token.clixml",
+  "collinMdbPath": "C:\\restricted\\data\\AD_Public.mdb",
+  "collinMdbSha256": "F1FDC1998C276EC00AA5E923438181FC6E45A85C83882D7A541DDD5828C8F031",
+  "collinCodeListPath": "C:\\restricted\\data\\CodeFileLists.xls",
+  "collinCodeListSha256": "24BE4031B9D17E88273E0ACBEA995C52C1301684CE24A9B88E6277A0707E1D36",
+  "stateDirectory": "C:\\ProgramData\\EnTrus\\ERA\\state",
+  "operatorLogDirectory": "C:\\ProgramData\\EnTrus\\ERA\\logs\\operator",
+  "diagnosticLogDirectory": "C:\\ProgramData\\EnTrus\\ERA\\logs\\administrator",
+  "host": "127.0.0.1",
+  "port": 8081,
+  "serviceVersion": "release-or-commit-id",
+  "healthStartupSeconds": 30,
+  "healthIntervalSeconds": 15,
+  "maxChildRestarts": 3,
+  "restartWindowSeconds": 300,
+  "maxLogBytes": 10485760,
+  "logRetentionCount": 5
+}
