@@ -110,7 +110,8 @@ CURRENT_FIELD_MAP = {
 
 
 def map_collin_row(row, code_lists):
-    evidence = {}
+    # Jurisdiction is source-profile authority, not a value inferred by reasoning.
+    evidence = {"county": "Collin"}
     warnings = []
 
     for source, target in DIRECT_FIELD_MAP.items():

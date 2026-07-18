@@ -1,0 +1,175 @@
+"""Explicit, privacy-preserving ERA property operator command."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import sys
+import uuid
+from datetime import datetime, timezone
+from pathlib import Path
+
+from era.acquisition.provider_health_authority import ReadinessObservation
+from era.app import bootstrap_collin_demo, build_app
+from era.property_record.property_enums import PropertyType, StrategyType
+from era.property_record.property_models import PropertyIdentity
+
+
+COLLIN_PROVIDER = "COLLIN_BULK_MDB"
+PRIVATE_FIELDS = frozenset({
+    "owner_name", "owner_mailing_address", "owner_mailing_city",
+    "owner_mailing_state", "owner_mailing_zip_code", "property_address",
+    "legal_description", "source_record_id", "parcel_id", "zip_code",
+})
+EXPECTED_FIELDS = frozenset({"city", "state", "current_appraised_value", "certified_appraised_value"})
+
+
+def _sha256_file(path: str) -> str:
+    digest = hashlib.sha256()
+    with open(path, "rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest().upper()
+
+
+class AccountBoundCollinAdapter:
+    """Acquisition-side binding from an opaque run property ID to an operator account ID."""
+
+    def __init__(self, adapter, account_id: str):
+        self._adapter = adapter
+        self._account_id = account_id
+
+    def provider_id(self):
+        return self._adapter.provider_id()
+
+    def provider_name(self):
+        return self._adapter.provider_name()
+
+    def connector_version(self):
+        return self._adapter.connector_version()
+
+    def health_check(self):
+        return True
+
+    def retrieve(self, _opaque_property_id):
+        return self._adapter.retrieve(self._account_id)
+
+
+def build_operator_pipeline(mdb_path: str, code_path: str, account_id: str):
+    pipeline = build_app(
+        use_mock_auth=True,
+        collin_mdb_path=mdb_path,
+        collin_code_list_path=code_path,
+    )
+    bound = AccountBoundCollinAdapter(pipeline.c.collin_bulk_data_adapter, account_id)
+    pipeline.c.collin_bulk_data_adapter = bound
+    pipeline.c.county_connectors[COLLIN_PROVIDER] = bound
+    pipeline.c._provider_readiness_observers[COLLIN_PROVIDER] = ReadinessObservation.READY
+    bootstrap_collin_demo(pipeline)
+    return pipeline
+
+
+def execute_operator(provider, account_id, environ=None, pipeline_factory=build_operator_pipeline,
+                     run_id=None, utc=None, salt=None):
+    environ = os.environ if environ is None else environ
+    if not provider:
+        raise ValueError("PROVIDER_REQUIRED")
+    if provider.lower() != "collin":
+        raise ValueError("UNSUPPORTED_PROVIDER")
+    if not account_id or not str(account_id).strip():
+        raise ValueError("ACCOUNT_ID_REQUIRED")
+    mdb_path = environ.get("ERA_COLLIN_MDB_PATH")
+    code_path = environ.get("ERA_COLLIN_CODE_LIST_PATH")
+    if not mdb_path or not code_path:
+        raise ValueError("COLLIN_SOURCE_PATHS_REQUIRED")
+    if not Path(mdb_path).is_file() or not Path(code_path).is_file():
+        raise ValueError("COLLIN_SOURCE_PATH_NOT_FOUND")
+
+    run_id = run_id or f"ERA-RUN-{uuid.uuid4().hex}"
+    utc = utc or datetime.now(timezone.utc).isoformat()
+    salt = salt or uuid.uuid4().hex
+    account_hash = hashlib.sha256(f"{salt}:{account_id}".encode()).hexdigest()
+    opaque_property_id = f"OP-COLLIN-{hashlib.sha256((run_id + salt).encode()).hexdigest()[:20]}"
+    pipeline = pipeline_factory(mdb_path, code_path, str(account_id))
+    identity = PropertyIdentity(
+        property_id=opaque_property_id,
+        address="WITHHELD OPERATOR ACQUISITION",
+        city="Collin County", state="TX", zip_code="00000", county="Collin",
+        parcel_apn=None, latitude=None, longitude=None,
+        property_type=PropertyType.OTHER, strategy_type=StrategyType.OTHER,
+    )
+    result = pipeline.run_property(
+        opaque_property_id, identity, "TX", "Collin", COLLIN_PROVIDER,
+    )
+    canonical = list(result.canonical_records)
+    present_fields = {record.field_name for record in canonical}
+    safe_facts = sorted(
+        (record.field_name, str(record.normalized_value))
+        for record in canonical if record.field_name not in PRIVATE_FIELDS
+    )
+    facts_hash = hashlib.sha256(
+        json.dumps(safe_facts, separators=(",", ":"), ensure_ascii=True).encode()
+    ).hexdigest().upper()
+    decision = result.decision_record.decision.value if result.decision_record else None
+    export_status = result.export_package.status.value if result.export_package else None
+    pending = decision == "PENDING_MORE_EVIDENCE"
+    lpa = result.stage("LPA")
+    report = {
+        "run_id": run_id,
+        "utc": utc,
+        "provider": "collin",
+        "provider_id": COLLIN_PROVIDER,
+        "jurisdiction": "TX-COLLIN",
+        "account_identity": {"scheme": "SHA-256-RUN-SALTED", "hash": account_hash},
+        "source_files": [
+            {"name": Path(mdb_path).name, "sha256": _sha256_file(mdb_path)},
+            {"name": Path(code_path).name, "sha256": _sha256_file(code_path)},
+        ],
+        "acquisition_status": lpa.status if lpa else "NOT_REACHED",
+        "evidence_sufficiency": {
+            "normalized_field_count": len(canonical),
+            "expected_fields_present": sorted(EXPECTED_FIELDS & present_fields),
+            "missing_expected_fields": sorted(EXPECTED_FIELDS - present_fields),
+            "sufficient_for_pipeline": bool(canonical),
+            "normalized_non_personal_facts_sha256": facts_hash,
+        },
+        "pipeline_stages": [
+            {"name": stage.name, "status": stage.status, "ok": stage.ok}
+            for stage in result.stages
+        ],
+        "decision": decision,
+        "confidence": {"status": "NOT_ASSIGNED", "reason": "ERA decision contract has no confidence field"},
+        "policy_verdict": result.policy_result.verdict.value if result.policy_result else None,
+        "export_status": export_status,
+        "export_label": (
+            "INFORMATIONAL INCOMPLETE-EVIDENCE REPORT — NOT A FINAL PROPERTY DETERMINATION"
+            if pending and export_status == "EXPORTED" else None
+        ),
+        "limitations": [
+            "Single public-record source only",
+            "Owner, telephone, mailing-address, raw-row, parcel, and legal-description values withheld",
+            "No confidence score exists in the established ERA decision contract",
+        ],
+        "ok": result.ok,
+    }
+    return report
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--provider", required=True)
+    parser.add_argument("--account-id", required=True)
+    args = parser.parse_args(argv)
+    try:
+        report = execute_operator(args.provider, args.account_id)
+    except (ValueError, RuntimeError) as exc:
+        print(json.dumps({"ok": False, "error": str(exc).split(":", 1)[0]}, sort_keys=True))
+        return 2
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if report["ok"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

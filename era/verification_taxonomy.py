@@ -305,6 +305,10 @@ TAXONOMY = {
         "level": INTEGRATION, "engine": "DCAD_BULK_ADAPTER", "status": PRODUCTION,
         "purpose": "Clean-clone safeguard for synthetic DCAD fallback schema, markers, and path selection.",
     },
+    "era.verify_run_property_operator": {
+        "level": INTEGRATION, "engine": "COLLIN_BULK_ADAPTER+PIPELINE", "status": PRODUCTION,
+        "purpose": "Privacy-preserving explicit Collin operator command through the established ERA pipeline.",
+    },
     "era.acquisition.providers.county.verify_dcad_index_operational": {
         "level": SYSTEM, "engine": "DCAD_INDEX_STORE", "status": PRODUCTION,
         "purpose": "Operational memory benchmark: psutil-sampled RSS in an isolated child process, 3-run matrix.",
