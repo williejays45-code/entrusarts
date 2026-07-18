@@ -6,6 +6,7 @@ import os
 import re
 from pathlib import Path
 import subprocess
+import time
 
 from era.acquisition.profiles.collin_profile import (
     CODE_SHEETS,
@@ -25,8 +26,14 @@ ACCESS_QUERY_FAILED = "ACCESS_QUERY_FAILED"
 COLLIN_RECORD_NOT_FOUND = "COLLIN_RECORD_NOT_FOUND"
 COLLIN_RECORD_AMBIGUOUS = "COLLIN_RECORD_AMBIGUOUS"
 CODE_LIST_SOURCE_MISSING = "CODE_LIST_SOURCE_MISSING"
+COLLIN_CHILD_CLEANUP_FAILED = "COLLIN_CHILD_CLEANUP_FAILED"
 COLLIN_ADDRESS_NOT_FOUND = "COLLIN_ADDRESS_NOT_FOUND"
 COLLIN_ADDRESS_AMBIGUOUS = "COLLIN_ADDRESS_AMBIGUOUS"
+_AUDIT_REASON_CODES = frozenset({
+    ACCESS_DRIVER_MISSING, ACCESS_SOURCE_MISSING, ACCESS_TABLE_MISSING,
+    ACCESS_QUERY_FAILED, CODE_LIST_SOURCE_MISSING,
+})
+_OPAQUE_PROPERTY = re.compile(r"^OP-COLLIN-[A-Fa-f0-9]{20}$")
 
 _ADDRESS_TOKENS = {
     "NORTH": "N", "SOUTH": "S", "EAST": "E", "WEST": "W",
@@ -64,7 +71,8 @@ class CollinBulkDataAdapter:
     TABLE_NAME = "AD_Public"
     EXPECTED_ROW_COUNT = 503_711
 
-    def __init__(self, mdb_path, code_list_path, audit=None, version="2026-preliminary"):
+    def __init__(self, mdb_path, code_list_path, audit=None, version="2026-preliminary",
+                 operation_control=None):
         self._mdb_path = str(Path(mdb_path))
         self._code_list_path = str(Path(code_list_path))
         self._version = version
@@ -73,6 +81,10 @@ class CollinBulkDataAdapter:
         self._code_lists = None
         # AX-ADAPT-001: exact subprocess stdout bytes for the last row query.
         self._last_raw_query_bytes = None
+        self._operation_control = operation_control
+
+    def set_operation_control(self, operation_control):
+        self._operation_control = operation_control
 
     def provider_id(self):
         return self.CONNECTOR_ID
@@ -91,27 +103,114 @@ class CollinBulkDataAdapter:
     def _run_script(self, script, extra_env=None):
         return self._run_script_bytes(script, extra_env).decode("utf-8", errors="replace").strip()
 
+    @staticmethod
+    def _closed_reason(exc):
+        reason = str(exc).split(":", 1)[0]
+        return reason if reason in _AUDIT_REASON_CODES else ACCESS_QUERY_FAILED
+
+    @staticmethod
+    def _audit_property_id(value):
+        candidate = str(value or "")
+        return candidate if _OPAQUE_PROPERTY.fullmatch(candidate) else "COLLIN-RUN-WITHHELD"
+
+    @staticmethod
+    def _terminate_and_reap(process, grace_seconds=0.05):
+        """Best-effort bounded cleanup owned exclusively through ``Popen``.
+
+        Cleanup exceptions never replace the acquisition/cancellation
+        exception already in flight.  Every branch attempts a final reap and
+        never resolves or targets a raw PID.
+        """
+        try:
+            if process.poll() is not None:
+                try:
+                    process.communicate(timeout=0)
+                except Exception:
+                    try:
+                        process.wait(timeout=grace_seconds)
+                    except Exception:
+                        pass
+                return process.poll() is not None
+        except Exception:
+            pass
+        try:
+            process.terminate()
+        except Exception:
+            pass
+        try:
+            process.communicate(timeout=grace_seconds)
+        except Exception:
+            try:
+                process.kill()
+            except Exception:
+                pass
+            try:
+                process.communicate(timeout=grace_seconds)
+            except Exception:
+                try:
+                    process.wait(timeout=grace_seconds)
+                except Exception:
+                    pass
+        try:
+            return process.poll() is not None
+        except Exception:
+            return False
+
     def _run_script_bytes(self, script, extra_env=None):
         powershell = self._powershell32()
         if not Path(powershell).exists():
             raise RuntimeError(ACCESS_DRIVER_MISSING)
         env = os.environ.copy()
         env.update(extra_env or {})
-        completed = subprocess.run(
+        completed = subprocess.Popen(
             [powershell, "-NoProfile", "-NonInteractive", "-EncodedCommand", _encoded_command(script)],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=False,
             env=env,
-            timeout=120,
         )
+        started = time.monotonic()
+        primary_exception = None
+        try:
+            while True:
+                try:
+                    stdout, stderr = completed.communicate(timeout=0.05)
+                    break
+                except subprocess.TimeoutExpired:
+                    if self._operation_control:
+                        self._operation_control.check()
+                    if time.monotonic() - started >= 120:
+                        raise RuntimeError(ACCESS_QUERY_FAILED)
+        except BaseException as exc:
+            primary_exception = exc
+            raise
+        finally:
+            try:
+                running = completed.poll() is None
+            except Exception:
+                running = True
+            if running:
+                cleanup_ok = self._terminate_and_reap(completed)
+                if not cleanup_ok:
+                    if primary_exception is not None:
+                        try:
+                            primary_exception.cleanup_reason_code = COLLIN_CHILD_CLEANUP_FAILED
+                        except Exception:
+                            pass
+                        try:
+                            primary_exception.add_note(COLLIN_CHILD_CLEANUP_FAILED)
+                        except Exception:
+                            pass
+                    else:
+                        raise RuntimeError(COLLIN_CHILD_CLEANUP_FAILED)
         if completed.returncode != 0:
-            message = (completed.stderr or completed.stdout).decode("utf-8", errors="replace").strip()
+            message = (stderr or stdout).decode("utf-8", errors="replace").strip()
             if "not registered" in message:
                 raise RuntimeError(ACCESS_DRIVER_MISSING)
             if "AD_Public" in message and ("find" in message.lower() or "exist" in message.lower()):
                 raise RuntimeError(ACCESS_TABLE_MISSING)
             raise RuntimeError(f"{ACCESS_QUERY_FAILED}: {message}")
-        return bytes(completed.stdout).strip()
+        return bytes(stdout).strip()
 
     def _query_rows(self, lookup):
         if not Path(self._mdb_path).is_file():
@@ -256,10 +355,13 @@ finally { $connection.Close() }
             rows = self._query_rows("-1")
             return isinstance(rows, list)
         except RuntimeError as exc:
-            self.audit.publish("COLLIN_HEALTH_FAILED", {"reason": str(exc)})
+            if exc.__class__.__name__ == "OperationCancelled":
+                raise
+            self.audit.publish("COLLIN_HEALTH_FAILED", {"reason": self._closed_reason(exc)})
             return False
 
-    def retrieve(self, property_id):
+    def retrieve(self, property_id, audit_property_id=None):
+        safe_property_id = self._audit_property_id(audit_property_id)
         try:
             rows = self._query_rows(property_id)
             if not rows:
@@ -268,13 +370,20 @@ finally { $connection.Close() }
                 return COLLIN_RECORD_AMBIGUOUS, {}
             evidence_map, warnings = map_collin_row(rows[0], self._load_code_lists())
         except RuntimeError as exc:
-            reason = str(exc).split(":", 1)[0]
-            self.audit.publish("COLLIN_RETRIEVE_FAILED", {"reason": str(exc), "property_id": property_id})
+            if exc.__class__.__name__ == "OperationCancelled":
+                raise
+            reason = self._closed_reason(exc)
+            self.audit.publish("COLLIN_RETRIEVE_FAILED", {
+                "reason": reason, "property_id": safe_property_id,
+            })
             return reason, {}
 
         self.last_warnings = warnings
-        for warning in warnings:
-            self.audit.publish("COLLIN_CODE_WARNING", {"warning": warning, "property_id": property_id})
+        for _warning in warnings:
+            self.audit.publish("COLLIN_CODE_WARNING", {
+                "reason": "CODE_LIST_VALUE_UNRESOLVED",
+                "property_id": safe_property_id,
+            })
         evidence = [
             ProviderEvidence(field_name=field, raw_value=value)
             for field, value in sorted(evidence_map.items())

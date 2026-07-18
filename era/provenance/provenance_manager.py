@@ -85,6 +85,13 @@ class EvidenceProvenanceManager:
             str(getattr(item, "original_lexical_value", "")),
             str(getattr(item, "parsed_value", "")),
             str(getattr(item, "proposed_value_type", "")),
+            str(getattr(item, "source_class", "")),
+            str(getattr(item, "verification_status", "")),
+            str(getattr(item, "submitted_evidence_digest", "")),
+            str(getattr(item, "evidence_type", "")),
+            str(getattr(item, "semantic_comparison_key", "")),
+            str(getattr(item, "applicable_period", "")),
+            str(getattr(item, "item_identity", "")),
         ]
         if any(trace_fields):
             fields.extend(["TRACE-1", *trace_fields])
@@ -162,6 +169,13 @@ class EvidenceProvenanceManager:
             original_lexical_value=getattr(item, "original_lexical_value", ""),
             parsed_value=getattr(item, "parsed_value", ""),
             proposed_value_type=getattr(item, "proposed_value_type", ""),
+            source_class=getattr(item, "source_class", ""),
+            verification_status=getattr(item, "verification_status", ""),
+            submitted_evidence_digest=getattr(item, "submitted_evidence_digest", ""),
+            evidence_type=getattr(item, "evidence_type", ""),
+            semantic_comparison_key=getattr(item, "semantic_comparison_key", ""),
+            applicable_period=getattr(item, "applicable_period", ""),
+            item_identity=getattr(item, "item_identity", ""),
         )
         # Apply both in-memory mutations together, then persist both.
         # If either durable write fails, roll both back so the chain

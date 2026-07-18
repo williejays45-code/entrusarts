@@ -1,6 +1,7 @@
 from dataclasses import asdict
+import hashlib
 from era.conflict.conflict_audit import ConflictAudit
-from era.conflict.conflict_models import ConflictReport
+from era.conflict.conflict_models import CANONICAL_TIME_FALLBACK, ConflictReport
 from era.conflict.conflict_enums import ConflictType, ConflictStatus
 from era.conflict import conflict_errors as errors
 from era.shared.persistence import PersistenceError
@@ -27,6 +28,8 @@ class EvidenceConflictResolver:
         "parcel_apn": ConflictType.PARCEL_CONFLICT,
         "legal_description": ConflictType.LEGAL_DESCRIPTION_CONFLICT,
         "appraised_value": ConflictType.APPRAISAL_CONFLICT,
+        "current_appraised_value": ConflictType.APPRAISAL_CONFLICT,
+        "certified_appraised_value": ConflictType.APPRAISAL_CONFLICT,
         "land_value": ConflictType.LAND_VALUE_CONFLICT,
         "improvement_value": ConflictType.IMPROVEMENT_VALUE_CONFLICT,
         "exemptions": ConflictType.EXEMPTION_CONFLICT,
@@ -91,24 +94,41 @@ class EvidenceConflictResolver:
         property_id = property_ids[0]
         grouped = {}
         for item in evidence_items:
-            grouped.setdefault(item.field_name, []).append(item)
+            comparison_key = item.semantic_comparison_key or item.field_name
+            compatibility = (
+                item.field_name,
+                comparison_key,
+                getattr(item, "value_type", ""),
+                getattr(item, "units", ""),
+            )
+            grouped.setdefault(compatibility, []).append(item)
         reports = []
-        for field_name in sorted(grouped.keys()):
-            group = grouped[field_name]
+        for field_name, comparison_key, _value_type, _units in sorted(grouped.keys()):
+            group = grouped[(field_name, comparison_key, _value_type, _units)]
             unique_values = sorted(set(item.normalized_value for item in group))
             if len(unique_values) <= 1:
                 continue
             conflict_type = self.classify(field_name)
+            suffix = ""
+            if comparison_key != field_name:
+                suffix = "-" + hashlib.sha256(comparison_key.encode("utf-8")).hexdigest()[:16].upper()
+            observations = sorted(
+                value for value in (getattr(item, "observation_utc", "") for item in group)
+                if value
+            )
             report = ConflictReport(
-                conflict_id=f"CONFLICT-{property_id}-{field_name}".replace(" ", "_").upper(),
+                conflict_id=(f"CONFLICT-{property_id}-{field_name}{suffix}"
+                             .replace(" ", "_").upper()),
                 property_id=property_id,
                 field_name=field_name,
                 conflict_type=conflict_type,
                 providers=sorted(set(item.provider_id for item in group)),
-                evidence_ids=[item.evidence_id for item in group],
+                evidence_ids=sorted(item.evidence_id for item in group),
                 observed_values=unique_values,
                 source_references=sorted(set(item.source_reference for item in group)),
                 status=ConflictStatus.OPEN,
+                semantic_comparison_key=comparison_key,
+                detected_at=(observations[-1] if observations else CANONICAL_TIME_FALLBACK),
             )
             self.reports[report.conflict_id] = report
             if not self._persist(report, conn=conn):
@@ -138,7 +158,7 @@ class EvidenceConflictResolver:
         })
         if not reports:
             return errors.NO_CONFLICT, []
-        return errors.PASS, reports
+        return errors.PASS, sorted(reports, key=lambda report: report.conflict_id)
     def get_report(self, conflict_id):
         return self.reports.get(conflict_id)
     def attempt_write(self):

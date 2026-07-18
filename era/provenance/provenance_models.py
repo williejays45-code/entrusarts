@@ -40,6 +40,13 @@ class ProvenanceInput:
     original_lexical_value: str = ""
     parsed_value: str = ""
     proposed_value_type: str = ""
+    source_class: str = ""
+    verification_status: str = ""
+    submitted_evidence_digest: str = ""
+    evidence_type: str = ""
+    semantic_comparison_key: str = ""
+    applicable_period: str = ""
+    item_identity: str = ""
 @dataclass(frozen=True)
 class ProvenanceRecord:
     evidence_id: str
@@ -81,3 +88,10 @@ class ProvenanceRecord:
     original_lexical_value: str = ""
     parsed_value: str = ""
     proposed_value_type: str = ""
+    source_class: str = ""
+    verification_status: str = ""
+    submitted_evidence_digest: str = ""
+    evidence_type: str = ""
+    semantic_comparison_key: str = ""
+    applicable_period: str = ""
+    item_identity: str = ""

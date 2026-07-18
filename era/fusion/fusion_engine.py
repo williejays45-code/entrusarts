@@ -1,5 +1,9 @@
 from era.fusion.fusion_audit import FusionAudit
-from era.fusion.fusion_models import FieldFusionResult, EvidenceFusionPackage
+from era.fusion.fusion_models import (
+    CANONICAL_TIME_FALLBACK,
+    FieldFusionResult,
+    EvidenceFusionPackage,
+)
 from era.fusion.fusion_enums import FusionStatus
 from era.fusion import fusion_errors as errors
 class MultiSourceFusionEngine:
@@ -30,12 +34,13 @@ class MultiSourceFusionEngine:
         property_id = property_ids[0]
         grouped = {}
         for item in evidence_items:
-            grouped.setdefault(item.field_name, []).append(item)
+            comparison_key = item.semantic_comparison_key or item.field_name
+            grouped.setdefault((item.field_name, comparison_key), []).append(item)
         results = []
-        for field_name in sorted(grouped.keys()):
-            group = grouped[field_name]
+        for field_name, comparison_key in sorted(grouped.keys()):
+            group = grouped[(field_name, comparison_key)]
             unique_values = sorted(set(item.normalized_value for item in group))
-            evidence_group_ids = [item.evidence_id for item in group]
+            evidence_group_ids = sorted(item.evidence_id for item in group)
             if len(group) == 1:
                 status = FusionStatus.SINGLE_SOURCE
             elif len(unique_values) == 1:
@@ -49,6 +54,7 @@ class MultiSourceFusionEngine:
                 source_count=len(group),
                 unique_values=unique_values,
                 evidence_ids=evidence_group_ids,
+                semantic_comparison_key=comparison_key,
             )
             results.append(result)
             self.audit.publish("FIELD_FUSED", {
@@ -61,6 +67,10 @@ class MultiSourceFusionEngine:
             property_id=property_id,
             fields=results,
             evidence_count=len(evidence_items),
+            created_at=max(
+                (item.observation_utc for item in evidence_items if item.observation_utc),
+                default=CANONICAL_TIME_FALLBACK,
+            ),
         )
         self.audit.publish("FUSION_COMPLETED", {
             "property_id": property_id,

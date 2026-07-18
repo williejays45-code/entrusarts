@@ -23,7 +23,10 @@ PSE is not wired -- it does not exist anywhere in this archive.
 """
 
 from dataclasses import dataclass, field, asdict
+import copy
 import threading
+import time
+from era.acquisition.supplemental_evidence import validate_governed_package
 from era.canonical.canonical_models import CanonicalEvidenceRecord, Provenance
 from era.canonical.canonical_enums import EvidenceCategory, EvidenceSourceClass, EvidenceValueType
 from era.canonical import canonical_errors as canonical_errors
@@ -47,6 +50,57 @@ from era.jurisdiction import jurisdiction_errors as jurisdiction_errors
 from era.providers import provider_errors as provider_errors
 from era.acquisition.connector_enums import ConnectorStatus
 from era.acquisition.provider_enumeration_authority import ProviderEnumerationRequest
+
+
+class OperationCancelled(RuntimeError):
+    pass
+
+
+class OperationControl:
+    """Thread-safe deadline and atomic commit authority for one operator run.
+
+    ``commit`` is the only authority-bearing boundary.  Cancellation and a
+    commit action serialize on the same lock, so a revoked operation cannot
+    pass a check and then commit in a separate, racy step.
+    """
+
+    def __init__(self, timeout_seconds=None):
+        self._cancelled = threading.Event()
+        self._authority_lock = threading.RLock()
+        self._revoked = False
+        self.deadline = (
+            time.monotonic() + float(timeout_seconds)
+            if timeout_seconds is not None else None
+        )
+
+    def cancel(self):
+        self.revoke()
+
+    def revoke(self):
+        with self._authority_lock:
+            self._revoked = True
+            self._cancelled.set()
+
+    def _check_locked(self):
+        if self._revoked or (
+                self.deadline is not None and time.monotonic() >= self.deadline):
+            self._revoked = True
+            self._cancelled.set()
+            raise OperationCancelled("OPERATION_CANCELLED")
+
+    def check(self):
+        with self._authority_lock:
+            self._check_locked()
+
+    def commit(self, action):
+        """Run one externally observable commit while authority is held."""
+        with self._authority_lock:
+            self._check_locked()
+            return action()
+
+    @property
+    def cancelled(self):
+        return self._cancelled.is_set()
 
 
 FIELD_CATEGORY = {
@@ -180,6 +234,20 @@ FIELD_VALUE_TYPE = {
 
 REQUIRED_IDENTITY_FIELDS = {"property_address", "city", "county", "state"}
 
+FIELD_UNITS = {
+    "current_appraised_value": "USD",
+    "certified_appraised_value": "USD",
+    "total_appraised_value": "USD",
+    "land_value": "USD",
+    "improvement_value": "USD",
+    "living_area": "SQFT",
+    "units": "COUNT",
+}
+
+
+def _provider_semantic_key(field_name, value_type, units):
+    return f"PROPERTY|{field_name}|{value_type.value}|{units or 'NONE'}"
+
 
 def _normalize_text(value: str) -> str:
     return " ".join(str(value).split())
@@ -249,7 +317,8 @@ class Pipeline:
 
     def run_property(self, property_id: str, identity: PropertyIdentity,
                       state: str, county: str, provider_id: str,
-                      export_format: ExportFormat = ExportFormat.JSON):
+                      export_format: ExportFormat = ExportFormat.JSON,
+                      supplemental_package=None, operation_control=None):
         """
         TXN-001: if the container has a persistence_store, every
         persisted write this run makes (SRR, UPR, EPM, ECR, DEC, POL,
@@ -260,10 +329,10 @@ class Pipeline:
         leaves zero durable trace of the writes that already happened
         earlier in that same run (SRR/UPR/EPM/ECR), not a partial record.
 
-        Audit events are deliberately outside this transaction (see
-        era.shared.persistence.Transaction's docstring) -- they record
-        what was attempted, including rolled-back attempts, immediately
-        and independently.
+        Audit events are outside SQLite's transaction.  When an operation
+        control is present their in-memory publishers are included in the
+        run snapshot and restored on cancellation; the API publishes its
+        externally visible allow event only through the same commit authority.
 
         With no persistence_store (in-memory mode), conn is always None
         and every call below behaves exactly as it did before TXN-001 --
@@ -272,6 +341,8 @@ class Pipeline:
         result = PipelineResult(property_id=property_id)
         store = self.c.persistence_store
         with self._run_lock:
+            if operation_control:
+                operation_control.check()
             txn = store.transaction() if store else None
             conn = txn.conn if txn else None
             # TXN-001: snapshot the in-memory state of every engine this
@@ -287,33 +358,53 @@ class Pipeline:
             # the whole pipeline run as one unit. self._run_lock (see
             # __init__) is what makes this snapshot/restore safe under
             # concurrent callers -- see that comment for why.
-            snapshot = self._snapshot_engine_state() if txn else None
+            snapshot = self._snapshot_engine_state() if (txn or operation_control) else None
             try:
                 self._run_property_body(
-                    result, identity, state, county, provider_id, export_format, conn
+                    result, identity, state, county, provider_id, export_format, conn,
+                    supplemental_package, operation_control,
                 )
+                if operation_control:
+                    operation_control.check()
+                if txn:
+                    if result.ok:
+                        if operation_control:
+                            operation_control.commit(txn.commit)
+                        else:
+                            txn.commit()
+                    else:
+                        txn.rollback()
+                        self._restore_engine_state(snapshot)
             except Exception:
                 if txn:
                     txn.rollback()
+                if snapshot is not None:
                     self._restore_engine_state(snapshot)
                 raise
-            if txn:
-                if result.ok:
-                    txn.commit()
-                else:
-                    txn.rollback()
-                    self._restore_engine_state(snapshot)
         return result
 
     def _snapshot_engine_state(self):
+        audit_lengths = {}
+        audit_engines = {
+            **self.c.all_engines(),
+            "rate_limiter": self.c.rate_limiter,
+            "retry_executor": self.c.retry_executor,
+        }
+        for name, engine in audit_engines.items():
+            audit = getattr(engine, "audit", None)
+            if audit is not None:
+                audit_lengths[name] = len(audit.events)
         return {
-            "srr": dict(self.c.srr.connectors),
-            "upr": dict(self.c.upr.records),
-            "epm": dict(self.c.epm.records),
-            "ecr": dict(self.c.ecr.reports),
-            "dec": dict(self.c.dec.records),
-            "pol": dict(self.c.pol.results),
-            "exp": dict(self.c.exp.records),
+            "srr": copy.deepcopy(self.c.srr.connectors),
+            "upr": copy.deepcopy(self.c.upr.records),
+            "epm": copy.deepcopy(self.c.epm.records),
+            "ecr": copy.deepcopy(self.c.ecr.reports),
+            "dec": copy.deepcopy(self.c.dec.records),
+            "pol": copy.deepcopy(self.c.pol.results),
+            "exp": copy.deepcopy(self.c.exp.records),
+            "rate": copy.deepcopy(self.c.rate_limiter._state),
+            "api_store": copy.deepcopy(self.c.api_store),
+            "audit_lengths": audit_lengths,
         }
 
     def _restore_engine_state(self, snapshot):
@@ -324,11 +415,25 @@ class Pipeline:
         self.c.dec.records = snapshot["dec"]
         self.c.pol.results = snapshot["pol"]
         self.c.exp.records = snapshot["exp"]
+        self.c.rate_limiter._state = snapshot["rate"]
+        self.c.api_store.clear()
+        self.c.api_store.update(snapshot["api_store"])
+        audit_engines = {
+            **self.c.all_engines(),
+            "rate_limiter": self.c.rate_limiter,
+            "retry_executor": self.c.retry_executor,
+        }
+        for name, engine in audit_engines.items():
+            if name in snapshot["audit_lengths"]:
+                del engine.audit.events[snapshot["audit_lengths"][name]:]
 
     def _run_property_body(self, result, identity: PropertyIdentity,
                             state: str, county: str, provider_id: str,
-                            export_format: ExportFormat, conn):
+                            export_format: ExportFormat, conn, supplemental_package,
+                            operation_control):
         property_id = result.property_id
+        if operation_control:
+            operation_control.check()
         enumeration = self.c.provider_enumeration_authority.enumerate(
             ProviderEnumerationRequest(
                 state=state,
@@ -340,6 +445,8 @@ class Pipeline:
         exclusion = enumeration.exclusion_for(provider_id)
 
         def record_stage(name, status, ok, detail=None):
+            if operation_control:
+                operation_control.check()
             result.stages.append(StageResult(name, status, ok, detail))
             return ok
 
@@ -394,6 +501,8 @@ class Pipeline:
         # 5. ECM -- canonicalize every field the provider returned
         canonical_records = []
         for item in package.evidence:
+            value_type = FIELD_VALUE_TYPE.get(item.field_name, EvidenceValueType.TEXT)
+            units = FIELD_UNITS.get(item.field_name)
             provenance = Provenance(
                 connector_id=package.provider_id,
                 provider_name=package.provider_name,
@@ -411,15 +520,40 @@ class Pipeline:
                 field_name=item.field_name,
                 raw_value=item.raw_value,
                 normalized_value=_normalize_text(item.raw_value),
-                units=None,
+                units=units,
                 provenance=provenance,
-                value_type=FIELD_VALUE_TYPE.get(item.field_name, EvidenceValueType.TEXT),
+                value_type=value_type,
+                evidence_type="certified_property_record",
+                semantic_comparison_key=_provider_semantic_key(
+                    item.field_name, value_type, units,
+                ),
+                applicable_period="PROPERTY",
+                item_identity=f"{package.provider_id}:{property_id}",
             )
             ecm_status, normalized = self.c.ecm.normalize_record(record)
             if ecm_status != canonical_errors.PASS:
                 record_stage(f"ECM:{item.field_name}", ecm_status, False)
                 continue
             canonical_records.append(normalized)
+        supplemental_records = ()
+        if supplemental_package is not None:
+            try:
+                supplemental_records = validate_governed_package(
+                    supplemental_package, property_id,
+                )
+            except ValueError:
+                record_stage("SEI", "INVALID_SUPPLEMENTAL_PACKAGE", False)
+                return
+            for record in supplemental_records:
+                ecm_status, normalized = self.c.ecm.normalize_record(record)
+                if ecm_status != canonical_errors.PASS:
+                    record_stage("SEI", ecm_status, False)
+                    return
+                canonical_records.append(normalized)
+            record_stage("SEI", "UNVERIFIED_ACCEPTED", True, {
+                "record_count": len(supplemental_records),
+                "authority": "NON_OVERRIDE_UNVERIFIED",
+            })
         if not record_stage("ECM", "PASS" if canonical_records else "NO_FIELDS_NORMALIZED",
                              bool(canonical_records)):
             return
@@ -442,6 +576,18 @@ class Pipeline:
                 connector_version=package.connector_version,
                 adapter_version=package.adapter_version,
                 normalization_version=canonical.provenance.normalization_version,
+                source_class=(canonical.provenance.source_class.value
+                              if canonical.provenance.verification_status else ""),
+                verification_status=canonical.provenance.verification_status,
+                submitted_evidence_digest=canonical.provenance.evidence_digest,
+                evidence_type=(canonical.evidence_type
+                               if canonical.provenance.verification_status else ""),
+                semantic_comparison_key=(canonical.semantic_comparison_key
+                                         if canonical.provenance.verification_status else ""),
+                applicable_period=(canonical.applicable_period
+                                   if canonical.provenance.verification_status else ""),
+                item_identity=(canonical.item_identity
+                               if canonical.provenance.verification_status else ""),
             )
             epm_status, epm_record = self.c.epm.register_evidence(epm_input, conn=conn)
             if epm_status != provenance_errors.PASS:
@@ -459,8 +605,15 @@ class Pipeline:
                 evidence_id=pr.evidence_id, property_id=pr.property_id,
                 field_name=pr.canonical_field, normalized_value=pr.canonical_value,
                 provider_id=pr.provider_id, source_reference=pr.source_reference,
+                value_type=canonical.value_type.value,
+                units=canonical.units or "",
+                evidence_type=canonical.evidence_type,
+                observation_utc=canonical.provenance.retrieved_at,
+                applicable_period=canonical.applicable_period,
+                item_identity=canonical.item_identity,
+                semantic_comparison_key=canonical.semantic_comparison_key,
             )
-            for pr in provenance_records
+            for canonical, pr in zip(canonical_records, provenance_records)
         ]
         msf_status, fusion_package = self.c.msf.fuse(fusion_evidence)
         if not record_stage("MSF", msf_status, msf_status == fusion_errors.PASS, fusion_package):
@@ -494,7 +647,13 @@ class Pipeline:
         result.property_record = upr_record
 
         # 10. DEC -- decision
-        single_source_only = all(f.source_count == 1 for f in fusion_package.fields)
+        # Unverified operator evidence can expose agreement/conflict, but it is
+        # not an authoritative second source and cannot advance a pending run.
+        authoritative_provider_ids = {
+            item.provider_id for item in provenance_records
+            if item.verification_status != "UNVERIFIED"
+        }
+        single_source_only = len(authoritative_provider_ids) <= 1
         required_fields_present = REQUIRED_IDENTITY_FIELDS.issubset(
             {r.field_name for r in canonical_records}
         )

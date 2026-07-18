@@ -13,6 +13,10 @@ class Provenance:
     legal_basis: str
     normalization_version: str
     audit_reference: str
+    # Optional governed-intake metadata. Existing certified/provider records
+    # retain their prior shape and behavior through empty defaults.
+    verification_status: str = ""
+    evidence_digest: str = ""
 @dataclass(frozen=True)
 class CanonicalEvidenceRecord:
     evidence_id: str
@@ -29,4 +33,8 @@ class CanonicalEvidenceRecord:
     # explicitly knows a field is DECIMAL/CURRENCY/IDENTIFIER/DATE/etc.
     # needs to say so.
     value_type: EvidenceValueType = EvidenceValueType.TEXT
+    evidence_type: str = ""
+    semantic_comparison_key: str = ""
+    applicable_period: str = ""
+    item_identity: str = ""
     created_at: str = field(default_factory=utc_now)

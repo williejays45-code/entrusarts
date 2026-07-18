@@ -76,6 +76,10 @@ TAXONOMY = {
         "level": INTEGRATION, "engine": "PROVIDER_ENUMERATION_AUTHORITY", "status": PRODUCTION,
         "purpose": "PER-001 repository-wide production authority-bypass scan.",
     },
+    "era.acquisition.verify_sei001": {
+        "level": INTEGRATION, "engine": "SUPPLEMENTAL_EVIDENCE_INTAKE", "status": PRODUCTION,
+        "purpose": "SEI-001 governed non-personal supplemental evidence through ECM/EPM/MSF/ECR and the property operator/API boundary.",
+    },
     "era.discovery.verify_sdr001": {
         "level": INTEGRATION, "engine": "SOURCE_DISCOVERY", "status": PRODUCTION,
         "purpose": "SDR-001 deterministic bounded source discovery and boundary enforcement.",
